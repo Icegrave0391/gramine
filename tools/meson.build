@@ -32,6 +32,27 @@ if direct
     )
 endif
 
+if encos
+    hostpalpath_encos = get_option('prefix') / pkglibdir / 'encos'
+    custom_target('gramine-encos',
+        command: [meson_render_script_prog,
+            '--mode', '755',
+            common_render_defines,
+            '-D', 'SGX=0',
+            '-D', 'HOST_PAL_PATH=@0@'.format(hostpalpath_encos),
+            '-D', 'LIBPAL_PATH=@0@'.format(hostpalpath_encos / 'libpal.so'),
+            '-D', 'PAL_CMD=@0@'.format(hostpalpath_encos / 'loader'),
+            '-D', 'CONFIG_SGX_DRIVER=',
+            '@INPUT@',
+            '@OUTPUT@',
+        ],
+        input: 'gramine.in',
+        output: 'gramine-encos',
+        install: true,
+        install_dir: get_option('bindir'),
+    )
+endif
+
 if sgx
     subdir('sgx')
 

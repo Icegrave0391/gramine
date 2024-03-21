@@ -2,6 +2,8 @@ if skeleton
     libpal = libpal_skeleton_dep
 elif direct
     libpal = libpal_direct_dep
+elif encos
+    libpal = libpal_direct_dep
 elif sgx
     libpal = libpal_sgx_dep
 else

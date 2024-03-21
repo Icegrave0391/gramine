@@ -28,6 +28,7 @@ if syslibdir == ''
 endif
 
 direct = get_option('direct') == 'enabled'
+encos = get_option('encos') == 'enabled'
 sgx = get_option('sgx') == 'enabled'
 skeleton = get_option('skeleton') == 'enabled'
 
