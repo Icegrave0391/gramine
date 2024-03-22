@@ -284,6 +284,10 @@ static void configure_logging(void) {
             INIT_FAIL_MANIFEST("Unknown 'loader.log_level'");
         }
     }
+#ifdef ENCOS_DEBUG
+    log_always("Log level: %d (%s).\n",
+                 log_level, log_level_str);
+#endif
     free(log_level_str);
 
     char* log_file = NULL;

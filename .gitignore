@@ -49,3 +49,5 @@ TAGS
 cscope.*
 ncscope.*
 *cscope*
+
+.vscode/

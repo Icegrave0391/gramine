@@ -54,6 +54,11 @@ else
 GRAMINE = gramine-sgx
 endif
 
+ENCOS=1
+ifeq ($(ENCOS),1)
+GRAMINE = gramine-encos
+endif
+
 .PHONY: check
 check: all
 	$(GRAMINE) helloworld > OUTPUT
