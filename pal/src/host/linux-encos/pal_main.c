@@ -27,6 +27,8 @@
 #include "toml_utils.h"
 #include "topo_info.h"
 
+#include "pal_encos_driver.h"
+
 char* g_pal_loader_path = NULL;
 /* Currently content of this variable is only passed as an argument while spawning new processes
  * - this is to keep uniformity with other PALs. */
