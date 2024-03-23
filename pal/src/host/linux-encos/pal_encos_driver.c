@@ -46,10 +46,12 @@ int test_mmap(void)
     char *addr;
     int fd;
     // forcibly open
-    fd = open_encos_driver();
+    fd = DO_SYSCALL(open, ENCOS_DEV, O_RDONLY);
     if (fd < 0) {
         log_error("Error: could not open ENCOS driver (%s)\n", ENCOS_DEV);
         return -1;
+    } else {
+        log_always("test force-open ENCOS driver (%s) to fd=%d.\n", ENCOS_DEV, fd);
     }
 
     // fake mmap
