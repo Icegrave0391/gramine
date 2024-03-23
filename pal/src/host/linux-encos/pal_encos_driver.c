@@ -45,6 +45,7 @@ int test_mmap(void)
 {
     char *addr;
     int fd;
+    log_always("Start test_mmap\n");
     // forcibly open
     fd = DO_SYSCALL(open, ENCOS_DEV, O_RDONLY);
     if (fd < 0) {
@@ -55,7 +56,7 @@ int test_mmap(void)
     }
 
     // fake mmap
-    addr = (char *)DO_SYSCALL(mmap, NULL, 4096, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, fd, 0);
+    addr = (char *)DO_SYSCALL(mmap, NULL, 4096, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
     if (IS_PTR_ERR(addr)) {
         log_error("Error: could not mmap\n");
         return -1;

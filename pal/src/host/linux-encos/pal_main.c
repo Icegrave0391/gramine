@@ -114,8 +114,14 @@ __attribute_no_sanitize_address
 static void setup_asan(void) {
     int prot = PROT_READ | PROT_WRITE;
     int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE | MAP_FIXED_NOREPLACE;
+#ifndef ENCOS
+    void* addr = (void*)DO_SYSCALL(mmap, (void*)ASAN_SHADOW_START, ASAN_SHADOW_LENGTH, prot, flags,
+                                   /*fd=*/-1, /*offset=*/0);
+#else
+    flags = MAP_SHARE | MAP_NORESERVE | MAP_FIXED_NOREPLACE;
     void* addr = (void*)DO_SYSCALL(mmap, (void*)ASAN_SHADOW_START, ASAN_SHADOW_LENGTH, prot, flags,
                                    /*fd=*/encos_fd(), /*offset=*/0);
+#endif
     if (IS_PTR_ERR(addr) || addr != (void*)ASAN_SHADOW_START) {
         /* We are super early in the init sequence, TCB is not yet set, we probably should not call
          * any logging functions. */
@@ -289,7 +295,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     log_always("PAL loader path: %s", g_pal_loader_path);
     log_always("libpal path: %s", g_libpal_path);
     // fake mmap test
-    test_mmap();
+    // test_mmap();
 #endif
 
     PAL_HANDLE first_thread = calloc(1, HANDLE_SIZE(thread));

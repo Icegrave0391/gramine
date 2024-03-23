@@ -36,9 +36,14 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     int flags = PAL_MEM_FLAGS_TO_LINUX(prot);
     int linux_prot = PAL_PROT_TO_LINUX(prot);
 
+#ifndef ENCOS
     flags |= MAP_ANONYMOUS | MAP_FIXED_NOREPLACE;
+    void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, -1, 0);
+#else
+    flags &= ~(MAP_ANONYMOUS | MAP_PRIVATE);
+    flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encos_fd(), 0);
-
+#endif
     if (IS_PTR_ERR(res_addr)) {
         return unix_to_pal_error(PTR_TO_ERR(res_addr));
     }
@@ -170,8 +175,13 @@ int init_memory_bookkeeping(void) {
 #endif
     /* Allocate a guard page above the stack. We do not support further stack auto growth. */
     void* ptr = (void*)(proc_maps_info.stack_top - PAGE_SIZE);
+#ifndef ENCOS
     void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
-                                       MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, encos_fd(), 0);
+                                       MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+#else
+    void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
+                                       MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
+#endif
     if (IS_PTR_ERR(mmap_ret)) {
         ret = PTR_TO_ERR(mmap_ret);
         log_error("failed to map a stack guard page: %s", unix_strerror(ret));
@@ -192,9 +202,13 @@ int init_memory_bookkeeping(void) {
         if (start_addr >= end_addr) {
             return -PAL_ERROR_NOMEM;
         }
-
+#ifndef ENCOS
         ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
-                                MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, encos_fd(), 0);
+                                MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+#else
+        ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
+                                MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
+#endif
         if (!IS_PTR_ERR(ptr)) {
             assert(ptr == (void*)start_addr);
             DO_SYSCALL(munmap, ptr, g_pal_public_state.alloc_align);

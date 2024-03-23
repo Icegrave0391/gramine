@@ -98,6 +98,10 @@ if encos_debug
     add_project_arguments('-DENCOS_DEBUG', language: 'c')
 endif
 
+if encos
+    add_project_arguments('-DENCOS', language: 'c')
+endif
+
 if sgx
     conf_sgx = configuration_data()
 
