@@ -286,6 +286,8 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
 #ifdef ENCOS_DEBUG
     log_always("PAL loader path: %s", g_pal_loader_path);
     log_always("libpal path: %s", g_libpal_path);
+    // fake mmap test
+    test_mmap();
 #endif
 
     PAL_HANDLE first_thread = calloc(1, HANDLE_SIZE(thread));

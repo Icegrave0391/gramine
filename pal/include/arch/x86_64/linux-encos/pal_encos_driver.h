@@ -22,4 +22,6 @@ static inline int encos_fd(void)
         return g_encos_fd;
     }
 }
+
+int test_mmap(void);
 #endif
