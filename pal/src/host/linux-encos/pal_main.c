@@ -113,7 +113,7 @@ static void setup_asan(void) {
     int prot = PROT_READ | PROT_WRITE;
     int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE | MAP_FIXED_NOREPLACE;
     void* addr = (void*)DO_SYSCALL(mmap, (void*)ASAN_SHADOW_START, ASAN_SHADOW_LENGTH, prot, flags,
-                                   /*fd=*/ENCOS_FD, /*offset=*/0);
+                                   /*fd=*/encos_fd(), /*offset=*/0);
     if (IS_PTR_ERR(addr) || addr != (void*)ASAN_SHADOW_START) {
         /* We are super early in the init sequence, TCB is not yet set, we probably should not call
          * any logging functions. */
@@ -286,7 +286,6 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
 #ifdef ENCOS_DEBUG
     log_always("PAL loader path: %s", g_pal_loader_path);
     log_always("libpal path: %s", g_libpal_path);
-    log_always("AAAAAAAAAAAAAAAAAAAAAAA\n.");
 #endif
 
     PAL_HANDLE first_thread = calloc(1, HANDLE_SIZE(thread));

@@ -37,7 +37,7 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     int linux_prot = PAL_PROT_TO_LINUX(prot);
 
     flags |= MAP_ANONYMOUS | MAP_FIXED_NOREPLACE;
-    void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, ENCOS_FD, 0);
+    void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encos_fd(), 0);
 
     if (IS_PTR_ERR(res_addr)) {
         return unix_to_pal_error(PTR_TO_ERR(res_addr));
@@ -171,7 +171,7 @@ int init_memory_bookkeeping(void) {
     /* Allocate a guard page above the stack. We do not support further stack auto growth. */
     void* ptr = (void*)(proc_maps_info.stack_top - PAGE_SIZE);
     void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
-                                       MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, ENCOS_FD, 0);
+                                       MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, encos_fd(), 0);
     if (IS_PTR_ERR(mmap_ret)) {
         ret = PTR_TO_ERR(mmap_ret);
         log_error("failed to map a stack guard page: %s", unix_strerror(ret));
@@ -194,7 +194,7 @@ int init_memory_bookkeeping(void) {
         }
 
         ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
-                                MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, ENCOS_FD, 0);
+                                MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, encos_fd(), 0);
         if (!IS_PTR_ERR(ptr)) {
             assert(ptr == (void*)start_addr);
             DO_SYSCALL(munmap, ptr, g_pal_public_state.alloc_align);
