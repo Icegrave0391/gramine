@@ -43,7 +43,7 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     flags &= ~(MAP_ANONYMOUS | MAP_PRIVATE);
     flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
 #ifdef ENCOS_DEBUG
-    log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
+    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
                 (unsigned long)addr, linux_prot, flags);
 #endif
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encos_fd(), 0);
@@ -179,7 +179,8 @@ int init_memory_bookkeeping(void) {
 #endif
     /* Allocate a guard page above the stack. We do not support further stack auto growth. */
     void* ptr = (void*)(proc_maps_info.stack_top - PAGE_SIZE);
-#ifndef ENCOS
+#if (1)
+    /* Chuqi: we don't need to deal with guard pages rn. */
     void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
                                        MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 #else
@@ -214,7 +215,7 @@ int init_memory_bookkeeping(void) {
         if (start_addr >= end_addr) {
             return -PAL_ERROR_NOMEM;
         }
-#ifndef ENCOS
+#if (1)
         ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
                                 MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 #else
