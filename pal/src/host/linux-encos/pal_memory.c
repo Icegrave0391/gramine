@@ -185,9 +185,13 @@ int init_memory_bookkeeping(void) {
 #else
 #ifdef ENCOS_DEBUG
     log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
-                (unsigned long)ptr, PROT_NONE, MAP_FIXED_NOREPLACE | MAP_SHARED);
+                (unsigned long)ptr, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_SHARED);
 #endif
-    void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
+    /* 
+     * Chuqi: we currently set all mappings R+W (no PROT_NONE), due to the 
+     * mmap driver backend.
+     */
+    void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_READ | PROT_WRITE,
                                        MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
 #endif
     if (IS_PTR_ERR(mmap_ret)) {
@@ -216,9 +220,9 @@ int init_memory_bookkeeping(void) {
 #else
 #ifdef ENCOS_DEBUG
         log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
-                (unsigned long)start_addr, PROT_NONE, MAP_FIXED_NOREPLACE | MAP_SHARED);
+                (unsigned long)start_addr, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_SHARED);
 #endif
-        ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
+        ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_READ | PROT_WRITE,
                                 MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
 #endif
         if (!IS_PTR_ERR(ptr)) {
