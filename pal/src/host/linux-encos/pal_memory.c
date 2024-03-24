@@ -105,6 +105,10 @@ int _PalVirtualMemoryProtect(void* addr, size_t size, pal_prot_flags_t prot) {
     if (prot_linux & PROT_NONE) {
         prot_linux = PROT_READ;
     }
+#ifdef ENCOS_DEBUG
+    log_always("_PalVirtualMemoryProtect: mprotect addr=0x%lx, size=0x%lx, prots: 0x%x\n", 
+                (unsigned long)addr, size, prot_linux);
+#endif
     int ret = DO_SYSCALL(mprotect, addr, size, prot_linux);
     return ret < 0 ? unix_to_pal_error(ret) : 0;
 }
