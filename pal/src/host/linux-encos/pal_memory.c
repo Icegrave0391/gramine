@@ -102,9 +102,8 @@ int _PalVirtualMemoryProtect(void* addr, size_t size, pal_prot_flags_t prot) {
      * which will be treated as illegal by the NK.
      */
     int prot_linux = PAL_PROT_TO_LINUX(prot);
-    if (prot_linux & PROT_NONE) {
+    if (prot_linux == PROT_NONE)
         prot_linux = PROT_READ;
-    }
 #ifdef ENCOS_DEBUG
     log_always("_PalVirtualMemoryProtect: mprotect addr=0x%lx, size=0x%lx, prots: 0x%x\n", 
                 (unsigned long)addr, size, prot_linux);
