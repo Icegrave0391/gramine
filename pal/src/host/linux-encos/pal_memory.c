@@ -49,6 +49,10 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encos_fd(), 0);
 #endif
     if (IS_PTR_ERR(res_addr)) {
+#ifdef ENCOS_DEBUG
+        log_always("_PalVirtualMemoryAlloc: mmap err: %ld\n", 
+                        PTR_TO_ERR(res_addr));
+#endif
         return unix_to_pal_error(PTR_TO_ERR(res_addr));
     }
 
