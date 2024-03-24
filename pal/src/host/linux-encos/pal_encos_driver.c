@@ -23,7 +23,7 @@ int open_encos_driver(void)
 {
     /* open and initialize */
     if (g_encos_fd < 0) {
-        g_encos_fd = DO_SYSCALL(open, ENCOS_DEV, O_RDONLY);
+        g_encos_fd = DO_SYSCALL(open, ENCOS_DEV, O_RDWR);
     }
 
     if (g_encos_fd < 0) {
