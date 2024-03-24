@@ -42,6 +42,10 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
 #else
     flags &= ~(MAP_ANONYMOUS | MAP_PRIVATE);
     flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
+#ifdef ENCOS_DEBUG
+    log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
+                (unsigned long)addr, linux_prot, flags);
+#endif
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encos_fd(), 0);
 #endif
     if (IS_PTR_ERR(res_addr)) {
@@ -179,6 +183,10 @@ int init_memory_bookkeeping(void) {
     void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
                                        MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 #else
+#ifdef ENCOS_DEBUG
+    log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
+                (unsigned long)ptr, PROT_NONE, MAP_FIXED_NOREPLACE | MAP_SHARED);
+#endif
     void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
                                        MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
 #endif
@@ -206,6 +214,10 @@ int init_memory_bookkeeping(void) {
         ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
                                 MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
 #else
+#ifdef ENCOS_DEBUG
+        log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
+                (unsigned long)start_addr, PROT_NONE, MAP_FIXED_NOREPLACE | MAP_SHARED);
+#endif
         ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
                                 MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
 #endif
