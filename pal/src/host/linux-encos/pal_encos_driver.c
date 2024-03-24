@@ -47,7 +47,7 @@ int test_mmap(void)
     int fd;
     log_always("Start test_mmap\n");
     // forcibly open
-    fd = DO_SYSCALL(open, ENCOS_DEV, O_RDONLY);
+    fd = DO_SYSCALL(open, ENCOS_DEV, O_RDWR);
     if (fd < 0) {
         log_error("Error: could not open ENCOS driver (%s)\n", ENCOS_DEV);
         return -1;
