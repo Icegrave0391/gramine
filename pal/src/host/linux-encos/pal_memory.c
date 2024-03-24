@@ -21,9 +21,31 @@
 #include "pal_linux_error.h"
 
 #include "pal_encos_driver.h"
+#ifdef ENCOS_DEBUG
+#include <execinfo.h>
+#endif
 
 uintptr_t g_vdso_start = 0;
 uintptr_t g_vdso_end = 0;
+
+#ifdef ENCOS_DEBUG
+// static void print_callstack(void)
+// {
+//     void *array[10];
+//     size_t size;
+//     char **strings;
+//     size_t i;
+//     size = backtrace(array, 10);
+//     strings = backtrace_symbols(array, size);
+//     if (strings != NULL) {
+//         log_always("Obtained %zd stack frames", size);
+//         for (i = 0; i < size; i++) {
+//             log_always("%s\n", strings[i]);
+//         }
+//     }
+//     free(strings);
+// }
+#endif
 
 bool is_in_vdso(uintptr_t addr) {
     return (g_vdso_start || g_vdso_end) && g_vdso_start <= addr && addr < g_vdso_end;
@@ -43,6 +65,8 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     flags &= ~(MAP_ANONYMOUS | MAP_PRIVATE);
     flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
 #ifdef ENCOS_DEBUG
+    // call stack?
+    // print_callstack();
     log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
                 (unsigned long)addr, linux_prot, flags);
 #endif
@@ -72,7 +96,16 @@ int _PalVirtualMemoryFree(void* addr, size_t size) {
 }
 
 int _PalVirtualMemoryProtect(void* addr, size_t size, pal_prot_flags_t prot) {
-    int ret = DO_SYSCALL(mprotect, addr, size, PAL_PROT_TO_LINUX(prot));
+    /* 
+     * Chuqi: forcibly disable PROT_NONT first.
+     * This stupid invalid page protection will cause an invalid VA->PA mapping,
+     * which will be treated as illegal by the NK.
+     */
+    int prot_linux = PAL_PROT_TO_LINUX(prot);
+    if (prot_linux & PROT_NONE) {
+        prot_linux = PROT_READ;
+    }
+    int ret = DO_SYSCALL(mprotect, addr, size, prot_linux);
     return ret < 0 ? unix_to_pal_error(ret) : 0;
 }
 
