@@ -16,6 +16,7 @@ int open_encos_driver(void);
 static inline int encos_fd(void)
 {
     if (g_encos_fd < 0) {
+        return -1;
         return open_encos_driver();
     } 
     else {

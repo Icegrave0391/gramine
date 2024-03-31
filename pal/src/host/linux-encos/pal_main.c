@@ -162,11 +162,6 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     setup_asan();
 #endif
 
-#ifdef ENCOS
-    /* enclave initialization */
-    //encos_init_enclave();
-#endif
-
     /* we don't yet have a TCB in the GS register, but GCC's stack protector will look for a canary
      * at gs:[0x8] in functions called below, so let's install a dummy TCB with a default canary */
     PAL_LINUX_TCB dummy_tcb_for_stack_protector = { 0 };
