@@ -77,14 +77,14 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     if (linux_prot == PROT_NONE)
         linux_prot = PROT_READ;
 #ifdef ENCOS_DEBUG
-    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
+    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x", 
                 (unsigned long)addr, linux_prot, flags);
 #endif
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encosfd, 0);
 #endif
     if (IS_PTR_ERR(res_addr)) {
 #ifdef ENCOS_DEBUG
-        log_always("_PalVirtualMemoryAlloc: mmap err: %ld\n", 
+        log_always("_PalVirtualMemoryAlloc: mmap err: %ld", 
                         PTR_TO_ERR(res_addr));
 #endif
         return unix_to_pal_error(PTR_TO_ERR(res_addr));
@@ -115,7 +115,7 @@ int _PalVirtualMemoryProtect(void* addr, size_t size, pal_prot_flags_t prot) {
     if (prot_linux == PROT_NONE)
         prot_linux = PROT_READ;
 #ifdef ENCOS_DEBUG
-    log_always("_PalVirtualMemoryProtect: mprotect addr=0x%lx, size=0x%lx, prots: 0x%x\n", 
+    log_always("_PalVirtualMemoryProtect: mprotect addr=0x%lx, size=0x%lx, prots: 0x%x", 
                 (unsigned long)addr, size, prot_linux);
 #endif
     int ret = DO_SYSCALL(mprotect, addr, size, prot_linux);
