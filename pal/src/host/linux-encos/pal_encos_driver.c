@@ -27,12 +27,11 @@ int open_encos_driver(void)
     }
 
     if (g_encos_fd < 0) {
-        log_error("Error: could not open ENCOS driver (%s)\n", ENCOS_DEV);
         return -1;
     }
 
 #ifdef ENCOS_DEBUG
-    log_always("Opened ENCOS driver (%s) to g_encos_fd=%d.\n",
+    log_always("Opened ENCOS driver (%s) to g_encos_fd=%d",
                 ENCOS_DEV, g_encos_fd);
 #endif
     /* Return that everything works */
@@ -45,12 +44,40 @@ int encos_init_enclave(void)
     int ret;
     int fd = encos_fd();
     if (fd < 0) {
-        log_error("Error: could not open ENCOS driver (%s)\n", ENCOS_DEV);
+        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
         return -1;
     }
     /* ioctl */
-    log_always("debug ioctl ENCOS_ENCLAVE_REQUEST\n");
+    log_always("debug ioctl ENCOS_ENCLAVE_REQUEST");
     // ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
+    return ret;
+}
+
+int encos_enable_kdbg(void)
+{
+    int fd, ret;
+    fd = open_encos_driver();
+
+    if (fd < 0) {
+        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        return -1;
+    }
+
+    ret = DO_SYSCALL(ioctl, fd, ENCOS_ENABLE_KDBG, 0);
+    return ret;
+}
+
+int encos_disable_kdbg(void)
+{
+    int fd, ret;
+    fd = open_encos_driver();
+
+    if (fd < 0) {
+        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        return -1;
+    }
+
+    ret = DO_SYSCALL(ioctl, fd, ENCOS_DISABLE_KDBG, 0);
     return ret;
 }
 

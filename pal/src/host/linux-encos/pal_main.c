@@ -175,8 +175,9 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
         die_or_inf_loop();
     }
 
-    // debug
-    log_always("before relocate\n");
+    // enable kernel debug
+    encos_enable_kdbg();
+    log_always("enabled kdbg. before relocate");
 
     /* relocate PAL */
     ret = setup_pal_binary();
@@ -194,7 +195,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
 
 
     // debug
-    log_always("before init_array\n");
+    log_always("before init_array");
     call_init_array();
 
     /* Initialize alloc_align as early as possible, a lot of PAL APIs depend on this being set. */
@@ -207,7 +208,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     probe_stack(THREAD_STACK_SIZE / PAGE_SIZE);
 
     // debug
-    log_always("before bookkeeping\n");
+    log_always("before bookkeeping");
 
     ret = init_memory_bookkeeping();
     if (ret < 0) {
@@ -215,14 +216,14 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     }
     
     // debug
-    log_always("before random\n");
+    log_always("before random");
 
     ret = init_random();
     if (ret < 0)
         INIT_FAIL("init_random() failed: %s", pal_strerror(ret));
 
     // debug
-    log_always("before read_from_stack\n");
+    log_always("before read_from_stack");
 
     int argc;
     const char** argv;
@@ -286,7 +287,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     }
 
     // debug
-    log_always("first?= %d , before read_from_stack\n", first_process);
+    log_always("first?= %d , before read_from_stack", first_process);
     init_slab_mgr();
 
 #ifdef DEBUG
@@ -423,4 +424,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     /* call to main function */
     pal_main(instance_id, parent, first_thread, first_process ? argv + 3 : argv + 5, envp,
              /*post_callback=*/NULL);
+    
+    /* finish */
+    encos_disable_kdbg();
 }

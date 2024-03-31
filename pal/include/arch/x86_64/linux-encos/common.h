@@ -7,4 +7,8 @@
 
 #define ENCOS_ENCLAVE_REQUEST   _IOW('m', 1, unsigned int)
 
+#define ENCOS_ENABLE_KDBG       _IOW('m', 2, unsigned int)
+#define ENCOS_DISABLE_KDBG      _IOW('m', 3, unsigned int)
+
+
 #endif
