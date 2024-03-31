@@ -30,7 +30,7 @@ bash.manifest.sgx: bash.manifest
 bash.sig: bash.manifest.sgx
 
 ifeq ($(SGX),)
-GRAMINE = gramine-direct
+GRAMINE = gramine-encos
 else
 GRAMINE = gramine-sgx
 endif

@@ -40,6 +40,19 @@ int open_encos_driver(void)
     return g_encos_fd;
 }
 
+int encos_init_enclave(void)
+{
+    int ret;
+    int fd = encos_fd();
+    if (fd < 0) {
+        log_error("Error: could not open ENCOS driver (%s)\n", ENCOS_DEV);
+        return -1;
+    }
+    /* ioctl */
+    ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
+    return ret;
+}
+
 /* test function */
 int test_mmap(void) 
 {

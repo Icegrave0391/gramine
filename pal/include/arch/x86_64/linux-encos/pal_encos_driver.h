@@ -5,6 +5,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <common.h>
 
 #define ENCOS_DEV       "/dev/encos-dev"
 
@@ -23,5 +24,6 @@ static inline int encos_fd(void)
     }
 }
 
+int encos_init_enclave(void);
 int test_mmap(void);
 #endif
