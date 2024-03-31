@@ -49,7 +49,8 @@ int encos_init_enclave(void)
         return -1;
     }
     /* ioctl */
-    ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
+    log_always("debug ioctl ENCOS_ENCLAVE_REQUEST\n");
+    // ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
     return ret;
 }
 
