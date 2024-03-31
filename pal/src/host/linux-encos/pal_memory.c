@@ -58,12 +58,19 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     int flags = PAL_MEM_FLAGS_TO_LINUX(prot);
     int linux_prot = PAL_PROT_TO_LINUX(prot);
 
+#ifdef ENCOS
+    int encosfd = encos_fd();
+#endif
+
 #ifndef ENCOS
     flags |= MAP_ANONYMOUS | MAP_FIXED_NOREPLACE;
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, -1, 0);
 #else
     flags &= ~(MAP_ANONYMOUS | MAP_PRIVATE);
     flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
+    if (encosfd < 0) {
+        flags |= MAP_ANONYMOUS;
+    }
     /* 
      * Chuqi: remove PROT_NONE as well (see _PalVirtualMemoryProtect).
      */
@@ -73,7 +80,7 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
                 (unsigned long)addr, linux_prot, flags);
 #endif
-    void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encos_fd(), 0);
+    void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encosfd, 0);
 #endif
     if (IS_PTR_ERR(res_addr)) {
 #ifdef ENCOS_DEBUG
@@ -223,20 +230,9 @@ int init_memory_bookkeeping(void) {
     /* Allocate a guard page above the stack. We do not support further stack auto growth. */
     void* ptr = (void*)(proc_maps_info.stack_top - PAGE_SIZE);
 #if (1)
-    /* Chuqi: we don't need to deal with guard pages rn. */
+    /* Chuqi: we don't need to deal with guard page mmap. */
     void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_NONE,
                                        MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
-#else
-#ifdef ENCOS_DEBUG
-    log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
-                (unsigned long)ptr, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_SHARED);
-#endif
-    /* 
-     * Chuqi: we currently set all mappings R+W (no PROT_NONE), due to the 
-     * mmap driver backend.
-     */
-    void* mmap_ret = (void*)DO_SYSCALL(mmap, ptr, PAGE_SIZE, PROT_READ | PROT_WRITE,
-                                       MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
 #endif
     if (IS_PTR_ERR(mmap_ret)) {
         ret = PTR_TO_ERR(mmap_ret);
@@ -259,15 +255,9 @@ int init_memory_bookkeeping(void) {
             return -PAL_ERROR_NOMEM;
         }
 #if (1)
+        /* Chuqi: we don't need to deal with guard page mmap. */
         ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_NONE,
                                 MAP_FIXED_NOREPLACE | MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
-#else
-#ifdef ENCOS_DEBUG
-        log_always("ENCOS: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x\n", 
-                (unsigned long)start_addr, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_SHARED);
-#endif
-        ptr = (void*)DO_SYSCALL(mmap, start_addr, PAGE_SIZE, PROT_READ | PROT_WRITE,
-                                MAP_FIXED_NOREPLACE | MAP_SHARED, encos_fd(), 0);
 #endif
         if (!IS_PTR_ERR(ptr)) {
             assert(ptr == (void*)start_addr);
