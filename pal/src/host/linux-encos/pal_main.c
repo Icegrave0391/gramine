@@ -165,7 +165,6 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
 #ifdef ENCOS
     /* enclave initialization */
     //encos_init_enclave();
-    log_always("1\n");
 #endif
 
     /* we don't yet have a TCB in the GS register, but GCC's stack protector will look for a canary
