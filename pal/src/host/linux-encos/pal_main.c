@@ -164,7 +164,8 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
 
 #ifdef ENCOS
     /* enclave initialization */
-    encos_init_enclave();
+    //encos_init_enclave();
+    log_always("1\n");
 #endif
 
     /* we don't yet have a TCB in the GS register, but GCC's stack protector will look for a canary
@@ -180,6 +181,9 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
         die_or_inf_loop();
     }
 
+    // debug
+    log_always("before relocate\n");
+
     /* relocate PAL */
     ret = setup_pal_binary();
     if (ret < 0) {
@@ -194,6 +198,9 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     if (ret < 0)
         INIT_FAIL("_PalSystemTimeQuery() failed: %s", pal_strerror(ret));
 
+
+    // debug
+    log_always("before init_array\n");
     call_init_array();
 
     /* Initialize alloc_align as early as possible, a lot of PAL APIs depend on this being set. */
@@ -205,14 +212,23 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     static_assert(THREAD_STACK_SIZE % PAGE_SIZE == 0, "");
     probe_stack(THREAD_STACK_SIZE / PAGE_SIZE);
 
+    // debug
+    log_always("before bookkeeping\n");
+
     ret = init_memory_bookkeeping();
     if (ret < 0) {
         INIT_FAIL("init_memory_bookkeeping failed: %s", pal_strerror(ret));
     }
+    
+    // debug
+    log_always("before random\n");
 
     ret = init_random();
     if (ret < 0)
         INIT_FAIL("init_random() failed: %s", pal_strerror(ret));
+
+    // debug
+    log_always("before read_from_stack\n");
 
     int argc;
     const char** argv;
@@ -275,6 +291,8 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
         }
     }
 
+    // debug
+    log_always("first?= %d , before read_from_stack\n", first_process);
     init_slab_mgr();
 
 #ifdef DEBUG
