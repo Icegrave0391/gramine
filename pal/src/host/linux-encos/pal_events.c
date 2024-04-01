@@ -16,6 +16,8 @@
 #include "pal_internal.h"
 #include "pal_linux_error.h"
 
+#include "pal_encos_driver.h"
+
 int _PalEventCreate(PAL_HANDLE* handle_ptr, bool init_signaled, bool auto_clear) {
     PAL_HANDLE handle = calloc(1, HANDLE_SIZE(event));
     if (!handle) {
@@ -81,6 +83,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
         spinlock_unlock(&handle->event.lock);
 #ifdef ENCOS_DEBUG
         log_always("Start futex!!");
+        encos_enable_kdbg();
 #endif
         /* Using `FUTEX_WAIT_BITSET` to have an absolute timeout. */
         ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAIT_BITSET, 0,

@@ -176,7 +176,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     }
 
     // enable kernel debug
-    encos_enable_kdbg();
+    // encos_enable_kdbg();
     log_always("enabled kdbg. before relocate");
 
     /* relocate PAL */
