@@ -79,6 +79,9 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
         }
 
         spinlock_unlock(&handle->event.lock);
+#ifdef ENCOS_DEBUG
+        log_always("Start futex!!");
+#endif
         /* Using `FUTEX_WAIT_BITSET` to have an absolute timeout. */
         ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAIT_BITSET, 0,
                          timeout_us ? &timeout : NULL, NULL, FUTEX_BITSET_MATCH_ANY);
