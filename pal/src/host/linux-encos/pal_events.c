@@ -84,6 +84,12 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
                          timeout_us ? &timeout : NULL, NULL, FUTEX_BITSET_MATCH_ANY);
         spinlock_lock(&handle->event.lock);
 
+        // TODO: debug
+#ifdef ENCOS_DEBUG
+        log_always("futex. &handle->event.signaled=0x%lx, val=%u, timeout_us is null?=%d, ret: %d", 
+                    (unsigned long)&handle->event.signaled, (unsigned)handle->event.signaled, (timeout_us == NULL), ret);
+#endif
+
         if (ret < 0 && ret != -EAGAIN) {
             ret = unix_to_pal_error(ret);
             break;
