@@ -26,6 +26,8 @@
 #include "pal_internal.h"
 #include "pal_linux.h"
 
+#include "pal_encos_driver.h"
+
 extern char* g_pal_loader_path;
 extern char* g_libpal_path;
 
@@ -282,6 +284,8 @@ void init_child_process(int parent_stream_fd, PAL_HANDLE* parent_handle, char** 
 }
 
 noreturn void _PalProcessExit(int exitcode) {
+    // disable kdbg
+    encos_disable_kdbg();
     DO_SYSCALL(exit_group, exitcode);
     die_or_inf_loop();
 }
