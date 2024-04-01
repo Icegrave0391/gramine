@@ -15,7 +15,7 @@ int open_encos_driver(void);
 
 static inline int encos_fd(void)
 {
-    return -1;   // debug purpose
+    // return -1;   // debug purpose
     if (g_encos_fd < 0) {
         return open_encos_driver();
     } 
