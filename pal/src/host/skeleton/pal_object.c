@@ -16,5 +16,5 @@ int _PalStreamsWaitEvents(size_t count, PAL_HANDLE* handle_array, pal_wait_flags
 }
 
 void _PalObjectDestroyENCOS(PAL_HANDLE object_handle) {
-    return -PAL_ERROR_NOTIMPLEMENTED;
+    return;
 }
