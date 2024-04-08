@@ -15,6 +15,7 @@ pal_direct_sources = files(
     'pal_sockets.c',
     'pal_streams.c',
     'pal_threading.c',
+    'pal_encos_driver.c',
 )
 
 # Arch-specific meson.build must define the following Meson variables:
