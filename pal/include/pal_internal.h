@@ -220,6 +220,7 @@ int _PalVirtualMemoryProtect(void* addr, uint64_t size, pal_prot_flags_t prot);
 
 /* PalObject calls */
 void _PalObjectDestroy(PAL_HANDLE object_handle);
+void _PalObjectDestroyENCOS(PAL_HANDLE object_handle);
 int _PalStreamsWaitEvents(size_t count, PAL_HANDLE* handle_array, pal_wait_flags_t* events,
                           pal_wait_flags_t* ret_events, uint64_t* timeout_us);
 

@@ -11,10 +11,17 @@
 #include "pal_error.h"
 #include "pal_internal.h"
 #include "pal_linux_error.h"
+#include "pal_encos_driver.h"
+
 
 /* To avoid expensive malloc/free (due to locking), use stack if the required space is small
  * enough. */
 #define NFDS_LIMIT_TO_USE_STACK 16
+
+void _PalObjectDestroyENCOS(PAL_HANDLE object_handle) {
+    if (object_handle->hdr.type == PAL_TYPE_EVENT)
+        encos_event_futex_free(object_handle, HANDLE_SIZE(object_handle));
+}
 
 int _PalStreamsWaitEvents(size_t count, PAL_HANDLE* handle_array, pal_wait_flags_t* events,
                           pal_wait_flags_t* ret_events, uint64_t* timeout_us) {
