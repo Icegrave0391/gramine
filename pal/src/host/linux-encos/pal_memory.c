@@ -70,6 +70,9 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
     if (encosfd < 0 || g_assign_futex) {
         flags |= MAP_ANONYMOUS;
+
+        if (g_assign_futex)
+            encosfd = -1;
     }
     /* 
      * Chuqi: remove PROT_NONE as well (see _PalVirtualMemoryProtect).
@@ -77,8 +80,8 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     if (linux_prot == PROT_NONE)
         linux_prot = PROT_READ;
 #ifdef ENCOS_DEBUG
-    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x (futex: %d)", 
-                (unsigned long)addr, linux_prot, flags, g_assign_futex);
+    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, size=0x%lx, prots: 0x%x, flags: 0x%x (futex: %d)", 
+                (unsigned long)addr, (unsigned long)size, linux_prot, flags, g_assign_futex);
 #endif
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encosfd, 0);
     /* finish futex assignment */
