@@ -39,6 +39,7 @@ libpal_direct = shared_library('pal',
         include_directories(
             '../../../include/arch/@0@/linux'.format(host_machine.cpu_family()),
             '../../../include/host/linux-common',
+            '../../../include/arch/@0@/linux-encos'.format(host_machine.cpu_family()),
         ),
     ],
 
