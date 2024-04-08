@@ -19,6 +19,8 @@
 #include "pal_encos_driver.h"
 
 int _PalEventCreate(PAL_HANDLE* handle_ptr, bool init_signaled, bool auto_clear) {
+    // Chuqi: todo: use an untrusted memory for futex now
+    g_assign_futex = 1;
     PAL_HANDLE handle = calloc(1, HANDLE_SIZE(event));
     if (!handle) {
         return -PAL_ERROR_NOMEM;

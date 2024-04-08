@@ -9,6 +9,9 @@
 
 #define ENCOS_DEV       "/dev/encos-dev"
 
+/* todo: use an untrusted memory as the futex now */
+extern int g_assign_futex;
+
 extern int g_encos_fd;
 
 int open_encos_driver(void);

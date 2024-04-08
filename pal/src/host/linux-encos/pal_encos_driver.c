@@ -16,6 +16,8 @@
 #include <sys/ioctl.h>
 
 
+int g_assign_futex = 0;
+
 /* global encos_fd */
 int g_encos_fd = -1;
 

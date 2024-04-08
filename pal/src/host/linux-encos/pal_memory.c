@@ -68,7 +68,7 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
 #else
     flags &= ~(MAP_ANONYMOUS | MAP_PRIVATE);
     flags |= MAP_SHARED | MAP_FIXED_NOREPLACE;
-    if (encosfd < 0) {
+    if (encosfd < 0 || g_assign_futex) {
         flags |= MAP_ANONYMOUS;
     }
     /* 
@@ -81,6 +81,9 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
                 (unsigned long)addr, linux_prot, flags);
 #endif
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encosfd, 0);
+    /* finish futex assignment */
+    if (g_assign_futex)
+        g_assign_futex = 0;
 #endif
     if (IS_PTR_ERR(res_addr)) {
 #ifdef ENCOS_DEBUG
