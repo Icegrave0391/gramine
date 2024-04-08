@@ -122,6 +122,9 @@ void encos_event_futex_free(void *handle, size_t size)
     (unsigned long)hdl, hdl->hdr.type, (unsigned long)size);
 #endif
     DO_SYSCALL(munmap, handle, size);
+#ifdef ENCOS
+    log_always("free done.");
+#endif
 }
 
 
