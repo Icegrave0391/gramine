@@ -77,8 +77,8 @@ int _PalVirtualMemoryAlloc(void* addr, size_t size, pal_prot_flags_t prot) {
     if (linux_prot == PROT_NONE)
         linux_prot = PROT_READ;
 #ifdef ENCOS_DEBUG
-    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x", 
-                (unsigned long)addr, linux_prot, flags);
+    log_always("_PalVirtualMemoryAlloc: mmap addr=0x%lx, prots: 0x%x, flags: 0x%x (futex: %d)", 
+                (unsigned long)addr, linux_prot, flags, g_assign_futex);
 #endif
     void* res_addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, encosfd, 0);
     /* finish futex assignment */
