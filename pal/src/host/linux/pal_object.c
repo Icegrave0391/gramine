@@ -16,6 +16,10 @@
  * enough. */
 #define NFDS_LIMIT_TO_USE_STACK 16
 
+void _PalObjectDestroyENCOS(PAL_HANDLE object_handle) {
+    return _PalObjectDestroy(object_handle);
+}
+
 int _PalStreamsWaitEvents(size_t count, PAL_HANDLE* handle_array, pal_wait_flags_t* events,
                           pal_wait_flags_t* ret_events, uint64_t* timeout_us) {
     int ret;

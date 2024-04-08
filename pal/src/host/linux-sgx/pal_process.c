@@ -17,6 +17,10 @@
 #include "pal_linux.h"
 #include "pal_linux_error.h"
 
+void _PalObjectDestroyENCOS(PAL_HANDLE object_handle) {
+    return _PalObjectDestroy(object_handle);
+}
+
 /*
  * For SGX, the creation of a child process requires a clean enclave and a secure channel between
  * the parent and child processes (enclaves). The establishment of the secure channel must be
