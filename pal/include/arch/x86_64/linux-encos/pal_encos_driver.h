@@ -37,6 +37,12 @@ int encos_enable_kdbg(void);
 int encos_disable_kdbg(void);
 
 /*
+ * Anonymous memory backend support
+ */
+void *encos_event_futex_alloc(size_t size);
+void encos_event_futex_free(void *handle, size_t size);
+
+/*
  * Testcase functions
  */
 int test_mmap(void);

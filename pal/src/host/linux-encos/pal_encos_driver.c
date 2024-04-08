@@ -55,6 +55,9 @@ int encos_init_enclave(void)
     return ret;
 }
 
+/* ============================
+ * Kernel debug log functions
+ * ============================ */
 int encos_enable_kdbg(void)
 {
     int fd, ret;
@@ -82,6 +85,45 @@ int encos_disable_kdbg(void)
     ret = DO_SYSCALL(ioctl, fd, ENCOS_DISABLE_KDBG, 0);
     return ret;
 }
+
+/* ============================
+ * Anonymous memory backend support
+ * ============================ */
+void *encos_event_futex_alloc(size_t size)
+{
+    void *addr;
+    int flags;
+    int linux_prot;
+
+    flags = MAP_ANONYMOUS | MAP_SHARED;
+    linux_prot = PROT_READ | PROT_WRITE;
+
+    addr = (void *)DO_SYSCALL(mmap, NULL, size, linux_prot, flags, -1, 0);
+    if (IS_PTR_ERR(addr)) {
+#ifdef ENCOS_DEBUG
+        log_always("futex_alloc: mmap err: %ld", PTR_TO_ERR(addr));
+#endif
+        return NULL;
+    }
+
+#ifdef ENCOS_DEBUG
+    log_always("futex_alloc: mmap addr=0x%lx, size=0x%lx, prots: 0x%x, flags: 0x%x",
+                (unsigned long)addr, (unsigned long)size, linux_prot, flags);
+#endif
+    memset(addr, 0, size);
+    return addr;
+}
+
+void encos_event_futex_free(void *handle, size_t size)
+{
+#ifdef ENCOS_DEBUG
+    PAL_HANDLE hdl = (PAL_HANDLE)handle;
+    log_always("futex_free: handle=0x%lx(type=%d), size=0x%lx", 
+    (unsigned long)hdl, hdl->hdr.type, (unsigned long)size);
+#endif
+    DO_SYSCALL(munmap, handle, size);
+}
+
 
 /* test function */
 int test_mmap(void) 

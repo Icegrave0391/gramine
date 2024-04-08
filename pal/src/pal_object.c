@@ -9,6 +9,10 @@
 #include "pal_error.h"
 #include "pal_internal.h"
 
+#ifdef ENCOS
+#include "pal_encos_driver.h"
+#endif
+
 void _PalObjectDestroy(PAL_HANDLE handle) {
     const struct handle_ops* ops = HANDLE_OPS(handle);
 
@@ -23,6 +27,12 @@ void _PalObjectDestroy(PAL_HANDLE handle) {
 
 void PalObjectDestroy(PAL_HANDLE handle) {
     assert(handle);
+#ifdef ENCOS
+    if (handle->hdr.type == PAL_TYPE_EVENT) {
+        encos_event_futex_free(handle, HANDLE_SIZE(handle));
+        return;
+    }
+#endif
     _PalObjectDestroy(handle);
 }
 
