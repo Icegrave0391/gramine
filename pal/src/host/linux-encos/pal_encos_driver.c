@@ -100,31 +100,15 @@ void *encos_event_futex_alloc(size_t size)
 
     addr = (void *)DO_SYSCALL(mmap, NULL, size, linux_prot, flags, -1, 0);
     if (IS_PTR_ERR(addr)) {
-#ifdef ENCOS_DEBUG
-        log_always("futex_alloc: mmap err: %ld", PTR_TO_ERR(addr));
-#endif
         return NULL;
     }
-
-#ifdef ENCOS_DEBUG
-    log_always("futex_alloc: mmap addr=0x%lx, size=0x%lx, prots: 0x%x, flags: 0x%x",
-                (unsigned long)addr, (unsigned long)size, linux_prot, flags);
-#endif
     memset(addr, 0, size);
     return addr;
 }
 
 void encos_event_futex_free(void *handle, size_t size)
 {
-#ifdef ENCOS_DEBUG
-    PAL_HANDLE hdl = (PAL_HANDLE)handle;
-    log_always("futex_free: handle=0x%lx(type=%d), size=0x%lx", 
-    (unsigned long)hdl, hdl->hdr.type, (unsigned long)size);
-#endif
     DO_SYSCALL(munmap, handle, size);
-#ifdef ENCOS
-    log_always("free done.");
-#endif
 }
 
 

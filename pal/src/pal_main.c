@@ -285,7 +285,7 @@ static void configure_logging(void) {
         }
     }
 #ifdef ENCOS_DEBUG
-    log_always("Log level: %d (%s).\n",
+    log_always("Log level: %d (%s).",
                  log_level, log_level_str);
 #endif
     free(log_level_str);
