@@ -19,7 +19,6 @@
 #define NFDS_LIMIT_TO_USE_STACK 16
 
 void _PalObjectDestroyENCOS(PAL_HANDLE object_handle) {
-    return _PalObjectDestroy(object_handle);
     if (object_handle->hdr.type == PAL_TYPE_EVENT)
         encos_event_futex_free(object_handle, HANDLE_SIZE(event));
 }
