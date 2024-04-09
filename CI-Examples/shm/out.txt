@@ -1,0 +1,2335 @@
+628315 execve("/usr/local/bin/gramine-encos", ["gramine-encos", "shm"], 0x7ffde3f279d0 /* 29 vars */) = 0
+628315 brk(NULL)                        = 0x564233747000
+628315 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe1acffcb0) = -1 EINVAL (Invalid argument)
+628315 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff88f229000
+628315 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=68103, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 68103, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f218000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+628315 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+628315 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+628315 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\302\211\332Pq\2439\235\350\223\322\257\201\326\243\f"..., 68, 896) = 68
+628315 newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+628315 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7ff88ee00000
+628315 mprotect(0x7ff88ee28000, 2023424, PROT_NONE) = 0
+628315 mmap(0x7ff88ee28000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7ff88ee28000
+628315 mmap(0x7ff88efbd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7ff88efbd000
+628315 mmap(0x7ff88f016000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7ff88f016000
+628315 mmap(0x7ff88f01c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7ff88f01c000
+628315 close(3)                         = 0
+628315 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7ff88f215000
+628315 arch_prctl(ARCH_SET_FS, 0x7ff88f215740) = 0
+628315 set_tid_address(0x7ff88f215a10)  = 628315
+628315 set_robust_list(0x7ff88f215a20, 24) = 0
+628315 rseq(0x7ff88f2160e0, 0x20, 0, 0x53053053) = 0
+628315 mprotect(0x7ff88f016000, 16384, PROT_READ) = 0
+628315 mprotect(0x564233181000, 4096, PROT_READ) = 0
+628315 mprotect(0x7ff88f263000, 8192, PROT_READ) = 0
+628315 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+628315 munmap(0x7ff88f218000, 68103)    = 0
+628315 getrandom("\x2b\xbc\x3f\xfe\x35\x5b\x6d\x13", 8, GRND_NONBLOCK) = 8
+628315 brk(NULL)                        = 0x564233747000
+628315 brk(0x564233768000)              = 0x564233768000
+628315 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=5712208, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 5712208, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88e800000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+628315 read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+628315 read(3, "", 4096)                = 0
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=258, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f262000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7ff88f222000
+628315 close(3)                         = 0
+628315 futex(0x7ff88f01ba6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f221000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=47, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f220000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=127, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f21f000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=62, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f21e000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=34, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f21d000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=48, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f21c000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=270, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f21b000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1406, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f21a000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3360, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f219000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f218000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7ff88f1be000
+628315 close(3)                         = 0
+628315 execve("/home/chuqi/.local/bin/bash", ["bash", "/usr/local/bin/gramine-encos", "shm"], 0x7ffe1acffea0 /* 29 vars */) = -1 ENOENT (No such file or directory)
+628315 execve("/home/chuqi/.local/bin/bash", ["bash", "/usr/local/bin/gramine-encos", "shm"], 0x7ffe1acffea0 /* 29 vars */) = -1 ENOENT (No such file or directory)
+628315 execve("/usr/local/sbin/bash", ["bash", "/usr/local/bin/gramine-encos", "shm"], 0x7ffe1acffea0 /* 29 vars */) = -1 ENOENT (No such file or directory)
+628315 execve("/usr/local/bin/bash", ["bash", "/usr/local/bin/gramine-encos", "shm"], 0x7ffe1acffea0 /* 29 vars */) = -1 ENOENT (No such file or directory)
+628315 execve("/usr/sbin/bash", ["bash", "/usr/local/bin/gramine-encos", "shm"], 0x7ffe1acffea0 /* 29 vars */) = -1 ENOENT (No such file or directory)
+628315 execve("/usr/bin/bash", ["bash", "/usr/local/bin/gramine-encos", "shm"], 0x7ffe1acffea0 /* 29 vars */) = 0
+628315 brk(NULL)                        = 0x563de2edb000
+628315 arch_prctl(0x3001 /* ARCH_??? */, 0x7fff52cc44e0) = -1 EINVAL (Invalid argument)
+628315 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f234aed5000
+628315 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=68103, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 68103, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec4000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libtinfo.so.6", O_RDONLY|O_CLOEXEC) = 3
+628315 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=200136, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 203040, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f234ae92000
+628315 mmap(0x7f234aea0000, 69632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe000) = 0x7f234aea0000
+628315 mmap(0x7f234aeb1000, 57344, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1f000) = 0x7f234aeb1000
+628315 mmap(0x7f234aebf000, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2c000) = 0x7f234aebf000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+628315 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+628315 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+628315 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\302\211\332Pq\2439\235\350\223\322\257\201\326\243\f"..., 68, 896) = 68
+628315 newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+628315 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f234ac00000
+628315 mprotect(0x7f234ac28000, 2023424, PROT_NONE) = 0
+628315 mmap(0x7f234ac28000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f234ac28000
+628315 mmap(0x7f234adbd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f234adbd000
+628315 mmap(0x7f234ae16000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f234ae16000
+628315 mmap(0x7f234ae1c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f234ae1c000
+628315 close(3)                         = 0
+628315 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f234ae8f000
+628315 arch_prctl(ARCH_SET_FS, 0x7f234ae8f740) = 0
+628315 set_tid_address(0x7f234ae8fa10)  = 628315
+628315 set_robust_list(0x7f234ae8fa20, 24) = 0
+628315 rseq(0x7f234ae900e0, 0x20, 0, 0x53053053) = 0
+628315 mprotect(0x7f234ae16000, 16384, PROT_READ) = 0
+628315 mprotect(0x7f234aebf000, 16384, PROT_READ) = 0
+628315 mprotect(0x563de1338000, 16384, PROT_READ) = 0
+628315 mprotect(0x7f234af0f000, 8192, PROT_READ) = 0
+628315 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+628315 munmap(0x7f234aec4000, 68103)    = 0
+628315 openat(AT_FDCWD, "/dev/tty", O_RDWR|O_NONBLOCK) = 3
+628315 close(3)                         = 0
+628315 getrandom("\x8a\x0e\xe6\x50\x7f\x69\xb6\x9c", 8, GRND_NONBLOCK) = 8
+628315 brk(NULL)                        = 0x563de2edb000
+628315 brk(0x563de2efc000)              = 0x563de2efc000
+628315 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=5712208, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 5712208, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234a600000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+628315 read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+628315 read(3, "", 4096)                = 0
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=258, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234af0e000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7f234aece000
+628315 close(3)                         = 0
+628315 futex(0x7f234ae1ba6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aecd000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=47, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aecc000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=127, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aecb000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=62, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aeca000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=34, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec9000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=48, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec8000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=270, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec7000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1406, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec6000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3360, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec5000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234aec4000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f234ae38000
+628315 close(3)                         = 0
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+628315 ioctl(-1, TIOCGPGRP, 0x7fff52cc43d4) = -1 EBADF (Bad file descriptor)
+628315 sysinfo({uptime=857534, loads=[4800, 9952, 10976], totalram=16430673920, freeram=1488138240, sharedram=223064064, bufferram=237133824, totalswap=8195665920, freeswap=7777996800, procs=1838, totalhigh=0, freehigh=0, mem_unit=1}) = 0
+628315 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+628315 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+628315 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+628315 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+628315 rt_sigaction(SIGTSTP, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+628315 rt_sigaction(SIGTTIN, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+628315 rt_sigaction(SIGTTOU, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+628315 rt_sigaction(SIGQUIT, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 uname({sysname="Linux", nodename="en4228248l", ...}) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/shm", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, ".", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi", {st_mode=S_IFDIR|0750, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub/enclave-crossarch", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub/enclave-crossarch/gramine", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/shm", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 getpid()                         = 628315
+628315 getppid()                        = 628312
+628315 newfstatat(AT_FDCWD, ".", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/.local/bin/bash", 0x7fff52cc4010, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/home/chuqi/.local/bin/bash", 0x7fff52cc4010, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/local/sbin/bash", 0x7fff52cc4010, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/local/bin/bash", 0x7fff52cc4010, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/sbin/bash", 0x7fff52cc4010, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1396520, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1396520, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/bash", X_OK)    = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1396520, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/bash", R_OK)    = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1396520, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1396520, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/bash", X_OK)    = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/bash", {st_mode=S_IFREG|0755, st_size=1396520, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/bash", R_OK)    = 0
+628315 getpid()                         = 628315
+628315 getppid()                        = 628312
+628315 getpid()                         = 628315
+628315 getppid()                        = 628312
+628315 getpgrp()                        = 628312
+628315 ioctl(2, TIOCGPGRP, [628312])    = 0
+628315 rt_sigaction(SIGCHLD, {sa_handler=0x563de124dd10, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 prlimit64(0, RLIMIT_NPROC, NULL, {rlim_cur=62130, rlim_max=62130}) = 0
+628315 rt_sigprocmask(SIG_BLOCK, NULL, [], 8) = 0
+628315 openat(AT_FDCWD, "/usr/local/bin/gramine-encos", O_RDONLY) = 3
+628315 newfstatat(AT_FDCWD, "/usr/local/bin/gramine-encos", {st_mode=S_IFREG|0755, st_size=2770, ...}, 0) = 0
+628315 ioctl(3, TCGETS, 0x7fff52cc4370) = -1 ENOTTY (Inappropriate ioctl for device)
+628315 lseek(3, 0, SEEK_CUR)            = 0
+628315 read(3, "#!/usr/bin/env bash\n# SPDX-Licen"..., 80) = 80
+628315 lseek(3, 0, SEEK_SET)            = 0
+628315 prlimit64(0, RLIMIT_NOFILE, NULL, {rlim_cur=1024, rlim_max=1024*1024}) = 0
+628315 fcntl(255, F_GETFD)              = -1 EBADF (Bad file descriptor)
+628315 dup2(3, 255)                     = 255
+628315 close(3)                         = 0
+628315 fcntl(255, F_SETFD, FD_CLOEXEC)  = 0
+628315 fcntl(255, F_GETFL)              = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+628315 newfstatat(255, "", {st_mode=S_IFREG|0755, st_size=2770, ...}, AT_EMPTY_PATH) = 0
+628315 lseek(255, 0, SEEK_CUR)          = 0
+628315 read(255, "#!/usr/bin/env bash\n# SPDX-Licen"..., 2770) = 2770
+628315 newfstatat(AT_FDCWD, "shm.manifest", {st_mode=S_IFREG|0664, st_size=908, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/usr/local/lib/x86_64-linux-gnu/gramine/encos/loader", {st_mode=S_IFREG|0755, st_size=666008, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, ".", {st_mode=S_IFDIR|0775, st_size=4096, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/home/chuqi/.local/bin/env", 0x7fff52cc3d80, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/home/chuqi/.local/bin/env", 0x7fff52cc3d80, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/local/sbin/env", 0x7fff52cc3d80, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/local/bin/env", 0x7fff52cc3d80, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/sbin/env", 0x7fff52cc3d80, 0) = -1 ENOENT (No such file or directory)
+628315 newfstatat(AT_FDCWD, "/usr/bin/env", {st_mode=S_IFREG|0755, st_size=43968, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/env", {st_mode=S_IFREG|0755, st_size=43968, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/env", X_OK)     = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/env", {st_mode=S_IFREG|0755, st_size=43968, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/env", R_OK)     = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/env", {st_mode=S_IFREG|0755, st_size=43968, ...}, 0) = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/env", {st_mode=S_IFREG|0755, st_size=43968, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/env", X_OK)     = 0
+628315 newfstatat(AT_FDCWD, "/usr/bin/env", {st_mode=S_IFREG|0755, st_size=43968, ...}, 0) = 0
+628315 geteuid()                        = 1002
+628315 getegid()                        = 1002
+628315 getuid()                         = 1002
+628315 getgid()                         = 1002
+628315 access("/usr/bin/env", R_OK)     = 0
+628315 rt_sigaction(SIGINT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, {sa_handler=SIG_IGN, sa_mask=[], sa_flags=SA_RESTORER, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 rt_sigaction(SIGCHLD, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, {sa_handler=0x563de124dd10, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART, sa_restorer=0x7f234ac42520}, 8) = 0
+628315 execve("/usr/bin/env", ["env", "/usr/local/lib/x86_64-linux-gnu/"..., "/usr/local/lib/x86_64-linux-gnu/"..., "init", "shm"], 0x563de2eec780 /* 28 vars */) = 0
+628315 brk(NULL)                        = 0x558a2f2fe000
+628315 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffcdd3ff360) = -1 EINVAL (Invalid argument)
+628315 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9baf506000
+628315 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=68103, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 68103, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4f5000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+628315 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+628315 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+628315 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\302\211\332Pq\2439\235\350\223\322\257\201\326\243\f"..., 68, 896) = 68
+628315 newfstatat(3, "", {st_mode=S_IFREG|0755, st_size=2220400, ...}, AT_EMPTY_PATH) = 0
+628315 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 mmap(NULL, 2264656, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f9baf200000
+628315 mprotect(0x7f9baf228000, 2023424, PROT_NONE) = 0
+628315 mmap(0x7f9baf228000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f9baf228000
+628315 mmap(0x7f9baf3bd000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f9baf3bd000
+628315 mmap(0x7f9baf416000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x215000) = 0x7f9baf416000
+628315 mmap(0x7f9baf41c000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f9baf41c000
+628315 close(3)                         = 0
+628315 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f9baf4f2000
+628315 arch_prctl(ARCH_SET_FS, 0x7f9baf4f2740) = 0
+628315 set_tid_address(0x7f9baf4f2a10)  = 628315
+628315 set_robust_list(0x7f9baf4f2a20, 24) = 0
+628315 rseq(0x7f9baf4f30e0, 0x20, 0, 0x53053053) = 0
+628315 mprotect(0x7f9baf416000, 16384, PROT_READ) = 0
+628315 mprotect(0x558a2d70c000, 4096, PROT_READ) = 0
+628315 mprotect(0x7f9baf540000, 8192, PROT_READ) = 0
+628315 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+628315 munmap(0x7f9baf4f5000, 68103)    = 0
+628315 getrandom("\x93\xe7\x14\xd8\xc9\xcf\x83\x74", 8, GRND_NONBLOCK) = 8
+628315 brk(NULL)                        = 0x558a2f2fe000
+628315 brk(0x558a2f31f000)              = 0x558a2f31f000
+628315 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=5712208, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 5712208, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baec00000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2996, ...}, AT_EMPTY_PATH) = 0
+628315 read(3, "# Locale name alias data base.\n#"..., 4096) = 2996
+628315 read(3, "", 4096)                = 0
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_IDENTIFICATION", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=258, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 258, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf53f000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=27002, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 27002, PROT_READ, MAP_SHARED, 3, 0) = 0x7f9baf4ff000
+628315 close(3)                         = 0
+628315 futex(0x7f9baf41ba6c, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MEASUREMENT", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=23, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 23, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4fe000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TELEPHONE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=47, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 47, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4fd000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_ADDRESS", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=127, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 127, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4fc000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NAME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NAME", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=62, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 62, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4fb000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_PAPER", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_PAPER", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=34, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 34, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4fa000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=48, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 48, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4f9000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_MONETARY", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=270, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 270, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4f8000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_COLLATE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=1406, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 1406, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4f7000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_TIME", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_TIME", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=3360, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 3360, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4f6000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_NUMERIC", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=50, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 50, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf4f5000
+628315 close(3)                         = 0
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.UTF-8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+628315 openat(AT_FDCWD, "/usr/lib/locale/C.utf8/LC_CTYPE", O_RDONLY|O_CLOEXEC) = 3
+628315 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=353616, ...}, AT_EMPTY_PATH) = 0
+628315 mmap(NULL, 353616, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f9baf49b000
+628315 close(3)                         = 0
+628315 execve("/usr/local/lib/x86_64-linux-gnu/gramine/encos/loader", ["/usr/local/lib/x86_64-linux-gnu/"..., "/usr/local/lib/x86_64-linux-gnu/"..., "init", "shm"], 0x7ffcdd3ff558 /* 28 vars */) = 0
+628315 arch_prctl(ARCH_SET_GS, 0x7ffd30d52980) = 0
+628315 write(2, "enabled kdbg. before relocate\n", 30) = 30
+628315 clock_gettime(CLOCK_REALTIME, {tv_sec=1712702269, tv_nsec=394431618}) = 0
+628315 write(2, "before init_array\n", 18) = 18
+628315 write(2, "before bookkeeping\n", 19) = 19
+628315 open("/proc/self/maps", O_RDONLY) = 3
+628315 read(3, "7f5c7ee6c000-7f5c7eead000 r-xp 0"..., 511) = 511
+628315 read(3, "00 0                          [v"..., 468) = 121
+628315 read(3, "", 511)                 = 0
+628315 close(3)                         = 0
+628315 mmap(0x7ffd30d33000, 4096, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffd30d33000
+628315 mmap(0x10000, 4096, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x10000
+628315 munmap(0x10000, 4096)            = 0
+628315 write(2, "before random\n", 14)  = 14
+628315 open("/dev/urandom", O_RDONLY|O_CLOEXEC) = 3
+628315 write(2, "before read_from_stack\n", 23) = 23
+628315 personality(0xffffffff)          = 0 (PER_LINUX)
+628315 personality(PER_LINUX|ADDR_NO_RANDOMIZE) = 0 (PER_LINUX)
+628315 execve("/proc/self/exe", ["/usr/local/lib/x86_64-linux-gnu/"..., "/usr/local/lib/x86_64-linux-gnu/"..., "init", "shm"], 0x7ffd30d52b40 /* 28 vars */) = 0
+628315 arch_prctl(ARCH_SET_GS, 0x7fffffffe1a0) = 0
+628315 write(2, "enabled kdbg. before relocate\n", 30) = 30
+628315 clock_gettime(CLOCK_REALTIME, {tv_sec=1712702269, tv_nsec=395527756}) = 0
+628315 write(2, "before init_array\n", 18) = 18
+628315 write(2, "before bookkeeping\n", 19) = 19
+628315 open("/proc/self/maps", O_RDONLY) = 3
+628315 read(3, "7ffff7fb1000-7ffff7fb5000 r--p 0"..., 511) = 511
+628315 read(3, "7ffffffff000 rw-p 00000000 00:00"..., 498) = 152
+628315 read(3, "", 511)                 = 0
+628315 close(3)                         = 0
+628315 mmap(0x7ffffffdd000, 4096, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffffdd000
+628315 mmap(0x10000, 4096, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x10000
+628315 munmap(0x10000, 4096)            = 0
+628315 write(2, "before random\n", 14)  = 14
+628315 open("/dev/urandom", O_RDONLY|O_CLOEXEC) = 3
+628315 write(2, "before read_from_stack\n", 23) = 23
+628315 personality(0xffffffff)          = 0x40000 (PER_LINUX|ADDR_NO_RANDOMIZE)
+628315 arch_prctl(0x1023 /* ARCH_??? */, 0x12) = -1 EOPNOTSUPP (Operation not supported)
+628315 write(2, "first?= 1 , before read_from_sta"..., 35) = 35
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff9c000, 266240, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff9c000
+628315 open("/proc/self/maps", O_RDONLY) = 4
+628315 read(4, "7ffff7fb1000-7ffff7fb5000 r--p 0"..., 511) = 511
+628315 read(4, "7ffffffdd000 rw-s 00000000 00:01"..., 498) = 294
+628315 read(4, "", 511)                 = 0
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/possible", O_RDONLY) = 4
+628315 read(4, "0-23\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/node/possible", O_RDONLY) = 4
+628315 read(4, "0\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/online", O_RDONLY) = 4
+628315 read(4, "0-23\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/node/online", O_RDONLY) = 4
+628315 read(4, "0\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "0-1\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "2-3\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "4-5\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "6-7\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "8-9\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "10-11\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "12-13\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "14-15\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "16\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "17\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "18\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "19\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "20\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "21\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "22\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/topology/thread_siblings_list", O_RDONLY) = 4
+628315 read(4, "23\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/topology/core_siblings_list", O_RDONLY) = 4
+628315 read(4, "0-23\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/node/node0/cpulist", O_RDONLY) = 4
+628315 read(4, "0-23\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/node/node0/distance", O_RDONLY) = 4
+628315 read(4, "10\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "0-1\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "0-1\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "0-1\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "0-23\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/level", O_RDONLY) = 4
+628315 read(4, "3\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/size", O_RDONLY) = 4
+628315 read(4, "30720K\n", 511)         = 7
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/number_of_sets", O_RDONLY) = 4
+628315 read(4, "40960\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu0/cache/index3/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "2-3\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "2-3\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "2-3\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu2/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "4-5\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "4-5\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "4-5\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu4/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "6-7\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "6-7\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "6-7\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu6/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "8-9\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "8-9\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "8-9\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu8/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "10-11\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "10-11\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "10-11\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu10/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "12-13\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "12-13\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "12-13\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu12/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "14-15\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "48K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "14-15\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "14-15\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "2048K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "2048\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu14/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "16\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "16\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "16-19\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "4096K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "4096\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu16/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "17\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "17\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu17/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "18\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "18\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu18/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "19\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "19\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu19/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "20\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "20\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "20-23\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/level", O_RDONLY) = 4
+628315 read(4, "2\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/type", O_RDONLY) = 4
+628315 read(4, "Unified\n", 511)        = 8
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/size", O_RDONLY) = 4
+628315 read(4, "4096K\n", 511)          = 6
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/number_of_sets", O_RDONLY) = 4
+628315 read(4, "4096\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu20/cache/index2/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "21\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "21\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu21/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "22\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "22\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu22/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "23\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/type", O_RDONLY) = 4
+628315 read(4, "Data\n", 511)           = 5
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/size", O_RDONLY) = 4
+628315 read(4, "32K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/number_of_sets", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index0/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/shared_cpu_list", O_RDONLY) = 4
+628315 read(4, "23\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/level", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/type", O_RDONLY) = 4
+628315 read(4, "Instruction\n", 511)    = 12
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/size", O_RDONLY) = 4
+628315 read(4, "64K\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/coherency_line_size", O_RDONLY) = 4
+628315 read(4, "64\n", 511)             = 3
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/number_of_sets", O_RDONLY) = 4
+628315 read(4, "128\n", 511)            = 4
+628315 close(4)                         = 0
+628315 open("/sys/devices/system/cpu/cpu23/cache/index1/physical_line_partition", O_RDONLY) = 4
+628315 read(4, "1\n", 511)              = 2
+628315 close(4)                         = 0
+628315 readlink("/proc/self/exe", "/usr/local/lib/x86_64-linux-gnu/"..., 1023) = 55
+628315 write(2, "PAL loader path: /usr/local/lib/"..., 73) = 73
+628315 write(2, "libpal path: /usr/local/lib/x86_"..., 69) = 69
+628315 gettid()                         = 628315
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff8b000, 69632, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff8b000
+628315 arch_prctl(ARCH_SET_GS, 0x7ffffff9aef0) = 0
+628315 read(3, "\367\vAe\355/*\243", 8) = 8
+628315 sigaltstack({ss_sp=0x7ffffff8b020, ss_flags=0, ss_size=65232}, NULL) = 0
+628315 getpid()                         = 628315
+628315 open("shm.manifest", O_RDONLY)   = 4
+628315 lseek(4, 0, SEEK_END)            = 908
+628315 lseek(4, 0, SEEK_SET)            = 0
+628315 read(4, "[loader]\nentrypoint = \"file:/usr"..., 908) = 908
+628315 close(4)                         = 0
+628315 rt_sigaction(SIGPIPE, {sa_handler=SIG_IGN, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [PIPE], NULL, 8) = 0
+628315 rt_sigaction(SIGCHLD, {sa_handler=SIG_IGN, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [CHLD], NULL, 8) = 0
+628315 rt_sigaction(SIGFPE, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [FPE], NULL, 8) = 0
+628315 rt_sigaction(SIGSEGV, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [SEGV], NULL, 8) = 0
+628315 rt_sigaction(SIGBUS, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [BUS], NULL, 8) = 0
+628315 rt_sigaction(SIGILL, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [ILL], NULL, 8) = 0
+628315 rt_sigaction(SIGSYS, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [SYS], NULL, 8) = 0
+628315 rt_sigaction(SIGTERM, {sa_handler=0x7ffff7fcf9bb, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [TERM], NULL, 8) = 0
+628315 rt_sigaction(SIGCONT, {sa_handler=0x7ffff7fcf9bb, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [CONT], NULL, 8) = 0
+628315 prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0) = 0
+628315 prctl(PR_SET_SECCOMP, SECCOMP_MODE_FILTER, {len=23, filter=0x7fffffffdf00}) = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff8a000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff8a000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff89000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff89000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff88000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff88000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff87000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff87000
+628315 read(3, "\345\227\177+\325r7\364", 8) = 8
+628315 write(2, "Log level: 1 ((null)).\n", 23) = 23
+628315 open("/proc/cpuinfo", O_RDONLY)  = 4
+628315 read(4, "processor\t: 0\nvendor_id\t: Genuin"..., 2047) = 2047
+628315 close(4)                         = 0
+628315 open("/proc/meminfo", O_RDONLY|O_CLOEXEC) = 4
+628315 read(4, "MemTotal:       16045580 kB\nMemF"..., 40) = 40
+628315 close(4)                         = 0
+628315 open("/usr/local/lib/x86_64-linux-gnu/gramine/libsysdb.so", O_RDONLY|O_CLOEXEC) = 4
+628315 fstat(4, {st_mode=S_IFREG|0755, st_size=2588984, ...}) = 0
+628315 pread64(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0a\221\t\0\0\0\0\0"..., 1024, 0) = 1024
+628315 mmap(0x7fffffe74000, 966656, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0) = 0x7fffffe74000
+628315 mmap(0x7ffffff60000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0xeb000) = 0x7ffffff60000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffffff70000, 94208, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff70000
+628315 mprotect(0x7fffffe74000, 966656, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
+628315 mprotect(0x7ffffff60000, 159744, PROT_READ|PROT_WRITE) = 0
+628315 mprotect(0x7fffffe74000, 966656, PROT_READ|PROT_EXEC) = 0
+628315 mprotect(0x7ffffff60000, 159744, PROT_READ|PROT_WRITE) = 0
+628315 mprotect(0x7ffffff60000, 8192, PROT_READ) = 0
+628315 close(4)                         = 0
+628315 read(3, "\304\215\322\n\301Q\357\244", 8) = 8
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe72000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe72000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fb0000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7faf000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe31000, 266240, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe31000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fae000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fad000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fac000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe2f000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe2f000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fab000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe2d000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe2d000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe2a000, 12288, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe2a000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe25000, 20480, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe25000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7faa000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa9000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa8000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe23000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe23000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa7000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe1e000, 20480, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe1e000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa6000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa5000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa4000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa3000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa2000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa1000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa0000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9f000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9e000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9d000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9c000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe1a000, 16384, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe1a000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9b000
+628315 read(3, "\16U4\266\212\235\3\336\314,\347\fI\230\216\22396\31'\214\247\355\243\263\342\365\324-\324w\273", 32) = 32
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 4
+628315 bind(4, {sa_family=AF_UNIX, sun_path=@"/gramine/0e5534b68a9d03decc2ce70c49988e93393619278ca7eda3b3e2f5d42dd477bb\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 listen(4, 1)                     = 0
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 5
+628315 connect(5, {sa_family=AF_UNIX, sun_path=@"/gramine/0e5534b68a9d03decc2ce70c49988e93393619278ca7eda3b3e2f5d42dd477bb\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 accept4(4, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 6
+628315 shutdown(4, SHUT_RDWR)           = 0
+628315 close(4)                         = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9a000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f99000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe12000, 32768, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe12000
+628315 mprotect(0x7fffffe12000, 4096, PROT_READ) = 0
+628315 sched_getaffinity(628315, 8, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]) = 8
+628315 stat(".", {st_mode=S_IFDIR|0775, st_size=4096, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f98000
+628315 stat("./proc", 0x7fffffffd860)   = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f97000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f96000
+628315 stat("./dev", 0x7fffffffd860)    = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f95000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f94000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe11000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe11000
+628315 stat("./sys", 0x7fffffffd860)    = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f93000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f92000
+628315 stat("./lib", 0x7fffffffd7f0)    = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f91000
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f90000
+628315 stat("./shm", {st_mode=S_IFREG|0775, st_size=16512, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8f000
+628315 stat("shm", {st_mode=S_IFREG|0775, st_size=16512, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8e000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8d000
+628315 stat("/dev/shm", {st_mode=S_IFDIR|S_ISVTX|0777, st_size=40, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8c000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8b000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8a000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f89000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f88000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f87000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f86000
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe10000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe10000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f85000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f84000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f83000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f82000
+628315 open("shm", O_RDONLY|O_CLOEXEC)  = 4
+628315 fstat(4, {st_mode=S_IFREG|0775, st_size=16512, ...}) = 0
+628315 pread64(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360\24\0\0\0\0\0\0"..., 64, 0) = 64
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f81000
+628315 read(3, "\205\365\334\252.\217\242\233\350\363\237\32z\341.\362^(\200\3248F\34\33\4~\211\27js\332\215", 32) = 32
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 7
+628315 bind(7, {sa_family=AF_UNIX, sun_path=@"/gramine/85f5dcaa2e8fa29be8f39f1a7ae12ef25e2880d438461c1b047e89176a73da8d\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 listen(7, 1)                     = 0
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 8
+628315 connect(8, {sa_family=AF_UNIX, sun_path=@"/gramine/85f5dcaa2e8fa29be8f39f1a7ae12ef25e2880d438461c1b047e89176a73da8d\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 accept4(7, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 9
+628315 shutdown(7, SHUT_RDWR)           = 0
+628315 close(7)                         = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x18e841585000, 266240, PROT_READ, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841585000
+628315 mprotect(0x18e841586000, 262144, PROT_READ|PROT_WRITE) = 0
+628315 pread64(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360\24\0\0\0\0\0\0"..., 64, 0) = 64
+628315 pread64(4, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 728, 64) = 728
+628315 mmap(0x18e841580000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0) = 0x18e841580000
+628315 mprotect(0x18e841580000, 4096, PROT_READ|PROT_WRITE) = 0
+628315 mprotect(0x18e841580000, 4096, PROT_READ) = 0
+628315 mmap(0x18e841581000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0x1000) = 0x18e841581000
+628315 mprotect(0x18e841581000, 4096, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
+628315 mprotect(0x18e841581000, 4096, PROT_READ|PROT_EXEC) = 0
+628315 mmap(0x18e841582000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0x2000) = 0x18e841582000
+628315 mprotect(0x18e841582000, 4096, PROT_READ|PROT_WRITE) = 0
+628315 mprotect(0x18e841582000, 4096, PROT_READ) = 0
+628315 mmap(0x18e841583000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0x2000) = 0x18e841583000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f80000
+628315 read(3, "\234`\366\275\207\211\336\244", 8) = 8
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7f000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7e000
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/ld-linux-x86-64.so.2", {st_mode=S_IFREG|0755, st_size=1359904, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7d000
+628315 open("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/ld-linux-x86-64.so.2", O_RDONLY|O_CLOEXEC) = 7
+628315 fstat(7, {st_mode=S_IFREG|0755, st_size=1359904, ...}) = 0
+628315 pread64(7, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\340\266\1\0\0\0\0\0"..., 64, 0) = 64
+628315 pread64(7, "\1\0\0\0\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 616, 64) = 616
+628315 mmap(0x18e84154a000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 7, 0) = 0x18e84154a000
+628315 mprotect(0x18e84154a000, 4096, PROT_READ|PROT_WRITE) = 0
+628315 mprotect(0x18e84154a000, 4096, PROT_READ) = 0
+628315 mmap(0x18e84154b000, 155648, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 7, 0x1000) = 0x18e84154b000
+628315 mprotect(0x18e841570000, 4096, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
+628315 mprotect(0x18e841570000, 4096, PROT_READ|PROT_EXEC) = 0
+628315 mmap(0x18e841571000, 45056, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 7, 0x27000) = 0x18e841571000
+628315 mprotect(0x18e84157b000, 4096, PROT_READ|PROT_WRITE) = 0
+628315 mprotect(0x18e84157b000, 4096, PROT_READ) = 0
+628315 mmap(0x18e84157c000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 7, 0x31000) = 0x18e84157c000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7c000
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 10
+628315 bind(10, {sa_family=AF_UNIX, sun_path=@"/gramine/17597660328856885221/1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 listen(10, 1)                    = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe0c000, 16384, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe0c000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7b000
+628315 read(3, "\302\200\275\357\301q\230\362\r\325\30a\267\240z\tHm/\213\16\356\204\247\336_\365\245N\331\266[", 32) = 32
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 11
+628315 bind(11, {sa_family=AF_UNIX, sun_path=@"/gramine/c280bdefc17198f20dd51861b7a07a09486d2f8b0eee84a7de5ff5a54ed9b65b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 listen(11, 1)                    = 0
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 12
+628315 connect(12, {sa_family=AF_UNIX, sun_path=@"/gramine/c280bdefc17198f20dd51861b7a07a09486d2f8b0eee84a7de5ff5a54ed9b65b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffe0b000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe0b000
+628315 accept4(11, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 13
+628315 shutdown(11, SHUT_RDWR)          = 0
+628315 close(11)                        = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffdea000, 135168, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffdea000
+628315 clone(child_stack=0x7fffffdfa008, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_PARENT_SETTID, parent_tid=[628316]) = 628316
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7a000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f79000
+628316 arch_prctl(ARCH_SET_GS, 0x7fffffe09ef0 <unfinished ...>
+628315 arch_prctl(ARCH_SET_FS, 0)       = 0
+628316 <... arch_prctl resumed>)        = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628316 read(3,  <unfinished ...>
+628315 mmap(0x18e841549000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0 <unfinished ...>
+628316 <... read resumed>"\17\226;\3577_\326\265", 8) = 8
+628315 <... mmap resumed>)              = 0x18e841549000
+628316 sigaltstack({ss_sp=0x7fffffdfa020, ss_flags=0, ss_size=65232},  <unfinished ...>
+628315 mprotect(0x18e841549000, 4096, PROT_READ|PROT_EXEC <unfinished ...>
+628316 <... sigaltstack resumed>NULL)   = 0
+628315 <... mprotect resumed>)          = 0
+628315 open("/dev/encos-dev", O_RDWR <unfinished ...>
+628316 ppoll([{fd=13, events=POLLIN|POLLRDHUP}, {fd=10, events=POLLIN|POLLRDHUP}], 2, NULL, NULL, 0 <unfinished ...>
+628315 <... open resumed>)              = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffde9000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffde9000
+628315 read(3, "M\21\204\270F\316\17\234#N\215u\357/?8", 16) = 16
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x18e841547000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841547000
+628315 stat("./etc", 0x7fffffe18f80)    = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f78000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f77000
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/glibc-hwcaps", 0x7fffffe18f20) = -1 ENOENT (No such file or directory)
+628315 munmap(0x7ffff7f78000, 112)      = 0
+628315 munmap(0x7ffff7f77000, 112)      = 0
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/glibc-hwcaps", 0x7fffffe18f90) = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f78000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f77000
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/glibc-hwcaps", 0x7fffffe18f20) = -1 ENOENT (No such file or directory)
+628315 munmap(0x7ffff7f78000, 112)      = 0
+628315 munmap(0x7ffff7f77000, 112)      = 0
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/glibc-hwcaps", 0x7fffffe18f90) = -1 ENOENT (No such file or directory)
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f78000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f77000
+628315 stat("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/libc.so.6", {st_mode=S_IFREG|0755, st_size=12352968, ...}) = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f76000
+628315 open("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/libc.so.6", O_RDONLY|O_CLOEXEC) = 11
+628315 fstat(11, {st_mode=S_IFREG|0755, st_size=12352968, ...}) = 0
+628315 pread64(11, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320a\2\0\0\0\0\0"..., 832, 0) = 832
+628315 pread64(11, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 pread64(11, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+628315 mmap(0x18e841371000, 1925120, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 11, 0) = 0x18e841371000
+628315 mprotect(0x18e841395000, 1720320, PROT_READ) = 0
+628315 munmap(0x18e841395000, 1363968)  = 0
+628315 mmap(0x18e841395000, 1363968, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 11, 0x24000) = 0x18e841395000
+628315 munmap(0x18e8414e2000, 352256)   = 0
+628315 mmap(0x18e8414e2000, 352256, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 11, 0x171000) = 0x18e8414e2000
+628315 munmap(0x18e841539000, 24576)    = 0
+628315 mmap(0x18e841539000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 11, 0x1c7000) = 0x18e841539000
+628315 munmap(0x18e84153f000, 32768)    = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x18e84153f000, 32768, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84153f000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f75000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f74000
+628315 open("/usr/local/lib/x86_64-linux-gnu/gramine/runtime/glibc/libc.so.6", O_RDONLY|O_CLOEXEC) = 14
+628315 fstat(14, {st_mode=S_IFREG|0755, st_size=12352968, ...}) = 0
+628315 close(14)                        = 0
+628315 munmap(0x7ffff7f75000, 112)      = 0
+628315 munmap(0x7ffff7f74000, 112)      = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x18e84136e000, 12288, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84136e000
+628315 arch_prctl(ARCH_SET_FS, 0x18e84136e740) = 0
+628315 mprotect(0x18e841539000, 16384, PROT_READ) = 0
+628315 mprotect(0x18e841583000, 4096, PROT_READ) = 0
+628315 mprotect(0x18e84157c000, 8192, PROT_READ) = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7fffffde5000, 16384, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffde5000
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f75000
+628315 read(3, "\321;\37\2769\26\323%\v\30j\16\257\10\2\273\35u/\306\355\32\227\34\363\336 f\367\177\313T", 32) = 32
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 14
+628315 bind(14, {sa_family=AF_UNIX, sun_path=@"/gramine/d13b1fbe3916d3250b186a0eaf0802bb1d752fc6ed1a971cf3de2066f77fcb54\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 listen(14, 1)                    = 0
+628315 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 15
+628315 connect(15, {sa_family=AF_UNIX, sun_path=@"/gramine/d13b1fbe3916d3250b186a0eaf0802bb1d752fc6ed1a971cf3de2066f77fcb54\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628315 accept4(14, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 16
+628315 shutdown(14, SHUT_RDWR)          = 0
+628315 close(14)                        = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f74000
+628315 arch_prctl(ARCH_GET_FS, [0x18e84136e740]) = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 mmap(0x7ffff9de5000, 67108864, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffff9de5000
+628315 socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0, [14, 17]) = 0
+628315 fcntl(14, F_SETFD, 0)            = 0
+628315 memfd_create("reserved_mem_ranges", 0) = 18
+628315 write(18, "\0\260NC\350\30\0\0\0\260RC\350\30\0\0\0`XA\350\30\0\0\0`\\A\350\30\0\0"..., 368) = 368
+628315 lseek(18, 0, SEEK_SET)           = 0
+628315 rt_sigprocmask(SIG_BLOCK, [TERM], NULL, 8) = 0
+628315 rt_sigprocmask(SIG_BLOCK, [CONT], NULL, 8) = 0
+628315 vfork( <unfinished ...>
+628317 execve("/usr/local/lib/x86_64-linux-gnu/gramine/encos/libpal.so", ["/usr/local/lib/x86_64-linux-gnu/"..., "/usr/local/lib/x86_64-linux-gnu/"..., "child", "14", "18"], 0x7fffffffe360 /* 28 vars */ <unfinished ...>
+628315 <... vfork resumed>)             = 628317
+628315 rt_sigprocmask(SIG_UNBLOCK, [TERM], NULL, 8) = 0
+628315 rt_sigprocmask(SIG_UNBLOCK, [CONT], NULL, 8) = 0
+628315 write(17, "\345\227\177+\325r7\364\0000X\323\3\0\0\0p\0\0\0\0\0\0\0\214\3\0\0\0\0\0\0"..., 1052 <unfinished ...>
+628317 <... execve resumed>)            = 0
+628315 <... write resumed>)             = 1052
+628315 close(14)                        = 0
+628315 close(18)                        = 0
+628315 write(17, "\0P\336\371\377\177\0\0\20\223\0\0\0\0\0\0\0\0\0\0\0\0\0\00001\0\0\0\0\0\0"..., 56) = 56
+628315 write(17, "\1\0\0\0\0\0\0\0\20\0\0\0\0\0\0\0\2\0\0\0\1\0\0\0\1\0\0\0\0\0\0\0"..., 37648) = 37648
+628315 write(17, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 12288) = 12288
+628315 write(17, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 16384
+628315 write(17, "\240\273\34\0\0\0\0\0\20qTA\350\30\0\0@\307UA\350\30\0\0\340\364KA\350\30\0\0"..., 8192) = 8192
+628317 arch_prctl(ARCH_SET_GS, 0x7fffffffe160 <unfinished ...>
+628315 write(17, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 32768 <unfinished ...>
+628317 <... arch_prctl resumed>)        = 0
+628315 <... write resumed>)             = 32768
+628317 write(2, "enabled kdbg. before relocate\n", 30 <unfinished ...>
+628315 write(17, "PpTA\350\30\0\0\35.WA\350\30\0\0\0\0\0\0\0\0\0\0 \20WA\350\30\0\0"..., 8192) = 8192
+628315 write(17, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 4096) = 4096
+628315 write(17, ",\0\0\0\2743\0\0h\10\377\377\256\0\0\0\0\2\221\f\5\0\t\7\10\t\6\t\t\20\1\203"..., 8192) = 8192
+628315 write(17, "\210>\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 8192) = 8192
+628315 write(17, "\1\0\2\0fork()\0error at %s (line %d)"..., 4096) = 4096
+628315 write(17, "\0\0\0\0\0\0\0\0\10@XA\350\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096) = 4096
+628315 mprotect(0x18e841585000, 4096, PROT_READ) = 0
+628315 write(17, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096 <unfinished ...>
+628317 <... write resumed>)             = 30
+628315 <... write resumed>)             = 4096
+628315 mprotect(0x18e841585000, 4096, PROT_READ) = 0
+628315 write(17, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 262144 <unfinished ...>
+628317 clock_gettime(CLOCK_REALTIME, {tv_sec=1712702269, tv_nsec=415191160}) = 0
+628317 write(2, "before init_array\n", 18) = 18
+628317 write(2, "before bookkeeping\n", 19) = 19
+628317 open("/proc/self/maps", O_RDONLY) = 3
+628317 read(3, "7ffff7fb1000-7ffff7fb5000 r--p 0"..., 511) = 511
+628317 read(3, "7ffffffff000 rw-p 00000000 00:00"..., 498) = 152
+628317 read(3, "", 511)                 = 0
+628317 close(3)                         = 0
+628317 mmap(0x7ffffffdd000, 4096, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffffdd000
+628317 mmap(0x10000, 4096, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x10000
+628317 munmap(0x10000, 4096)            = 0
+628317 write(2, "before random\n", 14)  = 14
+628317 open("/dev/urandom", O_RDONLY|O_CLOEXEC) = 3
+628317 write(2, "before read_from_stack\n", 23) = 23
+628317 fcntl(18, F_SETFD, FD_CLOEXEC)   = 0
+628317 write(2, "first?= 0 , before read_from_sta"..., 35) = 35
+628317 read(18, "\0\260NC\350\30\0\0\0\260RC\350\30\0\0", 16) = 16
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff9c000, 266240, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff9c000
+628317 open("/proc/self/maps", O_RDONLY) = 4
+628317 read(4, "7ffff7fb1000-7ffff7fb5000 r--p 0"..., 511) = 511
+628317 read(4, "7ffffffdd000 rw-s 00000000 00:01"..., 498) = 294
+628317 read(4, "", 511)                 = 0
+628317 close(4)                         = 0
+628317 readlink("/proc/self/exe", "/usr/local/lib/x86_64-linux-gnu/"..., 1023) = 55
+628317 write(2, "PAL loader path: /usr/local/lib/"..., 73) = 73
+628317 write(2, "libpal path: /usr/local/lib/x86_"..., 69) = 69
+628317 gettid()                         = 628317
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff8b000, 69632, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff8b000
+628317 arch_prctl(ARCH_SET_GS, 0x7ffffff9aef0) = 0
+628317 read(3, "\313\323Jm\25\16\375\247", 8) = 8
+628317 sigaltstack({ss_sp=0x7ffffff8b020, ss_flags=0, ss_size=65232}, NULL) = 0
+628317 getpid()                         = 628317
+628317 fcntl(14, F_SETFD, FD_CLOEXEC)   = 0
+628317 read(14, "\345\227\177+\325r7\364\0000X\323\3\0\0\0p\0\0\0\0\0\0\0\214\3\0\0\0\0\0\0", 32) = 32
+628317 read(14, "\10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\16\0\0\0\0\0\0\0"..., 1020) = 1020
+628317 rt_sigaction(SIGPIPE, {sa_handler=SIG_IGN, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [PIPE], NULL, 8) = 0
+628317 rt_sigaction(SIGCHLD, {sa_handler=SIG_IGN, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [CHLD], NULL, 8) = 0
+628317 rt_sigaction(SIGFPE, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [FPE], NULL, 8) = 0
+628317 rt_sigaction(SIGSEGV, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [SEGV], NULL, 8) = 0
+628317 rt_sigaction(SIGBUS, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [BUS], NULL, 8) = 0
+628317 rt_sigaction(SIGILL, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [ILL], NULL, 8) = 0
+628317 rt_sigaction(SIGSYS, {sa_handler=0x7ffff7fcf753, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [SYS], NULL, 8) = 0
+628317 rt_sigaction(SIGTERM, {sa_handler=0x7ffff7fcf9bb, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [TERM], NULL, 8) = 0
+628317 rt_sigaction(SIGCONT, {sa_handler=0x7ffff7fcf9bb, sa_mask=[TERM CONT], sa_flags=SA_RESTORER|SA_ONSTACK|SA_SIGINFO, sa_restorer=0x7ffff7fcca30}, NULL, 8) = 0
+628317 rt_sigprocmask(SIG_UNBLOCK, [CONT], NULL, 8) = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff8a000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff8a000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff89000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff89000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff88000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff88000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff87000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff87000
+628317 write(2, "Log level: 1 ((null)).\n", 23) = 23
+628317 open("/proc/cpuinfo", O_RDONLY)  = 4
+628317 read(4, "processor\t: 0\nvendor_id\t: Genuin"..., 2047) = 2047
+628317 close(4)                         = 0
+628317 open("/usr/local/lib/x86_64-linux-gnu/gramine/libsysdb.so", O_RDONLY|O_CLOEXEC) = 4
+628317 fstat(4, {st_mode=S_IFREG|0755, st_size=2588984, ...}) = 0
+628317 pread64(4, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0a\221\t\0\0\0\0\0"..., 1024, 0) = 1024
+628317 mmap(0x7fffffe74000, 966656, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0) = 0x7fffffe74000
+628317 mmap(0x7ffffff60000, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0xeb000) = 0x7ffffff60000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffffff70000, 94208, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffffff70000
+628317 mprotect(0x7fffffe74000, 966656, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
+628317 mprotect(0x7ffffff60000, 159744, PROT_READ|PROT_WRITE) = 0
+628317 mprotect(0x7fffffe74000, 966656, PROT_READ|PROT_EXEC) = 0
+628317 mprotect(0x7ffffff60000, 159744, PROT_READ|PROT_WRITE) = 0
+628317 mprotect(0x7ffffff60000, 8192, PROT_READ) = 0
+628317 close(4)                         = 0
+628317 read(3, "\243z/\30e\211\245\344", 8) = 8
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe72000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe72000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fb0000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7faf000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe31000, 266240, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe31000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fae000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fad000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fac000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe2f000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe2f000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fab000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe2d000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe2d000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe2a000, 12288, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe2a000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe25000, 20480, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe25000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7faa000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa9000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa8000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe23000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe23000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa7000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe1e000, 20480, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe1e000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa6000
+628317 read(14, "\0P\336\371\377\177\0\0\20\223\0\0\0\0\0\0\0\0\0\0\0\0\0\00001\0\0\0\0\0\0"..., 56) = 56
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7ffff9de5000, 40960, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7ffff9de5000
+628317 read(14, "\1\0\0\0\0\0\0\0\20\0\0\0\0\0\0\0\2\0\0\0\1\0\0\0\1\0\0\0\0\0\0\0"..., 37648) = 37648
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e84136e000, 12288, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84136e000
+628317 read(14, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 12288) = 12288
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841539000, 16384, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841539000
+628317 read(14, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 16384) = 16384
+628317 mprotect(0x18e841539000, 16384, PROT_READ) = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e84153d000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84153d000
+628317 read(14, "\240\273\34\0\0\0\0\0\20qTA\350\30\0\0@\307UA\350\30\0\0\340\364KA\350\30\0\0"..., 8192) = 8192
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e84153f000, 32768, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84153f000
+628317 read(14, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 32768) = 32768
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841547000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841547000
+628317 read(14, "PpTA\350\30\0\0\35.WA\350\30\0\0\0\0\0\0\0\0\0\0 \20WA\350\30\0\0"..., 8192) = 8192
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841549000, 4096, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841549000
+628317 read(14, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 4096) = 4096
+628317 mprotect(0x18e841549000, 4096, PROT_READ|PROT_EXEC) = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e84157c000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84157c000
+628317 read(14, ",\0\0\0\2743\0\0h\10\377\377\256\0\0\0\0\2\221\f\5\0\t\7\10\t\6\t\t\20\1\203"..., 8192) = 8192
+628317 mprotect(0x18e84157c000, 8192, PROT_READ) = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e84157e000, 8192, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e84157e000
+628317 read(14, "\210>\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 8192) = 8192
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841583000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841583000
+628317 read(14, "\1\0\2\0fork()\0error at %s (line %d)"..., 4096) = 4096
+628317 mprotect(0x18e841583000, 4096, PROT_READ) = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841584000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841584000
+628317 read(14, "\0\0\0\0\0\0\0\0\10@XA\350\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 4096) = 4096
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841585000, 4096, PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841585000
+628317 read(14, 0x18e841585000, 4096)   = 4096
+628317 mprotect(0x18e841585000, 4096, PROT_READ) = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x18e841586000, 262144, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x18e841586000
+628317 read(14,  <unfinished ...>
+628315 <... write resumed>)             = 262144
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0t\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL) = 16
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\4\0\0\0\0\0\0\0"..., iov_len=116}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[4]}], msg_controllen=24, msg_flags=0}, 0) = 116
+628317 <... read resumed>"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 262144) = 262144
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0\273\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL <unfinished ...>
+628317 recvmsg(14,  <unfinished ...>
+628315 <... sendmsg resumed>)           = 16
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0t\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 16
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\7\0\0\0\0\0\0\0"..., iov_len=187}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[7]}], msg_controllen=24, msg_flags=0}, 0 <unfinished ...>
+628317 recvmsg(14,  <unfinished ...>
+628315 <... sendmsg resumed>)           = 187
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0\260\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\4\0\0\0\0\0\0\0"..., iov_len=116}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[4]}], msg_controllen=24, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 116
+628315 <... sendmsg resumed>)           = 16
+628317 recvmsg(14,  <unfinished ...>
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\v\0\0\0\0\0\0\0"..., iov_len=176}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[11]}], msg_controllen=24, msg_flags=0}, 0 <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0\273\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 16
+628315 <... sendmsg resumed>)           = 176
+628317 recvmsg(14,  <unfinished ...>
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0p\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\7\0\0\0\0\0\0\0"..., iov_len=187}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[5]}], msg_controllen=24, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 187
+628315 <... sendmsg resumed>)           = 16
+628317 recvmsg(14,  <unfinished ...>
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., iov_len=112}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[0]}], msg_controllen=24, msg_flags=0}, 0 <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0\260\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 16
+628315 <... sendmsg resumed>)           = 112
+628317 recvmsg(14,  <unfinished ...>
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0p\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, MSG_NOSIGNAL <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\v\0\0\0\0\0\0\0"..., iov_len=176}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[6]}], msg_controllen=24, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 176
+628315 <... sendmsg resumed>)           = 16
+628317 recvmsg(14,  <unfinished ...>
+628315 sendmsg(17, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0"..., iov_len=112}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[1]}], msg_controllen=24, msg_flags=0}, 0 <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0p\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 16
+628315 <... sendmsg resumed>)           = 112
+628317 recvmsg(14,  <unfinished ...>
+628315 read(17,  <unfinished ...>
+628317 <... recvmsg resumed>{msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., iov_len=112}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[7]}], msg_controllen=24, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 112
+628317 recvmsg(14, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\1\216\341\377\377\177\0\0p\0\0\0\0\0\0\0", iov_len=16}], msg_iovlen=1, msg_controllen=0, msg_flags=0}, 0) = 16
+628317 recvmsg(14, {msg_name=NULL, msg_namelen=0, msg_iov=[{iov_base="\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0"..., iov_len=112}], msg_iovlen=1, msg_control=[{cmsg_len=20, cmsg_level=SOL_SOCKET, cmsg_type=SCM_RIGHTS, cmsg_data=[8]}], msg_controllen=24, msg_flags=MSG_CMSG_CLOEXEC}, MSG_CMSG_CLOEXEC) = 112
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa5000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa4000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa3000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa2000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa1000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7fa0000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9f000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9e000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9d000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9c000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9b000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f9a000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f99000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f98000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f97000
+628317 mmap(0x18e841582000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0x2000) = 0x18e841582000
+628317 mmap(0x18e841581000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0x1000) = 0x18e841581000
+628317 mmap(0x18e841580000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 4, 0) = 0x18e841580000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f96000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f95000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f94000
+628317 mmap(0x18e841571000, 45056, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 5, 0x27000) = 0x18e841571000
+628317 mmap(0x18e84154b000, 155648, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 5, 0x1000) = 0x18e84154b000
+628317 mmap(0x18e84154a000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 5, 0) = 0x18e84154a000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f93000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f92000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f91000
+628317 mmap(0x18e841538000, 4096, PROT_NONE, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 6, 0x1c7000) = 0x18e841538000
+628317 mmap(0x18e8414e2000, 352256, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 6, 0x171000) = 0x18e8414e2000
+628317 mmap(0x18e841395000, 1363968, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 6, 0x24000) = 0x18e841395000
+628317 mmap(0x18e841371000, 147456, PROT_READ, MAP_PRIVATE|MAP_FIXED_NOREPLACE, 6, 0) = 0x18e841371000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f90000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8f000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8e000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8d000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8c000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8b000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f8a000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f89000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f88000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f87000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f86000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f85000
+628317 read(3, "\v\20\215\322\326O\7\254\31l\0\37`\265CPB\206\304\353\364\f_\273J\16\236>\243O\3110", 32) = 32
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 9
+628317 bind(9, {sa_family=AF_UNIX, sun_path=@"/gramine/0b108dd2d64f07ac196c001f60b543504286c4ebf40c5fbb4a0e9e3ea34fc930\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 listen(9, 1)                     = 0
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 10
+628317 connect(10, {sa_family=AF_UNIX, sun_path=@"/gramine/0b108dd2d64f07ac196c001f60b543504286c4ebf40c5fbb4a0e9e3ea34fc930\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 accept4(9, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 11
+628317 shutdown(9, SHUT_RDWR)           = 0
+628317 close(9)                         = 0
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f84000
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe16000, 32768, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe16000
+628317 mprotect(0x7fffffe16000, 4096, PROT_READ) = 0
+628317 arch_prctl(ARCH_SET_FS, 0x18e84136e740) = 0
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f83000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f82000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f81000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f80000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7f000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7e000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7d000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7c000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7b000
+628317 read(3, "\n?\v\3\f\227(7\364]x\263\224\255\26m\2730\20\363\271rf\256H\335X\236\326\336*W", 32) = 32
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 9
+628317 bind(9, {sa_family=AF_UNIX, sun_path=@"/gramine/0a3f0b030c972837f45d78b394ad166dbb3010f3b97266ae48dd589ed6de2a57\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 listen(9, 1)                     = 0
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 12
+628317 connect(12, {sa_family=AF_UNIX, sun_path=@"/gramine/0a3f0b030c972837f45d78b394ad166dbb3010f3b97266ae48dd589ed6de2a57\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 accept4(9, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 13
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe15000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe15000
+628317 shutdown(9, SHUT_RDWR)           = 0
+628317 close(9)                         = 0
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f7a000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f79000
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 9
+628317 bind(9, {sa_family=AF_UNIX, sun_path=@"/gramine/17597660328856885221/2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 listen(9, 1)                     = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffe11000, 16384, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffe11000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f78000
+628317 read(3, "Z\7\366\214\17\216\214\361\256\34N\221\207u/\354[\5\2600\322\272\217\2777E_w#\213`1", 32) = 32
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 15
+628317 bind(15, {sa_family=AF_UNIX, sun_path=@"/gramine/5a07f68c0f8e8cf1ae1c4e9187752fec5b05b030d2ba8fbf37455f77238b6031\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 listen(15, 1)                    = 0
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 16
+628317 connect(16, {sa_family=AF_UNIX, sun_path=@"/gramine/5a07f68c0f8e8cf1ae1c4e9187752fec5b05b030d2ba8fbf37455f77238b6031\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 accept4(15, NULL, NULL, SOCK_CLOEXEC|SOCK_NONBLOCK) = 17
+628317 shutdown(15, SHUT_RDWR)          = 0
+628317 close(15)                        = 0
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffdf0000, 135168, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffdf0000
+628317 clone(child_stack=0x7fffffe00008, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_PARENT_SETTID, parent_tid=[628318]) = 628318
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f77000
+628317 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 15
+628317 connect(15, {sa_family=AF_UNIX, sun_path=@"/gramine/17597660328856885221/1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628317 write(15, "\2\0\0\0", 4 <unfinished ...>
+628316 <... ppoll resumed>)             = 1 ([{fd=10, revents=POLLIN}])
+628317 <... write resumed>)             = 4
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+628316 accept4(10, NULL, NULL, SOCK_CLOEXEC <unfinished ...>
+628317 <... mmap resumed>)              = 0x7ffff7f76000
+628317 write(15, "\25\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0\6\0\0\0\0", 21) = 21
+628316 <... accept4 resumed>)           = 14
+628317 futex(0x7ffff7f76020, FUTEX_WAIT_BITSET, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+628316 read(14, "\2\0\0\0", 4)          = 4
+628316 ppoll([{fd=13, events=POLLIN|POLLRDHUP}, {fd=10, events=POLLIN|POLLRDHUP}, {fd=14, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0 <unfinished ...>
+628318 arch_prctl(ARCH_SET_GS, 0x7fffffe0fef0 <unfinished ...>
+628316 <... ppoll resumed>)             = 1 ([{fd=14, revents=POLLIN}])
+628318 <... arch_prctl resumed>)        = 0
+628316 read(14,  <unfinished ...>
+628318 read(3,  <unfinished ...>
+628316 <... read resumed>"\25\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0\6\0\0\0\0", 98) = 21
+628318 <... read resumed>"\207C\214\330\264U\21_", 8) = 8
+628316 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f73000
+628316 socket(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC, 0) = 18
+628316 connect(18, {sa_family=AF_UNIX, sun_path=@"/gramine/17597660328856885221/2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"}, 107) = 0
+628316 write(18, "\1\0\0\0", 4)         = 4
+628316 write(18, "\25\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0", 21) = 21
+628316 ppoll([{fd=13, events=POLLIN|POLLRDHUP}, {fd=10, events=POLLIN|POLLRDHUP}, {fd=14, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0 <unfinished ...>
+628318 sigaltstack({ss_sp=0x7fffffe00020, ss_flags=0, ss_size=65232}, NULL) = 0
+628318 ppoll([{fd=17, events=POLLIN|POLLRDHUP}, {fd=9, events=POLLIN|POLLRDHUP}], 2, NULL, NULL, 0) = 1 ([{fd=9, revents=POLLIN}])
+628318 accept4(9, NULL, NULL, SOCK_CLOEXEC) = 19
+628318 read(19, "\1\0\0\0", 4)          = 4
+628318 ppoll([{fd=17, events=POLLIN|POLLRDHUP}, {fd=9, events=POLLIN|POLLRDHUP}, {fd=19, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0) = 1 ([{fd=19, revents=POLLIN}])
+628318 read(19, "\25\0\0\0\0\0\0\0\1\0\0\0\0\0\0\0\0\0\0\0\0", 98) = 21
+628318 futex(0x7ffff7f76020, FUTEX_WAKE_BITSET, 2147483647, FUTEX_BITSET_MATCH_ANY) = 1
+628317 <... futex resumed>)             = 0
+628318 ppoll([{fd=17, events=POLLIN|POLLRDHUP}, {fd=9, events=POLLIN|POLLRDHUP}, {fd=19, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0 <unfinished ...>
+628317 munmap(0x7ffff7f76000, 112)      = 0
+628317 write(14, "\0", 1)               = 1
+628315 <... read resumed>"\0", 1)       = 1
+628317 read(14,  <unfinished ...>
+628315 write(17, "\0", 1)               = 1
+628317 <... read resumed>"\0", 1)       = 1
+628315 munmap(0x7ffff9de5000, 67108864 <unfinished ...>
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f76000
+628315 <... munmap resumed>)            = 0
+628317 arch_prctl(ARCH_SET_FS, 0x18e84136e740 <unfinished ...>
+628315 close(17 <unfinished ...>
+628317 <... arch_prctl resumed>)        = 0
+628315 <... close resumed>)             = 0
+628315 munmap(0x7ffff7f74000, 112)      = 0
+628315 close(16)                        = 0
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+628315 close(15)                        = 0
+628317 <... mmap resumed>)              = 0x7ffff7f75000
+628315 munmap(0x7ffff7f75000, 112 <unfinished ...>
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+628315 <... munmap resumed>)            = 0
+628317 <... mmap resumed>)              = 0x7ffff7f74000
+628315 munmap(0x7fffffde5000, 16384)    = 0
+628317 stat("/dev/shm/shm_test",  <unfinished ...>
+628315 futex(0x7ffff7f99020, FUTEX_WAIT_BITSET, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+628317 <... stat resumed>0x7fffffe1cf20) = -1 ENOENT (No such file or directory)
+628317 open("/dev/shm/shm_test", O_RDWR|O_CREAT|O_EXCL|O_CLOEXEC, 0644) = 20
+628317 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628317 mmap(0x7fffffdef000, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0) = 0x7fffffdef000
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f73000
+628317 ftruncate(20, 16384)             = 0
+628317 mmap(0x4bee57464000, 16384, PROT_WRITE, MAP_SHARED|MAP_FIXED_NOREPLACE, 20, 0) = 0x4bee57464000
+628317 munmap(0x4bee57464000, 16384)    = 0
+628317 close(20)                        = 0
+628317 munmap(0x7ffff7f75000, 112)      = 0
+628317 munmap(0x7ffff7f74000, 112)      = 0
+628317 sched_yield()                    = 0
+628317 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0) = 0x7ffff7f75000
+628317 write(15, "\25\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\21\2\0\0\0", 21) = 21
+628316 <... ppoll resumed>)             = 1 ([{fd=14, revents=POLLIN}])
+628317 futex(0x7ffff7f75020, FUTEX_WAIT_BITSET, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+628316 read(14, "\25\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\21\2\0\0\0", 98) = 21
+628316 write(18, "\25\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\0\0\0\0\0", 21) = 21
+628318 <... ppoll resumed>)             = 1 ([{fd=19, revents=POLLIN}])
+628316 ppoll([{fd=13, events=POLLIN|POLLRDHUP}, {fd=10, events=POLLIN|POLLRDHUP}, {fd=14, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0 <unfinished ...>
+628318 read(19, "\25\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0\0\0\0\0\0", 98) = 21
+628318 futex(0x7ffff7f75020, FUTEX_WAKE_BITSET, 2147483647, FUTEX_BITSET_MATCH_ANY) = 1
+628317 <... futex resumed>)             = 0
+628318 ppoll([{fd=17, events=POLLIN|POLLRDHUP}, {fd=9, events=POLLIN|POLLRDHUP}, {fd=19, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0 <unfinished ...>
+628317 munmap(0x7ffff7f75000, 112)      = 0
+628317 munmap(0x7ffff7f8c000, 112)      = 0
+628317 munmap(0x7ffff7f8b000, 112)      = 0
+628317 munmap(0x7ffff7f8a000, 112)      = 0
+628317 munmap(0x7ffff7f89000, 112)      = 0
+628317 write(15, "%\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\2\1\0\0\0\2\0\0\0\0\0\0\0\0\0\0"..., 37) = 37
+628316 <... ppoll resumed>)             = 1 ([{fd=14, revents=POLLIN}])
+628317 write(15, "\31\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\4\2\0\0\0\2\0\0\0", 25 <unfinished ...>
+628316 read(14,  <unfinished ...>
+628317 <... write resumed>)             = 25
+628316 <... read resumed>"%\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\2\1\0\0\0\2\0\0\0\0\0\0\0\0\0\0"..., 98) = 62
+628317 write(16, "\0", 1 <unfinished ...>
+628316 futex(0x7ffff7f99020, FUTEX_WAKE_BITSET, 1, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+628317 <... write resumed>)             = 1
+628318 <... ppoll resumed>)             = 1 ([{fd=17, revents=POLLIN}])
+628316 <... futex resumed>)             = 1
+628315 <... futex resumed>)             = 0
+628318 write(2, "Thread 628318 exiting\n", 22 <unfinished ...>
+628316 tgkill(628315, 628315, SIGCONT <unfinished ...>
+628315 futex(0x7ffff7f9f020, FUTEX_WAIT_BITSET, 0, NULL, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+628318 <... write resumed>)             = 22
+628316 <... tgkill resumed>)            = 0
+628315 <... futex resumed>)             = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+628318 rt_sigprocmask(SIG_BLOCK, [TERM], NULL, 8) = 0
+628315 --- SIGCONT {si_signo=SIGCONT, si_code=SI_TKILL, si_pid=628315, si_uid=1002} ---
+628316 futex(0x7ffff7f9f020, FUTEX_WAKE_BITSET, 1, FUTEX_BITSET_MATCH_ANY <unfinished ...>
+628318 rt_sigprocmask(SIG_BLOCK, [CONT],  <unfinished ...>
+628315 rt_sigreturn({mask=[]} <unfinished ...>
+628316 <... futex resumed>)             = 0
+628315 <... rt_sigreturn resumed>)      = -1 EINTR (Interrupted system call)
+628318 <... rt_sigprocmask resumed>NULL, 8) = 0
+628316 ppoll([{fd=13, events=POLLIN|POLLRDHUP}, {fd=10, events=POLLIN|POLLRDHUP}, {fd=14, events=POLLIN|POLLRDHUP}], 3, NULL, NULL, 0 <unfinished ...>
+628318 sigaltstack({ss_sp=NULL, ss_flags=SS_DISABLE, ss_size=0},  <unfinished ...>
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+628318 <... sigaltstack resumed>NULL)   = 0
+628315 <... mmap resumed>)              = 0x7ffff7f75000
+628318 exit(0 <unfinished ...>
+628317 close(17 <unfinished ...>
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+628318 <... exit resumed>)              = ?
+628315 <... mmap resumed>)              = 0x7ffff7f74000
+628317 <... close resumed>)             = 0
+628318 +++ exited with 0 +++
+628315 stat("/dev/shm/shm_test",  <unfinished ...>
+628317 close(16 <unfinished ...>
+628315 <... stat resumed>{st_mode=S_IFREG|0644, st_size=16384, ...}) = 0
+628317 <... close resumed>)             = 0
+628315 mmap(NULL, 112, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+628317 munmap(0x7ffff7f78000, 112 <unfinished ...>
+628315 <... mmap resumed>)              = 0x7ffff7f72000
+628317 <... munmap resumed>)            = 0
+628315 open("/dev/shm/shm_test", O_RDONLY|O_CLOEXEC <unfinished ...>
+628317 munmap(0x7fffffe11000, 16384 <unfinished ...>
+628315 <... open resumed>)              = 15
+628317 <... munmap resumed>)            = 0
+628315 mmap(0x18e84136a000, 16384, PROT_READ, MAP_SHARED|MAP_FIXED_NOREPLACE, 15, 0 <unfinished ...>
+628317 close(9 <unfinished ...>
+628315 <... mmap resumed>)              = 0x18e84136a000
+628317 <... close resumed>)             = 0
+628315 munmap(0x18e84136a000, 16384 <unfinished ...>
+628317 open("/dev/encos-dev", O_RDWR <unfinished ...>
+628315 <... munmap resumed>)            = 0
+628317 <... open resumed>)              = -1 ENOENT (No such file or directory)
+628315 close(15 <unfinished ...>
+628317 exit_group(0 <unfinished ...>
+628315 <... close resumed>)             = 0
+628317 <... exit_group resumed>)        = ?
+628315 munmap(0x7ffff7f75000, 112)      = 0
+628315 munmap(0x7ffff7f74000, 112)      = 0
+628315 open("/dev/shm/shm_test", O_RDONLY|O_CLOEXEC) = 15
+628315 unlink("/dev/shm/shm_test")      = 0
+628315 close(15)                        = 0
+628315 munmap(0x7ffff7f72000, 112)      = 0
+628315 read(3, "\n\303\0351\24\247+R", 8) = 8
+628315 open("/dev/encos-dev", O_RDWR <unfinished ...>
+628316 <... ppoll resumed>)             = 1 ([{fd=14, revents=POLLIN|POLLHUP|POLLRDHUP}])
+628315 <... open resumed>)              = -1 ENOENT (No such file or directory)
+628316 read(14,  <unfinished ...>
+628315 mmap(0x18e8434eb000, 135168, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_ANONYMOUS|MAP_FIXED_NOREPLACE, -1, 0 <unfinished ...>
+628316 <... read resumed>"", 98)        = 0
+628315 <... mmap resumed>)              = 0x18e8434eb000
+628316 close(18 <unfinished ...>
+628315 write(1, "TEST OK\n", 8 <unfinished ...>
+628316 <... close resumed>)             = 0
+628315 <... write resumed>)             = 8
+628316 munmap(0x7ffff7f73000, 112 <unfinished ...>
+628315 sched_yield()                    = 0
+628316 <... munmap resumed>)            = 0
+628315 munmap(0x7ffff7f88000, 112 <unfinished ...>
+628316 close(14)                        = 0
+628315 <... munmap resumed>)            = 0
+628316 ppoll([{fd=13, events=POLLIN|POLLRDHUP}, {fd=10, events=POLLIN|POLLRDHUP}], 2, NULL, NULL, 0 <unfinished ...>
+628315 munmap(0x7ffff7f87000, 112)      = 0
+628315 munmap(0x7ffff7f85000, 112)      = 0
+628315 munmap(0x7ffff7f84000, 112)      = 0
+628317 +++ exited with 0 +++
+628315 write(12, "\0", 1)               = 1
+628316 <... ppoll resumed>)             = 1 ([{fd=13, revents=POLLIN}])
+628316 write(2, "Thread 628316 exiting\n", 22) = 22
+628316 rt_sigprocmask(SIG_BLOCK, [TERM], NULL, 8) = 0
+628316 rt_sigprocmask(SIG_BLOCK, [CONT], NULL, 8) = 0
+628316 sigaltstack({ss_sp=NULL, ss_flags=SS_DISABLE, ss_size=0}, NULL) = 0
+628315 close(13 <unfinished ...>
+628316 exit(0 <unfinished ...>
+628315 <... close resumed>)             = 0
+628316 <... exit resumed>)              = ?
+628315 close(12)                        = 0
+628316 +++ exited with 0 +++
+628315 munmap(0x7ffff7f7b000, 112)      = 0
+628315 munmap(0x7fffffe0c000, 16384)    = 0
+628315 close(10)                        = 0
+628315 open("/dev/encos-dev", O_RDWR)   = -1 ENOENT (No such file or directory)
+628315 exit_group(0)                    = ?
+628315 +++ exited with 0 +++
