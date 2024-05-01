@@ -144,7 +144,9 @@ static int shm_lookup(struct libos_dentry* dent) {
     }
 
     file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
-
+#ifdef ENCOS_DEBUG
+    log_always("type=0x%x, size=0x%lx", type, size);
+#endif
     ret = shm_setup_dentry(dent, type, pal_attr.share_flags, size);
 out:
     free(uri);
@@ -245,6 +247,55 @@ static int shm_encos_do_open(struct libos_handle* hdl, struct libos_dentry* dent
     hdl->pal_handle = NULL;
     ret = 0;
 
+out:
+    free(uri);
+    return ret;
+}
+
+static int shm_encos_lookup(struct libos_dentry* dent) {
+    assert(locked(&g_dcache_lock));
+
+    char* uri = NULL;
+    /*
+     * We don't know the file type yet, so we can't construct a PAL URI with the right prefix.
+     * However, "file:" prefix is good enough here: `PalStreamAttributesQuery` will access the file
+     * and report the right file type.
+     */
+    int ret = chroot_dentry_uri(dent, S_IFREG, &uri);
+    if (ret < 0)
+        goto out;
+    log_always("SHM_ENCOS lookup uri: %s", uri);
+    PAL_STREAM_ATTR pal_attr;
+    ret = PalStreamAttributesQuery(uri, &pal_attr);
+    if (ret < 0) {
+        ret = pal_to_unix_errno(ret);
+        goto out;
+    }
+
+    mode_t type;
+    switch (pal_attr.handle_type) {
+        case PAL_TYPE_FILE: /* Regular files in shm file system are device files. */
+        case PAL_TYPE_DEV:
+            type = S_IFCHR;
+            break;
+        case PAL_TYPE_DIR:
+            /* Subdirectories (e.g. /dev/shm/subdir/) are not allowed in shm file system. */
+            if (dent != dent->mount->root) {
+                log_warning("trying to access '%s' which is a subdirectory of shared memory mount",
+                            uri);
+                ret = -EACCES;
+                goto out;
+            }
+            type = S_IFDIR;
+            break;
+        default:
+            log_error("unexpected handle type returned by PAL: %d", pal_attr.handle_type);
+            BUG();
+    }
+
+    file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
+
+    ret = shm_setup_dentry(dent, type, pal_attr.share_flags, size);
 out:
     free(uri);
     return ret;
