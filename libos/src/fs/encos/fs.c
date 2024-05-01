@@ -42,7 +42,7 @@ static int encos_mount(struct libos_mount_params* params, void** mount_data) {
     return 0;
 }
 
-static int encos_mmap(struct libos_handle* hdl, void* addr, size_t size, int prot, int flags,
+int encos_mmap(struct libos_handle* hdl, void* addr, size_t size, int prot, int flags,
                       uint64_t offset) {
     assert(hdl->type == TYPE_ENCOS);
     assert(addr);
@@ -63,6 +63,12 @@ static int encos_mmap(struct libos_handle* hdl, void* addr, size_t size, int pro
      * The security monitor should regulate only one owner (WO)
      * and the remaining parties are R+X
      */
+    /*
+     * The `offset` should be filled as its enclave ID.
+     * We simply use 1 for now
+     */
+    assert(offset == 0);
+    offset = 1;
 
     int ret = encos_shm_mmap(addr, size, prot, flags, offset);
     if (ret < 0)
@@ -120,7 +126,7 @@ static int encos_setup_dentry(struct libos_dentry* dent, mode_t type, mode_t per
 }
 
 /* called at the initialization to lookup and mount file */
-static int encos_lookup(struct libos_dentry* dent) {
+int encos_lookup(struct libos_dentry* dent) {
     assert(locked(&g_dcache_lock));
     assert(dent->mount);
     assert(dent->mount->uri);

@@ -196,7 +196,26 @@ struct libos_fs shm_builtin_fs = {
 
 /*
  * Trusted SHM FS backend support
+ *
+ * Here we simply use /dev/encos-dev as the backend for now
+ * We should use the enclave id as the offset for the shared memory
  */
+static int shm_encos_mount(struct libos_mount_params* params, void** mount_data) {
+    __UNUSED(mount_data);
+
+    if (!params->uri) {
+        log_error("Missing shared memory URI");
+        return -EINVAL;
+    }
+    if (!strstartswith(params->uri, URI_PREFIX_DEV)) {
+        log_error("'%s' is invalid shared memory URI (expected prefix %s)", params->uri,
+                  URI_PREFIX_DEV);
+        return -EINVAL;
+    }
+
+    return 0;
+}
+
 static int shm_encos_do_open(struct libos_handle* hdl, struct libos_dentry* dent, mode_t type,
                                 int flags, mode_t perm) {
     assert(locked(&g_dcache_lock));
@@ -206,16 +225,17 @@ static int shm_encos_do_open(struct libos_handle* hdl, struct libos_dentry* dent
     if (ret < 0)
         return ret;
 
-    enum pal_access access = LINUX_OPEN_FLAGS_TO_PAL_ACCESS(flags);
-    enum pal_create_mode create = LINUX_OPEN_FLAGS_TO_PAL_CREATE(flags);
-    pal_stream_options_t options = LINUX_OPEN_FLAGS_TO_PAL_OPTIONS(flags);
-    mode_t host_perm = HOST_PERM(perm);
+    // enum pal_access access = LINUX_OPEN_FLAGS_TO_PAL_ACCESS(flags);
+    // enum pal_create_mode create = LINUX_OPEN_FLAGS_TO_PAL_CREATE(flags);
+    // pal_stream_options_t options = LINUX_OPEN_FLAGS_TO_PAL_OPTIONS(flags);
+    // mode_t host_perm = HOST_PERM(perm);
     /* 
      * We should simulate the shared-memory backend
      * with the trusted device driver.
      * 
      * Simply bypass the PAL's backend implementation.
      */
+    log_always("SHM encos open uri: %s", uri);
     hdl->uri = uri;
     uri = NULL;
 
@@ -232,7 +252,7 @@ static int shm_encos_open(struct libos_handle* hdl, struct libos_dentry* dent, i
     assert(locked(&g_dcache_lock));
     assert(dent->inode);
 
-    return shm_do_open(hdl, dent, dent->inode->type, flags, /*perm=*/0);
+    return shm_encos_do_open(hdl, dent, dent->inode->type, flags, /*perm=*/0);
 }
 
 static int shm_encos_truncate(struct libos_handle* hdl, file_off_t size) {
@@ -245,18 +265,18 @@ static int shm_encos_truncate(struct libos_handle* hdl, file_off_t size) {
 }
 
 struct libos_fs_ops shm_encos_fs_ops = {
-    // .mount      = shm_mount,
+    .mount      = shm_encos_mount,
     /* .read and .write are intentionally not supported according to POSIX shared memory API. */
-    .mmap       = shm_mmap,
-    // .hstat      = generic_inode_hstat,
+    .mmap       = encos_mmap,      // simply use encos_mmap
+    .hstat      = generic_inode_hstat,
     .truncate   = shm_encos_truncate,
 };
 
 struct libos_d_ops shm_encos_d_ops = {
     .open    = shm_encos_open,
-    // .lookup  = shm_lookup,
+    .lookup  = encos_lookup,       // simply use encos_lookup
     // .creat   = shm_creat,
-    // .stat    = generic_inode_stat,
+    .stat    = generic_inode_stat,
     .unlink  = chroot_unlink,
 };
 

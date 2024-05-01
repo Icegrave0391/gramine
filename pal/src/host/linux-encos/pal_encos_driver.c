@@ -52,7 +52,7 @@ int encos_dev_stat(void *buf)
 
 int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset)
 {
-    int ret, fd;
+    int fd;
     fd = encos_fd();
     if (fd < 0) {
         log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
@@ -81,7 +81,7 @@ int encos_init_enclave(void)
     /* ioctl */
     log_always("debug ioctl ENCOS_ENCLAVE_REQUEST");
     // ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
-    return ret;
+    return 0;
 }
 
 /* ============================

@@ -12,7 +12,8 @@ loader.env.LD_LIBRARY_PATH = "/lib"
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "/shm", uri = "file:shm" },
-  { type = "untrusted_shm", path = "/dev/shm", uri = "dev:/dev/shm" },
+  # { type = "untrusted_shm", path = "/dev/shm", uri = "dev:/dev/shm" },
+  { type = "trusted_shm", path = "/dev/shm", uri = "dev:/dev/shm" },
   { type = "encos_dev", path = "/dev/encos-dev", uri = "dev:/dev/encos-dev" },
 ]
 
