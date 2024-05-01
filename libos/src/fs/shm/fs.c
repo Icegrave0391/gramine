@@ -257,6 +257,19 @@ static int shm_encos_open(struct libos_handle* hdl, struct libos_dentry* dent, i
     return shm_encos_do_open(hdl, dent, dent->inode->type, flags, /*perm=*/0);
 }
 
+static int shm_encos_creat(struct libos_handle* hdl, struct libos_dentry* dent, int flags, mode_t perm) {
+    assert(locked(&g_dcache_lock));
+    assert(!dent->inode);
+
+    mode_t type = S_IFCHR;
+    log_always("SHM creat uri: %s", dent->mount->uri);
+    int ret = shm_encos_do_open(hdl, dent, type, flags | O_CREAT | O_EXCL, perm);
+    if (ret < 0)
+        return ret;
+
+    return shm_setup_dentry(dent, type, perm, /*size=*/0);
+}
+
 static int shm_encos_truncate(struct libos_handle* hdl, file_off_t size) {
     /* 
      * Chuqi: we simply ignore SHM backend, given that
@@ -277,7 +290,7 @@ struct libos_fs_ops shm_encos_fs_ops = {
 struct libos_d_ops shm_encos_d_ops = {
     .open    = shm_encos_open,
     .lookup  = encos_lookup,       // simply use encos_lookup
-    // .creat   = shm_creat,
+    .creat   = shm_encos_creat,
     .stat    = generic_inode_stat,
     .unlink  = chroot_unlink,
 };
