@@ -203,6 +203,8 @@ struct libos_fs shm_builtin_fs = {
 static int shm_encos_mount(struct libos_mount_params* params, void** mount_data) {
     __UNUSED(mount_data);
 
+    log_always("MOUNTING SHM ENCOS uri: %s", params->uri);
+
     if (!params->uri) {
         log_error("Missing shared memory URI");
         return -EINVAL;
