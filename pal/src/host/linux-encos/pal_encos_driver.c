@@ -29,6 +29,9 @@ int open_encos_driver(void)
     }
 
     if (g_encos_fd < 0) {
+#ifdef ENCOS_DEBUG
+        log_always("Opened ENCOS driver (%s) failed.", ENCOS_DEV);
+#endif
         return -1;
     }
 
@@ -41,12 +44,38 @@ int open_encos_driver(void)
     return g_encos_fd;
 }
 
+int encos_dev_stat(void *buf)
+{
+    return DO_SYSCALL(stat, ENCOS_DEV, buf);
+    
+}
+
+int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset)
+{
+    int ret, fd;
+    fd = encos_fd();
+    if (fd < 0) {
+        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        return -ENOENT;
+    }
+    /* directly perform mmap */
+    void* mapped_addr = (void*)DO_SYSCALL(mmap, addr, size, prot,
+                                          MAP_SHARED | MAP_FIXED_NOREPLACE, 
+                                          fd, offset);
+    assert(mapped_addr == addr);
+    if (IS_PTR_ERR(mapped_addr))
+        return PTR_TO_ERR(mapped_addr);
+
+    assert(mapped_addr == addr);
+    return 0;   
+}
+
 int encos_init_enclave(void)
 {
     int ret;
     int fd = encos_fd();
     if (fd < 0) {
-        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        // log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
         return -1;
     }
     /* ioctl */
@@ -64,7 +93,7 @@ int encos_enable_kdbg(void)
     fd = open_encos_driver();
 
     if (fd < 0) {
-        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        // log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
         return -1;
     }
 
@@ -78,7 +107,7 @@ int encos_disable_kdbg(void)
     fd = open_encos_driver();
 
     if (fd < 0) {
-        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        // log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
         return -1;
     }
 

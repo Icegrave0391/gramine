@@ -931,6 +931,10 @@ extern struct libos_fs synthetic_builtin_fs;
 extern struct libos_fs path_builtin_fs;
 extern struct libos_fs shm_builtin_fs;
 
+/* chuqiXXX, mimicry :P */
+extern struct libos_fs shm_encos_fs;
+extern struct libos_fs encos_builtin_fs;
+
 struct libos_fs* find_fs(const char* name);
 
 /*!

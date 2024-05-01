@@ -7,6 +7,9 @@
  * This file contains code for implementation of 'shm' filesystem.
  * If mounted in manifest, files of this type are shared with the host OS when mapped.
  */
+/*
+ * Chuqi: The backend for the trusted shared memory is added.
+ */
 
 #include "libos_flags_conv.h"
 #include "libos_fs.h"
@@ -15,6 +18,7 @@
 #include "linux_abi/errors.h"
 #include "perm.h"
 #include "stat.h"
+
 
 #define HOST_PERM(perm) ((perm) | PERM_r________)
 
@@ -43,7 +47,7 @@ static int shm_mmap(struct libos_handle* hdl, void* addr, size_t size, int prot,
 
     if (flags & MAP_ANONYMOUS)
         return -EINVAL;
-
+    log_always("SHMMAP addr=0x%lx, offset=0x%lx.", (unsigned long)addr, (unsigned long)offset);
     int ret = PalStreamMap(hdl->pal_handle, addr, pal_prot, offset, size);
     if (ret < 0)
         return pal_to_unix_errno(ret);
@@ -66,6 +70,7 @@ static int shm_do_open(struct libos_handle* hdl, struct libos_dentry* dent, mode
     enum pal_create_mode create = LINUX_OPEN_FLAGS_TO_PAL_CREATE(flags);
     pal_stream_options_t options = LINUX_OPEN_FLAGS_TO_PAL_OPTIONS(flags);
     mode_t host_perm = HOST_PERM(perm);
+
     ret = PalStreamOpen(uri, access, host_perm, create, options, &palhdl);
     if (ret < 0) {
         ret = pal_to_unix_errno(ret);
@@ -109,7 +114,7 @@ static int shm_lookup(struct libos_dentry* dent) {
     int ret = chroot_dentry_uri(dent, S_IFREG, &uri);
     if (ret < 0)
         goto out;
-
+    log_always("SHM lookup uri: %s", uri);
     PAL_STREAM_ATTR pal_attr;
     ret = PalStreamAttributesQuery(uri, &pal_attr);
     if (ret < 0) {
@@ -158,6 +163,7 @@ static int shm_creat(struct libos_handle* hdl, struct libos_dentry* dent, int fl
     assert(!dent->inode);
 
     mode_t type = S_IFCHR;
+    log_always("SHM creat uri: %s", dent->mount->uri);
     int ret = shm_do_open(hdl, dent, type, flags | O_CREAT | O_EXCL, perm);
     if (ret < 0)
         return ret;
@@ -185,4 +191,77 @@ struct libos_fs shm_builtin_fs = {
     .name   = "untrusted_shm",
     .fs_ops = &shm_fs_ops,
     .d_ops  = &shm_d_ops,
+};
+
+
+/*
+ * Trusted SHM FS backend support
+ */
+static int shm_encos_do_open(struct libos_handle* hdl, struct libos_dentry* dent, mode_t type,
+                                int flags, mode_t perm) {
+    assert(locked(&g_dcache_lock));
+
+    char* uri;
+    int ret = chroot_dentry_uri(dent, type, &uri);
+    if (ret < 0)
+        return ret;
+
+    enum pal_access access = LINUX_OPEN_FLAGS_TO_PAL_ACCESS(flags);
+    enum pal_create_mode create = LINUX_OPEN_FLAGS_TO_PAL_CREATE(flags);
+    pal_stream_options_t options = LINUX_OPEN_FLAGS_TO_PAL_OPTIONS(flags);
+    mode_t host_perm = HOST_PERM(perm);
+    /* 
+     * We should simulate the shared-memory backend
+     * with the trusted device driver.
+     * 
+     * Simply bypass the PAL's backend implementation.
+     */
+    hdl->uri = uri;
+    uri = NULL;
+
+    hdl->type = TYPE_SHM;
+    hdl->pal_handle = NULL;
+    ret = 0;
+
+out:
+    free(uri);
+    return ret;
+}
+
+static int shm_encos_open(struct libos_handle* hdl, struct libos_dentry* dent, int flags) {
+    assert(locked(&g_dcache_lock));
+    assert(dent->inode);
+
+    return shm_do_open(hdl, dent, dent->inode->type, flags, /*perm=*/0);
+}
+
+static int shm_encos_truncate(struct libos_handle* hdl, file_off_t size) {
+    /* 
+     * Chuqi: we simply ignore SHM backend, given that
+     * it's replaced by our own encos driver backend.
+     */
+    assert(hdl->type == TYPE_SHM);
+    return 0;
+}
+
+struct libos_fs_ops shm_encos_fs_ops = {
+    // .mount      = shm_mount,
+    /* .read and .write are intentionally not supported according to POSIX shared memory API. */
+    .mmap       = shm_mmap,
+    // .hstat      = generic_inode_hstat,
+    .truncate   = shm_encos_truncate,
+};
+
+struct libos_d_ops shm_encos_d_ops = {
+    .open    = shm_encos_open,
+    // .lookup  = shm_lookup,
+    // .creat   = shm_creat,
+    // .stat    = generic_inode_stat,
+    .unlink  = chroot_unlink,
+};
+
+struct libos_fs shm_encos_fs = {
+    .name   = "trusted_shm",
+    .fs_ops = &shm_encos_fs_ops,
+    .d_ops  = &shm_encos_d_ops,
 };

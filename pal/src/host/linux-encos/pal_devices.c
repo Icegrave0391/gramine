@@ -66,7 +66,6 @@ static int dev_open(PAL_HANDLE* handle, const char* type, const char* uri, enum 
         goto fail;
     }
     hdl->dev.realpath = normpath;
-
     if (access == PAL_ACCESS_RDONLY) {
         hdl->flags |= PAL_HANDLE_FD_READABLE;
     } else if (access == PAL_ACCESS_WRONLY) {

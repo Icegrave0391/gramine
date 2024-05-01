@@ -160,7 +160,12 @@ void* libos_syscall_mmap(void* addr, size_t length, int prot, int flags, int fd,
     if ((flags & MAP_SHARED) && hdl && hdl->fs && !strcmp(hdl->fs->name, "untrusted_shm")) {
         memory_range_start = g_pal_public_state->shared_address_start;
         memory_range_end = g_pal_public_state->shared_address_end;
-    } else {
+    } 
+#ifdef ENCOS
+    /* Shared mappings of files of "trusted_shm" type (use the same share memory range).
+     * See "libos/src/fs/shm/fs.c" for more details. */
+#endif
+    else {
         memory_range_start = g_pal_public_state->memory_address_start;
         memory_range_end = g_pal_public_state->memory_address_end;
     }

@@ -46,6 +46,9 @@ enum libos_handle_type {
     /* Special handles: */
     TYPE_EPOLL,      /* epoll handles, see `libos_epoll.c` */
     TYPE_EVENTFD,    /* eventfd handles, used by `eventfd` filesystem */
+
+    /* ENCOS device support: */
+    TYPE_ENCOS,
 };
 
 struct libos_pipe_handle {

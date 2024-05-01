@@ -40,6 +40,7 @@ libos_sources = files(
     'fs/proc/ipc_thread.c',
     'fs/proc/thread.c',
     'fs/shm/fs.c',
+    'fs/encos/fs.c',  # encos support
     'fs/socket/fs.c',
     'fs/sys/cache_info.c',
     'fs/sys/cpu_info.c',
@@ -68,6 +69,7 @@ libos_sources = files(
     'libos_rtld.c',
     'libos_rwlock.c',
     'libos_syscalls.c',
+    'libos_host_syscall.S',  # encos dirty host support # deprecated :(
     'libos_utils.c',
     'net/ip.c',
     'net/unix.c',

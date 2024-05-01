@@ -5,7 +5,7 @@
 
 loader.entrypoint = "file:{{ gramine.libos }}"
 libos.entrypoint = "/shm"
-
+loader.log_level = "{{ log_level }}"
 
 loader.env.LD_LIBRARY_PATH = "/lib"
 
@@ -13,6 +13,7 @@ fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "/shm", uri = "file:shm" },
   { type = "untrusted_shm", path = "/dev/shm", uri = "dev:/dev/shm" },
+  { type = "encos_dev", path = "/dev/encos-dev", uri = "dev:/dev/encos-dev" },
 ]
 
 sgx.debug = true

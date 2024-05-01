@@ -19,6 +19,8 @@ static const char g_shared_text[] = "test_text";
 
 static void write_shm(void) {
     int fd = CHECK(shm_open(SHMNAME, O_RDWR | O_CREAT | O_EXCL, CREATE_MODE));
+    printf("fd: %d\n", fd);
+    
     CHECK(ftruncate(fd, FILE_SIZE));
 
     void* addr = mmap(NULL, FILE_SIZE, PROT_WRITE, MAP_SHARED, fd, 0);
@@ -33,6 +35,7 @@ static void write_shm(void) {
 
 static void read_shm(void) {
     int fd = CHECK(shm_open(SHMNAME, O_RDONLY, 0));
+    printf("fd: %d\n", fd);
 
     void* addr = mmap(NULL, FILE_SIZE, PROT_READ, MAP_SHARED, fd, 0);
     if (addr == MAP_FAILED) {

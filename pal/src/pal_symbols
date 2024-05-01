@@ -52,3 +52,8 @@ PalAttestationQuote
 PalGetSpecialKey
 PalDebugLog
 PalGetPalPublicState
+g_encos_fd
+open_encos_driver
+encos_dev_stat
+encos_shm_mmap
+

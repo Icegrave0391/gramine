@@ -16,6 +16,9 @@ extern int g_encos_fd;
 
 int open_encos_driver(void);
 
+/**
+ * ENCOS Device operations 
+ */
 static inline int encos_fd(void)
 {
     // return -1;   // debug purpose
@@ -27,7 +30,14 @@ static inline int encos_fd(void)
         return g_encos_fd;
     }
 }
+int encos_dev_stat(void *buf);
 
+int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset);
+
+
+/**
+ * ENCOS enlave ops
+ */
 int encos_init_enclave(void);
 
 /*

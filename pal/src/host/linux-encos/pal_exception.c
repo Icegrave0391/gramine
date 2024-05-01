@@ -88,8 +88,9 @@ static void handle_sync_signal(int signum, siginfo_t* info, struct ucontext* uc)
     if (info->si_signo == SIGSYS && info->si_code == SYS_SECCOMP) {
         ucontext_revert_syscall(uc, info->si_arch, info->si_syscall, info->si_call_addr);
         if (FIRST_TIME()) {
-            log_always("Emulating a raw system/supervisor call. This degrades performance, consider"
-                       " patching your application to use Gramine syscall API.");
+            log_always("Emulating a raw system/supervisor call (%d). This degrades performance, consider"
+                       " patching your application to use Gramine syscall API.",
+                       info->si_syscall);
         }
     }
 
