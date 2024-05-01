@@ -163,7 +163,7 @@ static int shm_creat(struct libos_handle* hdl, struct libos_dentry* dent, int fl
     assert(!dent->inode);
 
     mode_t type = S_IFCHR;
-    log_always("SHM creat uri: %s", dent->mount->uri);
+    log_always("SHM_creat creat uri: %s", dent->mount->uri);
     int ret = shm_do_open(hdl, dent, type, flags | O_CREAT | O_EXCL, perm);
     if (ret < 0)
         return ret;
@@ -262,7 +262,7 @@ static int shm_encos_creat(struct libos_handle* hdl, struct libos_dentry* dent, 
     assert(!dent->inode);
 
     mode_t type = S_IFCHR;
-    log_always("SHM creat uri: %s", dent->mount->uri);
+    log_always("SHM_encos_creat creat uri: %s", dent->mount->uri);
     int ret = shm_encos_do_open(hdl, dent, type, flags | O_CREAT | O_EXCL, perm);
     if (ret < 0)
         return ret;
