@@ -253,6 +253,8 @@ out:
     return ret;
 }
 
+int shm_global_opened = 0;
+
 static int shm_encos_lookup(struct libos_dentry* dent) {
     assert(locked(&g_dcache_lock));
 
@@ -275,6 +277,10 @@ static int shm_encos_lookup(struct libos_dentry* dent) {
         goto out;
     }
     // file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
+    // if (!shm_global_opened) {
+    //     ret = 
+    //     goto out;
+    // }
     log_always("SHM_ENCOS lookup normal CHR.");
     ret = shm_setup_dentry(dent, S_IFCHR, 07777, 0);
 out:
