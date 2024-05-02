@@ -18,7 +18,8 @@
 static const char g_shared_text[] = "test_text";
 
 static void write_shm(void) {
-    int fd = CHECK(shm_open(SHMNAME, O_RDWR | O_CREAT | O_EXCL, CREATE_MODE));
+    // int fd = CHECK(shm_open(SHMNAME, O_RDWR | O_CREAT | O_EXCL, CREATE_MODE));
+    int fd = CHECK(shm_open(SHMNAME, O_RDWR | O_CREAT, CREATE_MODE));
     printf("fd: %d\n", fd);
     
     CHECK(ftruncate(fd, FILE_SIZE));
