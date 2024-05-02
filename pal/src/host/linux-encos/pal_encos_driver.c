@@ -59,6 +59,8 @@ int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset
         return -ENOENT;
     }
     /* directly perform mmap */
+    log_always("SHMMAP addr=0x%lx, offset=0x%lx, prot=0x%x.",
+                 (unsigned long)addr, (unsigned long)offset, prot);
     void* mapped_addr = (void*)DO_SYSCALL(mmap, addr, size, prot,
                                           MAP_SHARED | MAP_FIXED_NOREPLACE, 
                                           fd, offset);
