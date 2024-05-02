@@ -14,7 +14,7 @@ fs.mounts = [
   { path = "/shm", uri = "file:shm" },
   # { type = "untrusted_shm", path = "/dev/shm", uri = "dev:/dev/shm" },
   { type = "trusted_shm", path = "/dev/shm", uri = "dev:/dev/shm" },
-  { type = "encos_dev", path = "/dev/encos-dev", uri = "dev:/dev/encos-dev" },
+  # { type = "encos_dev", path = "/dev/encos-dev", uri = "dev:/dev/encos-dev" },
 ]
 
 sgx.debug = true
