@@ -317,6 +317,13 @@ static int shm_encos_truncate(struct libos_handle* hdl, file_off_t size) {
     return 0;
 }
 
+static int shm_encos_unlink(struct libos_dentry* dent) {
+    /* fake */
+    assert(locked(&g_dcache_lock));
+    // assert(dent->inode);
+    return 0;
+}
+
 struct libos_fs_ops shm_encos_fs_ops = {
     .mount      = shm_encos_mount,
     /* .read and .write are intentionally not supported according to POSIX shared memory API. */
@@ -330,7 +337,7 @@ struct libos_d_ops shm_encos_d_ops = {
     .lookup  = shm_encos_lookup,
     .creat   = shm_encos_creat,
     .stat    = generic_inode_stat,
-    .unlink  = chroot_unlink,
+    .unlink  = shm_encos_unlink,
 };
 
 struct libos_fs shm_encos_fs = {
