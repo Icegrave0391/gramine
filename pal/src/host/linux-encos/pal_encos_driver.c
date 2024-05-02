@@ -62,10 +62,11 @@ int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset
     void* mapped_addr = (void*)DO_SYSCALL(mmap, addr, size, prot,
                                           MAP_SHARED | MAP_FIXED_NOREPLACE, 
                                           fd, offset);
-    assert(mapped_addr == addr);
     if (IS_PTR_ERR(mapped_addr))
         return PTR_TO_ERR(mapped_addr);
 
+    log_always("mmap addr=0x%lx, offset=0x%lx, returned_addr=0x%lx.",
+                 (unsigned long)addr, (unsigned long)offset, (unsigned long)mapped_addr);
     assert(mapped_addr == addr);
     return 0;   
 }
