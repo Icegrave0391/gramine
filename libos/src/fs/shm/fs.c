@@ -266,37 +266,10 @@ static int shm_encos_lookup(struct libos_dentry* dent) {
     if (ret < 0)
         goto out;
     log_always("SHM_ENCOS lookup uri: %s", uri);
-    PAL_STREAM_ATTR pal_attr;
-    ret = PalStreamAttributesQuery(uri, &pal_attr);
-    if (ret < 0) {
-        ret = pal_to_unix_errno(ret);
-        goto out;
-    }
 
-    mode_t type;
-    switch (pal_attr.handle_type) {
-        case PAL_TYPE_FILE: /* Regular files in shm file system are device files. */
-        case PAL_TYPE_DEV:
-            type = S_IFCHR;
-            break;
-        case PAL_TYPE_DIR:
-            /* Subdirectories (e.g. /dev/shm/subdir/) are not allowed in shm file system. */
-            if (dent != dent->mount->root) {
-                log_warning("trying to access '%s' which is a subdirectory of shared memory mount",
-                            uri);
-                ret = -EACCES;
-                goto out;
-            }
-            type = S_IFDIR;
-            break;
-        default:
-            log_error("unexpected handle type returned by PAL: %d", pal_attr.handle_type);
-            BUG();
-    }
+    // file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
 
-    file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
-
-    ret = shm_setup_dentry(dent, type, pal_attr.share_flags, size);
+    ret = shm_setup_dentry(dent, S_IFCHR, 07777, 0);
 out:
     free(uri);
     return ret;
