@@ -69,7 +69,8 @@ int encos_mmap(struct libos_handle* hdl, void* addr, size_t size, int prot, int 
      * We simply use 1 for now
      */
     assert(offset == 0);
-    offset = 1;
+    // enc_id << PAGE_SHIFT
+    offset = 1 << PAGE_SIZE;
 
     int ret = encos_shm_mmap(addr, size, prot, flags, offset);
     if (ret < 0)
