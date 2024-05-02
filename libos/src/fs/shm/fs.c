@@ -145,7 +145,8 @@ static int shm_lookup(struct libos_dentry* dent) {
 
     file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
 #ifdef ENCOS_DEBUG
-    log_always("type=0x%x, size=0x%lx", type, size);
+    log_always("type=0x%x, share_flags=0x%x, size=0x%lx", 
+                type, pal_attr.share_flags, size);
 #endif
     ret = shm_setup_dentry(dent, type, pal_attr.share_flags, size);
 out:
