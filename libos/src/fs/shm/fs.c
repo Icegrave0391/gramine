@@ -314,7 +314,7 @@ struct libos_fs_ops shm_encos_fs_ops = {
 
 struct libos_d_ops shm_encos_d_ops = {
     .open    = shm_encos_open,
-    .lookup  = encos_lookup,       // simply use encos_lookup
+    .lookup  = shm_encos_lookup,
     .creat   = shm_encos_creat,
     .stat    = generic_inode_stat,
     .unlink  = chroot_unlink,
