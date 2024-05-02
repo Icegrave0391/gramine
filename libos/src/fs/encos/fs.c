@@ -44,7 +44,8 @@ static int encos_mount(struct libos_mount_params* params, void** mount_data) {
 
 int encos_mmap(struct libos_handle* hdl, void* addr, size_t size, int prot, int flags,
                       uint64_t offset) {
-    assert(hdl->type == TYPE_ENCOS);
+    /* both encos and trusted_shm can mmap */
+    assert(hdl->type == TYPE_ENCOS || hdl->type == TYPE_SHM);
     assert(addr);
 
     // pal_prot_flags_t pal_prot = LINUX_PROT_TO_PAL(prot, flags);
