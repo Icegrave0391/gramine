@@ -436,6 +436,7 @@ int open_namei(struct libos_handle* hdl, struct libos_dentry* start, const char*
     lock(&g_dcache_lock);
 
     ret = path_lookupat(start, path, lookup_flags, &dent);
+    log_always("open_namei path %s. ret=%d", path, ret);
     if (ret < 0)
         goto out;
 
