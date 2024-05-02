@@ -268,8 +268,14 @@ static int shm_encos_lookup(struct libos_dentry* dent) {
     log_always("SHM_ENCOS lookup uri: %s; dentry.name=%s", 
                 uri, dent->name);
 
+    /* lookup the /dev/shm dir */
+    if (strcmp(uri, "file:/dev/shm") == 0) {
+        log_always("SHM_ENCOS lookup /dev/shm");
+        ret = shm_setup_dentry(dent, S_IFDIR, 07777, /*size=*/0);
+        goto out;
+    }
     // file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
-
+    log_always("SHM_ENCOS lookup normal CHR.");
     ret = shm_setup_dentry(dent, S_IFCHR, 07777, 0);
 out:
     free(uri);
