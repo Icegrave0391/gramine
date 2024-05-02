@@ -265,7 +265,8 @@ static int shm_encos_lookup(struct libos_dentry* dent) {
     int ret = chroot_dentry_uri(dent, S_IFREG, &uri);
     if (ret < 0)
         goto out;
-    log_always("SHM_ENCOS lookup uri: %s", uri);
+    log_always("SHM_ENCOS lookup uri: %s; dentry.name=%s", 
+                uri, dent->name);
 
     // file_off_t size = (type == S_IFCHR ? pal_attr.pending_size : 0);
 
