@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include <time.h>
 
 // Enable ECB, CTR and CBC mode. Note this can be done before including aes.h or at compile-time.
 // E.g. with GCC by using the -D flag: gcc -c aes.c -DCBC=0 -DCTR=1 -DECB=1
@@ -36,9 +37,19 @@ int main(void)
     return 0;
 #endif
 
-    exit = test_encrypt_cbc() + test_decrypt_cbc() +
-	test_encrypt_ctr() + test_decrypt_ctr() +
-	test_decrypt_ecb() + test_encrypt_ecb();
+    clock_t t;
+    t = clock();
+
+    for (int i = 0; i < 10000; i++) {
+        exit = test_encrypt_cbc() + test_decrypt_cbc() +
+        test_encrypt_ctr() + test_decrypt_ctr() +
+        test_decrypt_ecb() + test_encrypt_ecb();
+    }
+    
+    t = clock() - t;
+    double time_taken = ((double)t) / CLOCKS_PER_SEC;
+    printf("Tiny-AES-C took %f seconds\n", time_taken);
+
     test_encrypt_ecb_verbose();
 
     return exit;
@@ -126,12 +137,13 @@ static int test_encrypt_ecb(void)
     AES_init_ctx(&ctx, key);
     AES_ECB_encrypt(&ctx, in);
 
-    printf("ECB encrypt: ");
+    // printf("ECB encrypt: ");
 
     if (0 == memcmp((char*) out, (char*) in, 16)) {
-        printf("SUCCESS!\n");
+        // printf("SUCCESS!\n");
 	return(0);
     } else {
+        printf("ECB encrypt: ");
         printf("FAILURE!\n");
 	return(1);
     }
@@ -171,12 +183,13 @@ static int test_decrypt_cbc(void)
     AES_init_ctx_iv(&ctx, key, iv);
     AES_CBC_decrypt_buffer(&ctx, in, 64);
 
-    printf("CBC decrypt: ");
+    // printf("CBC decrypt: ");
 
     if (0 == memcmp((char*) out, (char*) in, 64)) {
-        printf("SUCCESS!\n");
+        // printf("SUCCESS!\n");
 	return(0);
     } else {
+        printf("CBC decrypt: ");
         printf("FAILURE!\n");
 	return(1);
     }
@@ -214,12 +227,13 @@ static int test_encrypt_cbc(void)
     AES_init_ctx_iv(&ctx, key, iv);
     AES_CBC_encrypt_buffer(&ctx, in, 64);
 
-    printf("CBC encrypt: ");
+    // printf("CBC encrypt: ");
 
     if (0 == memcmp((char*) out, (char*) in, 64)) {
-        printf("SUCCESS!\n");
+        // printf("SUCCESS!\n");
 	return(0);
     } else {
+        printf("CBC encrypt: ");
         printf("FAILURE!\n");
 	return(1);
     }
@@ -269,12 +283,13 @@ static int test_xcrypt_ctr(const char* xcrypt)
     AES_init_ctx_iv(&ctx, key, iv);
     AES_CTR_xcrypt_buffer(&ctx, in, 64);
   
-    printf("CTR %s: ", xcrypt);
+    // printf("CTR %s: ", xcrypt);
   
     if (0 == memcmp((char *) out, (char *) in, 64)) {
-        printf("SUCCESS!\n");
+        // printf("SUCCESS!\n");
 	return(0);
     } else {
+        printf("CTR %s: ", xcrypt);
         printf("FAILURE!\n");
 	return(1);
     }
@@ -302,12 +317,13 @@ static int test_decrypt_ecb(void)
     AES_init_ctx(&ctx, key);
     AES_ECB_decrypt(&ctx, in);
 
-    printf("ECB decrypt: ");
+    // printf("ECB decrypt: ");
 
     if (0 == memcmp((char*) out, (char*) in, 16)) {
-        printf("SUCCESS!\n");
+        // printf("SUCCESS!\n");
 	return(0);
     } else {
+        printf("ECB decrypt: ");
         printf("FAILURE!\n");
 	return(1);
     }

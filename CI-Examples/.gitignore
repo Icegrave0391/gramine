@@ -5,3 +5,4 @@
 *.o
 *~
 *.swp
+llama2/llama2.c
