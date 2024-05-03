@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/Project_test_example_4.dir/4.o -o Project_test_example_4

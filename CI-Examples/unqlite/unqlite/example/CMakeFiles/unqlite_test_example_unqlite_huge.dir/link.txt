@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/unqlite_test_example_unqlite_huge.dir/unqlite_huge.c.o -o unqlite_test_example_unqlite_huge  ../libunqlite.a

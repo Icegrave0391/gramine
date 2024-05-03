@@ -1,0 +1,14 @@
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_1.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_2.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_3.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_4.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_5.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_6.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_unqlite_huge.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_unqlite_mp3.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/Project_test_example_unqlite_tar.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/edit_cache.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/CMakeFiles/rebuild_cache.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/demovfs/CMakeFiles/Project_test_example_unqlite_demovfs.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/demovfs/CMakeFiles/edit_cache.dir
+/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite/example/demovfs/CMakeFiles/rebuild_cache.dir

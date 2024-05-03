@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/unqlite_test_example_unqlite_demovfs.dir/unqlite_demovfs.c.o -o unqlite_test_example_unqlite_demovfs  ../../libunqlite.a

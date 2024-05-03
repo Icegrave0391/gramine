@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/Project_test_example_unqlite_tar.dir/unqlite_tar.o -o Project_test_example_unqlite_tar
