@@ -9,7 +9,8 @@ if test -n "$SGX"
 then
     GRAMINE=gramine-sgx
 else
-    GRAMINE=gramine-direct
+    # GRAMINE=gramine-direct
+    GRAMINE=gramine-encos
 fi
 
 # === helloworld ===
