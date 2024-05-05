@@ -196,9 +196,9 @@ noreturn void _PalThreadExit(int* clear_child_tid) {
     assert(handle);
 
     // Chuqi: todo: remove debug
-#ifdef ENCOS_DEBUG
-    log_always("Thread %d exiting", (int)handle->thread.tid);
-#endif
+// #ifdef ENCOS_DEBUG
+//     log_always("Thread %d exiting", (int)handle->thread.tid);
+// #endif
 
     block_async_signals(true);
     if (tcb->alt_stack) {

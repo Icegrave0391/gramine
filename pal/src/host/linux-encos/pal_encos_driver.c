@@ -29,9 +29,9 @@ int open_encos_driver(void)
     }
 
     if (g_encos_fd < 0) {
-#ifdef ENCOS_DEBUG
-        log_always("Opened ENCOS driver (%s) failed.", ENCOS_DEV);
-#endif
+        if (g_encos_fd != -ENOENT)
+            log_always("----Opened ENCOS driver (%s) failed. %d. %d", 
+                        ENCOS_DEV, g_encos_fd, -ENOENT);
         return -1;
     }
 
