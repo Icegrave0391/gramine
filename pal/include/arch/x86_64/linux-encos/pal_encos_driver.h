@@ -26,7 +26,7 @@ static inline int encos_fd(void)
         return open_encos_driver();
     } 
     else {
-        log_always("encos_dev=%s g_encos_fd=%d.\n", ENCOS_DEV, g_encos_fd);
+        // log_always("encos_dev=%s g_encos_fd=%d.\n", ENCOS_DEV, g_encos_fd);
         return g_encos_fd;
     }
 }
