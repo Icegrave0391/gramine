@@ -35,10 +35,10 @@ int open_encos_driver(void)
         return -1;
     }
 
-#ifdef ENCOS_DEBUG
-    log_always("Opened ENCOS driver (%s) to g_encos_fd=%d",
-                ENCOS_DEV, g_encos_fd);
-#endif
+// #ifdef ENCOS_DEBUG
+//     log_always("Opened ENCOS driver (%s) to g_encos_fd=%d",
+//                 ENCOS_DEV, g_encos_fd);
+// #endif
     /* Return that everything works */
     //pal_printf("[*] Opened device driver successfully.\n");
     return g_encos_fd;
