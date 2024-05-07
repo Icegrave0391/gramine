@@ -1425,6 +1425,9 @@
 913   read(3, "6\26\374\300\201\344\37\230", 8) = 8
 913   write(2, "(pal_encos_driver.h:29:encos_fd)"..., 73) = 73
 913   mmap(0x5fe3232ce000, 135168, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FIXED_NOREPLACE, 4, 0) = 0x5fe3232ce000
+
+---------------------------------------------------------------------------------------------------
+
 913   write(1, "Hello, world\n", 13)    = 13
 913   write(2, "(libos_exit.c:212:libos_syscall_"..., 100) = 100
 913   sched_yield()                     = 0

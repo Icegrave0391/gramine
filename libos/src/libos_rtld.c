@@ -35,6 +35,10 @@
 #include "linux_abi/errors.h"
 #include "linux_abi/memory.h"
 
+#ifdef ENCOS
+#include "pal_encos_driver.h"
+#endif
+
 #define INTERP_PATH_SIZE 256 /* Default shebang size */
 
 /*
@@ -1075,6 +1079,13 @@ noreturn static void cleanup_and_call_elf_entry(elf_addr_t entry, void* argp) {
     asan_unpoison_region(libos_stack_bottom - LIBOS_THREAD_LIBOS_STACK_SIZE,
                          LIBOS_THREAD_LIBOS_STACK_SIZE);
 
+#endif
+
+#ifdef ENCOS
+    /* 
+     * Chuqi: Program will start. let's notify the SM 
+     */
+    SM_encos_enclave_act();
 #endif
     call_elf_entry(entry, argp);
 }

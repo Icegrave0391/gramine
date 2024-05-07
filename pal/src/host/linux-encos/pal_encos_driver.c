@@ -73,20 +73,6 @@ int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset
     return 0;   
 }
 
-int encos_init_enclave(void)
-{
-    int ret;
-    int fd = encos_fd();
-    if (fd < 0) {
-        // log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
-        return -1;
-    }
-    /* ioctl */
-    log_always("debug ioctl ENCOS_ENCLAVE_REQUEST");
-    // ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
-    return 0;
-}
-
 /* ============================
  * Kernel debug log functions
  * ============================ */
@@ -115,6 +101,34 @@ int encos_disable_kdbg(void)
     }
 
     ret = DO_SYSCALL(ioctl, fd, ENCOS_DISABLE_KDBG, 0);
+    return ret;
+}
+
+int SM_encos_enclave_assign(void)
+{
+    int fd, ret;
+    fd = open_encos_driver();
+
+    if (fd < 0) {
+        // log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        return -1;
+    }
+
+    ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
+    return ret;
+}
+
+int SM_encos_enclave_act(void)
+{
+    int fd, ret;
+    fd = open_encos_driver();
+
+    if (fd < 0) {
+        // log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        return -1;
+    }
+
+    ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_ACT, 0);
     return ret;
 }
 

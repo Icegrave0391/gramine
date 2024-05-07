@@ -177,7 +177,7 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
 
     // enable kernel debug
     // encos_enable_kdbg();
-    log_always("enabled kdbg. before relocate");
+    // log_always("enabled kdbg. before relocate");
 
     /* relocate PAL */
     ret = setup_pal_binary();
@@ -193,9 +193,6 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     if (ret < 0)
         INIT_FAIL("_PalSystemTimeQuery() failed: %s", pal_strerror(ret));
 
-
-    // debug
-    log_always("before init_array");
     call_init_array();
 
     /* Initialize alloc_align as early as possible, a lot of PAL APIs depend on this being set. */
@@ -207,23 +204,14 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     static_assert(THREAD_STACK_SIZE % PAGE_SIZE == 0, "");
     probe_stack(THREAD_STACK_SIZE / PAGE_SIZE);
 
-    // debug
-    log_always("before bookkeeping");
-
     ret = init_memory_bookkeeping();
     if (ret < 0) {
         INIT_FAIL("init_memory_bookkeeping failed: %s", pal_strerror(ret));
     }
-    
-    // debug
-    log_always("before random");
 
     ret = init_random();
     if (ret < 0)
         INIT_FAIL("init_random() failed: %s", pal_strerror(ret));
-
-    // debug
-    log_always("before read_from_stack");
 
     int argc;
     const char** argv;
@@ -285,9 +273,16 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
             INIT_FAIL("init_reserved_ranges failed: %s", pal_strerror(ret));
         }
     }
-
-    // debug
-    log_always("first?= %d , before read_from_stack", first_process);
+    
+#ifdef ENCOS
+    if (first_process) {
+        /* ask the SM */
+        ret = SM_encos_enclave_assign();
+        if (ret < 0) {
+            log_always("SM_encos_enclave_assign() failed");
+        }
+    }
+#endif
     init_slab_mgr();
 
 #ifdef DEBUG
@@ -309,10 +304,10 @@ noreturn void pal_linux_main(void* initial_rsp, void* fini_callback) {
     if (!g_pal_loader_path || !g_libpal_path) {
         INIT_FAIL("Out of memory");
     }
-#ifdef ENCOS_DEBUG
-    log_always("PAL loader path: %s", g_pal_loader_path);
-    log_always("libpal path: %s", g_libpal_path);
-#endif
+// #ifdef ENCOS_DEBUG
+//     log_always("PAL loader path: %s", g_pal_loader_path);
+//     log_always("libpal path: %s", g_libpal_path);
+// #endif
 
     PAL_HANDLE first_thread = calloc(1, HANDLE_SIZE(thread));
     if (!first_thread)

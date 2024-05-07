@@ -34,17 +34,17 @@ int encos_dev_stat(void *buf);
 
 int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset);
 
-
-/**
- * ENCOS enlave ops
- */
-int encos_init_enclave(void);
-
 /*
  * Kernel debug log functions
  */
 int encos_enable_kdbg(void);
 int encos_disable_kdbg(void);
+
+/**
+ * ENCOS enlave ops
+ */
+int SM_encos_enclave_assign(void);
+int SM_encos_enclave_act(void);
 
 /*
  * Anonymous memory backend support
