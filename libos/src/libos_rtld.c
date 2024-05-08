@@ -1063,7 +1063,7 @@ int register_library(const char* name, unsigned long load_address) {
         append_r_debug(hdl->uri, (void*)load_address);
     put_handle(hdl);
 
-    log_always("library %s loaded at 0x%08lx. Done", name, load_address);
+    log_debug("library %s loaded at 0x%08lx. Done", name, load_address);
     return 0;
 }
 
