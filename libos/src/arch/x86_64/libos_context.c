@@ -17,6 +17,8 @@
 #include "pal.h"
 #include "ucontext.h"
 
+#include "pal_encos_driver.h"
+
 #define XSTATE_RESET_SIZE (sizeof(struct libos_fpstate))
 
 /* By default fall back to old-style FXSAVE. */
@@ -199,6 +201,11 @@ noreturn void restore_child_context_after_clone(struct libos_context* context) {
 
     PAL_CONTEXT* regs = context->regs;
     context->regs = NULL;
+
+    // log_always("Restoring child pid: %d", g_process.pid);
+#ifdef ENCOS
+    SM_encos_enclave_act();
+#endif
 
     return_from_syscall(regs);
 }
