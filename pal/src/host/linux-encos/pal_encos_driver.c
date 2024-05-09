@@ -145,12 +145,20 @@ void *encos_event_futex_alloc(size_t size)
 {
     void *addr;
     int flags;
-    int linux_prot;
+    int fd, linux_prot;
+    unsigned long offset = (0xbabe << 12);
+
+    fd = encos_fd();
+    if (fd < 0) {
+        log_error("Error: could not open ENCOS driver (%s)", ENCOS_DEV);
+        return NULL;
+    }
 
     flags = MAP_ANONYMOUS | MAP_SHARED;
     linux_prot = PROT_READ | PROT_WRITE;
 
-    addr = (void *)DO_SYSCALL(mmap, NULL, size, linux_prot, flags, -1, 0);
+    /* offset = 0xBABE << PAGE_SHIFT is exclusively for futex() */
+    addr = (void *)DO_SYSCALL(mmap, NULL, size, linux_prot, flags, fd, offset);
     if (IS_PTR_ERR(addr)) {
         return NULL;
     }
