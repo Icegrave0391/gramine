@@ -130,6 +130,12 @@ static int file_map(PAL_HANDLE handle, void* addr, pal_prot_flags_t prot, uint64
     int linux_prot = PAL_PROT_TO_LINUX(prot);
 
     addr = (void*)DO_SYSCALL(mmap, addr, size, linux_prot, flags, handle->file.fd, offset);
+#ifdef ENCOS_DEBUG
+    log_always("file[%s, fd=%d] mmap_addr=0x%lx, size=0x%lx, prots: 0x%x, flags: 0x%x.",
+                handle->file.realpath, handle->file.fd, 
+                (unsigned long)addr, (unsigned long)size, 
+                linux_prot, flags);
+#endif
     if (IS_PTR_ERR(addr))
         return unix_to_pal_error(PTR_TO_ERR(addr));
 

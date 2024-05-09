@@ -10,7 +10,7 @@
 
 #include <asm/fcntl.h>
 #include <asm/mman.h>
-
+#include <execinfo.h>
 #include "api.h"
 #include "linux_utils.h"
 #include "pal.h"

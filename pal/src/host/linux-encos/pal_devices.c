@@ -158,6 +158,12 @@ static int dev_map(PAL_HANDLE handle, void* addr, pal_prot_flags_t prot, uint64_
 
     void* mapped_addr = (void*)DO_SYSCALL(mmap, addr, size, PAL_PROT_TO_LINUX(prot),
                                           MAP_SHARED | MAP_FIXED_NOREPLACE, handle->dev.fd, offset);
+#ifdef ENCOS_DEBUG
+    log_always("dev[%s, fd=%d] mmap_addr=0x%lx, size=0x%lx, prots: 0x%x.",
+                handle->dev.realpath, handle->dev.fd, 
+                (unsigned long)addr, (unsigned long)size, 
+                PAL_PROT_TO_LINUX(prot));
+#endif
     if (IS_PTR_ERR(mapped_addr))
         return unix_to_pal_error(PTR_TO_ERR(mapped_addr));
 
