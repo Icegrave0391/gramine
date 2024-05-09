@@ -202,7 +202,6 @@ noreturn void restore_child_context_after_clone(struct libos_context* context) {
     PAL_CONTEXT* regs = context->regs;
     context->regs = NULL;
 
-    // log_always("Restoring child pid: %d", g_process.pid);
 #ifdef ENCOS
     SM_encos_enclave_act();
 #endif
