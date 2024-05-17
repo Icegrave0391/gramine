@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source .env
+
 pushd ../../../scripts
     source .env
 popd
@@ -16,7 +18,6 @@ pushd llama.cpp
 popd
 
 # install model
-MODEL=llama-2-7b-chat.Q4_K_M.gguf
 pushd llama.cpp
     if [ ! -f $MODEL ]; then
         echo "Downloading $MODEL..."
