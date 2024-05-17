@@ -116,7 +116,7 @@ int SM_encos_enclave_assign(void)
 
     ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_REQUEST, 0);
 #ifdef ENCOS_DEBUG
-    log_always("SM_encos_enclave_assign: ret=%d", ret);
+    // log_always("SM_encos_enclave_assign: ret=%d", ret);
 #endif
     return ret;
 }
@@ -133,7 +133,7 @@ int SM_encos_enclave_act(void)
 
     ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_ACT, 0);
 #ifdef ENCOS_DEBUG
-    log_always("SM_encos_enclave_act: ret=%d", ret);
+    // log_always("SM_encos_enclave_act: ret=%d", ret);
 #endif
     return ret;
 }
