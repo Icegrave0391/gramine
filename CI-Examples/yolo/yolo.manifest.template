@@ -16,7 +16,8 @@ loader.insecure__use_cmdline_argv = true
 
 sys.enable_sigterm_injection = true
 
-# please not uri: is host path
+# please note `uri:` is the real host path
+fs.start_dir = "file:{{ execdir }}"
 
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
@@ -24,6 +25,7 @@ fs.mounts = [
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
   { path = "/ncnn/lib", uri = "file:{{ yolodir }}/ncnn-20210525-ubuntu-1604-shared/lib"},
+  { path = "{{ yolodir }}", uri = "file:{{ yolodir }}" },
   { path = "/default_lib", uri = "file:/lib"},
   { type = "tmpfs", path = "/tmp" },
 ]
