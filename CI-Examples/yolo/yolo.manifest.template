@@ -21,7 +21,7 @@ fs.mounts = [
   { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
-  { path = "{{ yolodir }}/ncnn-20210525-ubuntu-1604-shared/lib", uri = "file:/ncnn/lib"},
+  { path = "/yolov5ncnn/ncnn-20210525-ubuntu-1604-shared/lib", uri = "file:/ncnn/lib"},
   { type = "tmpfs", path = "/tmp" },
 ]
 
