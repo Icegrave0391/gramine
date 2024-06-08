@@ -16,12 +16,14 @@ loader.insecure__use_cmdline_argv = true
 
 sys.enable_sigterm_injection = true
 
+# please not uri: is host path
+
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
-  { path = "/yolov5ncnn/ncnn-20210525-ubuntu-1604-shared/lib", uri = "file:/ncnn/lib"},
+  { path = "/ncnn/lib", uri = "file:{{ yolodir }}/ncnn-20210525-ubuntu-1604-shared/lib"},
   { type = "tmpfs", path = "/tmp" },
 ]
 
