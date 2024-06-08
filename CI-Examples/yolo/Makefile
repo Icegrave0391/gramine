@@ -21,6 +21,7 @@ yolo.manifest: yolo.manifest.template
 		-Dlog_level=$(GRAMINE_LOG_LEVEL) \
 		-Darch_libdir=$(ARCH_LIBDIR) \
 		-Dentrypoint=$(realpath yolov5ncnn/build/yolov5s) \
+		-Dyolodir=$(realpath yolov5ncnn) \
 		$< >$@
 
 python.manifest.sgx python.sig: sgx_sign
