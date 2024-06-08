@@ -6,7 +6,7 @@ add_definitions(-std=c++11)
 add_definitions("-Wall")
 
 #set(OpenCV_DIR "/opt/intel/openvino_2019.3.334/opencv")
-find_package(OpenCV 3.4.8 REQUIRED)
+find_package(OpenCV 4.2.0 REQUIRED)
 
 if(True)
     find_package(OpenMP)
