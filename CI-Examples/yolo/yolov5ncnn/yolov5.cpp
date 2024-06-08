@@ -427,8 +427,8 @@ static void draw_objects(const cv::Mat& bgr, const std::vector<Object>& objects)
     {
         const Object& obj = objects[i];
 
-        fprintf(stderr, "%d = %.5f at %.2f %.2f %.2f x %.2f\n", obj.label, obj.prob,
-                obj.rect.x, obj.rect.y, obj.rect.width, obj.rect.height);
+        // fprintf(stderr, "%d = %.5f at %.2f %.2f %.2f x %.2f\n", obj.label, obj.prob,
+        //         obj.rect.x, obj.rect.y, obj.rect.width, obj.rect.height);
 
         cv::rectangle(image, obj.rect, cv::Scalar(255, 0, 0));
 
@@ -452,8 +452,8 @@ static void draw_objects(const cv::Mat& bgr, const std::vector<Object>& objects)
                     cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0));
     }
     cv::imwrite("yolov5.jpg",image);
-    cv::imshow("image", image);
-    cv::waitKey(0);
+    // cv::imshow("image", image);
+    // cv::waitKey(0);
 }
 
 int main(int argc, char** argv)
