@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gramine-encos yolo yolov5ncnn/zidane.jpg
+gramine-encos yolo ../zidane.jpg
