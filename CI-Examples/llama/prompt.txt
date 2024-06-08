@@ -1,1 +1,1 @@
-Write a python script to sum 1 to 100
+<s>Write a python script to sum 1 to 100
