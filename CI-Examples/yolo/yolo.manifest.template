@@ -8,7 +8,7 @@ libos.entrypoint = "{{ entrypoint }}"
 
 loader.log_level = "{{ log_level }}"
 
-loader.env.LD_LIBRARY_PATH = "/lib:/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}:/ncnn/lib"
+loader.env.LD_LIBRARY_PATH = "/lib:/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}:/ncnn/lib:/default_lib"
 
 # loader.env.OMP_NUM_THREADS = "4"
 
@@ -24,6 +24,7 @@ fs.mounts = [
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
   { path = "/ncnn/lib", uri = "file:{{ yolodir }}/ncnn-20210525-ubuntu-1604-shared/lib"},
+  { path = "/default_lib", uri = "file:/lib"},
   { type = "tmpfs", path = "/tmp" },
 ]
 
