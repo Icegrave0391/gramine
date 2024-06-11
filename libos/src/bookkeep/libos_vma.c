@@ -563,6 +563,7 @@ static int pal_mem_bkeep_free(uintptr_t addr, size_t size);
 static void* g_aslr_addr_top = NULL;
 
 int init_vma(void) {
+    log_always("beginning, is vma_tree_locked=%d.", spinlock_is_locked(&vma_tree_lock));
     PalSetMemoryBookkeepingUpcalls(pal_mem_bkeep_alloc, pal_mem_bkeep_free);
     size_t initial_ranges_count = 0;
     for (size_t i = 0; i < g_pal_public_state->initial_mem_ranges_len; i++) {
@@ -595,9 +596,9 @@ int init_vma(void) {
         idx++;
     }
     assert(1 + idx == ARRAY_SIZE(init_vmas));
-    log_always("before spinlock_lock, vma_tree_lock.lock=%d.", vma_tree_lock.lock);
+    log_always("before spinlock_lock, is vma_tree_locked=%d.", spinlock_is_locked(&vma_tree_lock));
     spinlock_lock(&vma_tree_lock);
-    log_always("after spinlock_lock, vma_tree_lock.lock=%d.", vma_tree_lock.lock);
+    log_always("after spinlock_lock, is vma_tree_locked=%d.", spinlock_is_locked(&vma_tree_lock));
     int ret = 0;
     /* First of init_vmas is reserved for later usage. */
     for (size_t i = 1; i < ARRAY_SIZE(init_vmas); i++) {
