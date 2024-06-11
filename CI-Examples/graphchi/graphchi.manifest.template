@@ -16,12 +16,13 @@ loader.insecure__use_cmdline_argv = true
 
 sys.enable_sigterm_injection = true
 
+fs.start_dir = "file:{{ startdir }}"
+
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
-  { path = "{{ workdir }}", uri = "file:{{ workdir }}" },
   { type = "tmpfs", path = "/tmp" },
 ]
 

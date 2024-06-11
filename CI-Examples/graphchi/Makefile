@@ -21,7 +21,7 @@ graphchi.manifest: graphchi.manifest.template
 		-Dlog_level=$(GRAMINE_LOG_LEVEL) \
 		-Darch_libdir=$(ARCH_LIBDIR) \
 		-Dentrypoint=$(realpath graphchi-cpp/bin/example_apps/pagerank) \
-		-Dworkdir=$(realpath workdir) \
+		-Dstartdir=$(realpath graphchi-cpp) \
 		$< >$@
 
 python.manifest.sgx python.sig: sgx_sign
