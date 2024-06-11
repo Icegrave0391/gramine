@@ -12,11 +12,13 @@ loader.env.LD_LIBRARY_PATH = "/lib:/lib:{{ arch_libdir }}:/usr/{{ arch_libdir }}
 
 # loader.env.OMP_NUM_THREADS = "4"
 
+loader.env.GRAPHCHI_ROOT = "{{ startdir }}"
+
 loader.insecure__use_cmdline_argv = true
 
 sys.enable_sigterm_injection = true
 
-fs.start_dir = "file:{{ startdir }}"
+# fs.start_dir = "file:{{ startdir }}"
 
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
