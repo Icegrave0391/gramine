@@ -563,8 +563,9 @@ static int pal_mem_bkeep_free(uintptr_t addr, size_t size);
 static void* g_aslr_addr_top = NULL;
 
 int init_vma(void) {
+    log_always("before SetBookkeepingUpcalls");
     PalSetMemoryBookkeepingUpcalls(pal_mem_bkeep_alloc, pal_mem_bkeep_free);
-
+    log_always("after SetBookkeepingUpcalls");
     size_t initial_ranges_count = 0;
     for (size_t i = 0; i < g_pal_public_state->initial_mem_ranges_len; i++) {
         if (!g_pal_public_state->initial_mem_ranges[i].is_free) {
@@ -588,8 +589,9 @@ int init_vma(void) {
         init_vmas[1 + idx].flags  = MAP_PRIVATE | MAP_ANONYMOUS | VMA_INTERNAL;
         init_vmas[1 + idx].file   = NULL;
         init_vmas[1 + idx].offset = 0;
+        log_always("before copy_comments");
         copy_comment(&init_vmas[1 + idx], g_pal_public_state->initial_mem_ranges[i].comment);
-
+        log_always("after copy_comments");
         assert(IS_ALLOC_ALIGNED(init_vmas[1 + idx].begin)
                && IS_ALLOC_ALIGNED(init_vmas[1 + idx].end));
         idx++;
@@ -613,7 +615,9 @@ int init_vma(void) {
             ret = -EINVAL;
             break;
         }
+        log_always("before _bkeep_initial_vma");
         ret = _bkeep_initial_vma(&init_vmas[i]);
+        log_always("after _bkeep_initial_vma");
         if (ret < 0) {
             log_error("Failed to bookkeep initial VMA region 0x%lx-0x%lx (%s)",
                       init_vmas[i].begin, init_vmas[i].end, init_vmas[i].comment);
