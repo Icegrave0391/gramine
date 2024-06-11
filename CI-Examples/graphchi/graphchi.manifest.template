@@ -23,6 +23,7 @@ fs.mounts = [
   { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
+  { path = "{{ startdir }}", uri = "file:{{ startdir }}" },
   { type = "tmpfs", path = "/tmp" },
 ]
 
