@@ -595,9 +595,9 @@ int init_vma(void) {
         idx++;
     }
     assert(1 + idx == ARRAY_SIZE(init_vmas));
-    log_always("before spinlock_lock");
+    log_always("before spinlock_lock, vma_tree_lock.lock=%d.", vma_tree_lock.lock);
     spinlock_lock(&vma_tree_lock);
-    log_always("after spinlock_lock");
+    log_always("after spinlock_lock, vma_tree_lock.lock=%d.", vma_tree_lock.lock);
     int ret = 0;
     /* First of init_vmas is reserved for later usage. */
     for (size_t i = 1; i < ARRAY_SIZE(init_vmas); i++) {
