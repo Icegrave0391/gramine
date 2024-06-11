@@ -391,6 +391,8 @@ noreturn void libos_init(const char* const* argv, const char* const* envp) {
     g_manifest_root = g_pal_public_state->manifest_root;
 
     libos_xstate_init();
+    
+    log_always("libos_xstate_init() done.");
 
     if (!g_pal_public_state->parent_process) {
         /* No parent process - we never receive any memory. */
