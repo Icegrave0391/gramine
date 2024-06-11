@@ -563,7 +563,6 @@ static int pal_mem_bkeep_free(uintptr_t addr, size_t size);
 static void* g_aslr_addr_top = NULL;
 
 int init_vma(void) {
-    log_always("beginning, is vma_tree_locked=%d.", spinlock_is_locked(&vma_tree_lock));
     PalSetMemoryBookkeepingUpcalls(pal_mem_bkeep_alloc, pal_mem_bkeep_free);
     size_t initial_ranges_count = 0;
     for (size_t i = 0; i < g_pal_public_state->initial_mem_ranges_len; i++) {
@@ -588,17 +587,13 @@ int init_vma(void) {
         init_vmas[1 + idx].flags  = MAP_PRIVATE | MAP_ANONYMOUS | VMA_INTERNAL;
         init_vmas[1 + idx].file   = NULL;
         init_vmas[1 + idx].offset = 0;
-        log_always("before copy_comments");
         copy_comment(&init_vmas[1 + idx], g_pal_public_state->initial_mem_ranges[i].comment);
-        log_always("after copy_comments 1 + idx=%d, array_size=%d", 1 + idx, ARRAY_SIZE(init_vmas));
         assert(IS_ALLOC_ALIGNED(init_vmas[1 + idx].begin)
                && IS_ALLOC_ALIGNED(init_vmas[1 + idx].end));
         idx++;
     }
     assert(1 + idx == ARRAY_SIZE(init_vmas));
-    log_always("before spinlock_lock, is vma_tree_locked=%d.", spinlock_is_locked(&vma_tree_lock));
     spinlock_lock(&vma_tree_lock);
-    log_always("after spinlock_lock, is vma_tree_locked=%d.", spinlock_is_locked(&vma_tree_lock));
     int ret = 0;
     /* First of init_vmas is reserved for later usage. */
     for (size_t i = 1; i < ARRAY_SIZE(init_vmas); i++) {
@@ -615,9 +610,9 @@ int init_vma(void) {
             ret = -EINVAL;
             break;
         }
-        log_always("before _bkeep_initial_vma");
+
         ret = _bkeep_initial_vma(&init_vmas[i]);
-        log_always("after _bkeep_initial_vma");
+
         if (ret < 0) {
             log_error("Failed to bookkeep initial VMA region 0x%lx-0x%lx (%s)",
                       init_vmas[i].begin, init_vmas[i].end, init_vmas[i].comment);
