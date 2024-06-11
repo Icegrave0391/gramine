@@ -563,9 +563,7 @@ static int pal_mem_bkeep_free(uintptr_t addr, size_t size);
 static void* g_aslr_addr_top = NULL;
 
 int init_vma(void) {
-    log_always("before SetBookkeepingUpcalls");
     PalSetMemoryBookkeepingUpcalls(pal_mem_bkeep_alloc, pal_mem_bkeep_free);
-    log_always("after SetBookkeepingUpcalls");
     size_t initial_ranges_count = 0;
     for (size_t i = 0; i < g_pal_public_state->initial_mem_ranges_len; i++) {
         if (!g_pal_public_state->initial_mem_ranges[i].is_free) {
@@ -591,14 +589,15 @@ int init_vma(void) {
         init_vmas[1 + idx].offset = 0;
         log_always("before copy_comments");
         copy_comment(&init_vmas[1 + idx], g_pal_public_state->initial_mem_ranges[i].comment);
-        log_always("after copy_comments");
+        log_always("after copy_comments 1 + idx=%d, array_size=%d", 1 + idx, ARRAY_SIZE(init_vmas));
         assert(IS_ALLOC_ALIGNED(init_vmas[1 + idx].begin)
                && IS_ALLOC_ALIGNED(init_vmas[1 + idx].end));
         idx++;
     }
     assert(1 + idx == ARRAY_SIZE(init_vmas));
-
+    log_always("before spinlock_lock");
     spinlock_lock(&vma_tree_lock);
+    log_always("after spinlock_lock");
     int ret = 0;
     /* First of init_vmas is reserved for later usage. */
     for (size_t i = 1; i < ARRAY_SIZE(init_vmas); i++) {
