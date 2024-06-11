@@ -564,7 +564,6 @@ static void* g_aslr_addr_top = NULL;
 
 int init_vma(void) {
     PalSetMemoryBookkeepingUpcalls(pal_mem_bkeep_alloc, pal_mem_bkeep_free);
-
     size_t initial_ranges_count = 0;
     for (size_t i = 0; i < g_pal_public_state->initial_mem_ranges_len; i++) {
         if (!g_pal_public_state->initial_mem_ranges[i].is_free) {
@@ -589,13 +588,11 @@ int init_vma(void) {
         init_vmas[1 + idx].file   = NULL;
         init_vmas[1 + idx].offset = 0;
         copy_comment(&init_vmas[1 + idx], g_pal_public_state->initial_mem_ranges[i].comment);
-
         assert(IS_ALLOC_ALIGNED(init_vmas[1 + idx].begin)
                && IS_ALLOC_ALIGNED(init_vmas[1 + idx].end));
         idx++;
     }
     assert(1 + idx == ARRAY_SIZE(init_vmas));
-
     spinlock_lock(&vma_tree_lock);
     int ret = 0;
     /* First of init_vmas is reserved for later usage. */
@@ -613,7 +610,9 @@ int init_vma(void) {
             ret = -EINVAL;
             break;
         }
+
         ret = _bkeep_initial_vma(&init_vmas[i]);
+
         if (ret < 0) {
             log_error("Failed to bookkeep initial VMA region 0x%lx-0x%lx (%s)",
                       init_vmas[i].begin, init_vmas[i].end, init_vmas[i].comment);
