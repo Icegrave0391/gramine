@@ -223,14 +223,13 @@ int main(int argc, char *argv[])
 	}
 
 	t3 = clock();
-	t = clock() - t;
 
 	/* All done, close our database */
 	unqlite_close(pDb);
 	
 	double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
-	printf("Time taken open_db, insert t1-t=%f, commit +fetch=%f, iterate=%f\n", 
-		t1-t, t2-t1, t3-t2);
+	printf("Time taken open_db, insert t1-t=%f, commit +fetch=%f, iterate=%f, all=%f\n", 
+		t1-t, t2-t1, t3-t2, t3-t);
 	return 0;
 }
 
