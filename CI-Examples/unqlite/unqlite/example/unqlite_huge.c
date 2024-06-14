@@ -230,11 +230,11 @@ int main(int argc, char *argv[])
 	
 	t4 = clock();
 	double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
-	printf("Time taken  insert t1-t=%f, commit +fetch=%f, iterate=%f, all=%f\n", 
+	printf("Time taken  insert t1-t=%d, commit +fetch=%d, iterate=%d, all=%d\n", 
 		(double)(t1-t)/CLOCKS_PER_SEC, (double)(t2-t1)/CLOCKS_PER_SEC,
 		 (double)(t3-t2)/CLOCKS_PER_SEC, (double)(t3-t)/CLOCKS_PER_SEC);
 
-	printf("Time taken opendb=%f, closedb=%f, close-open=%f\n", 
+	printf("Time taken opendb=%d, closedb=%d, close-open=%d\n", 
 		(double)(t-t0)/CLOCKS_PER_SEC, (double)(t4-t0)/CLOCKS_PER_SEC);
 	return 0;
 }
