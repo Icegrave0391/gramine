@@ -456,6 +456,18 @@ static void draw_objects(const cv::Mat& bgr, const std::vector<Object>& objects)
     // cv::waitKey(0);
 }
 
+static inline unsigned long long rdtscp(void) {
+    unsigned int lo, hi;
+    asm volatile(
+        "rdtscp"
+        : "=a"(lo), "=d"(hi)
+        :
+        : "memory"
+    );
+    return ((unsigned long long)hi << 32) | lo;
+}
+#define NTIME   100
+
 int main(int argc, char** argv)
 {
     if (argc != 2)
@@ -466,18 +478,26 @@ int main(int argc, char** argv)
 
     const char* imagepath = argv[1];
 
+    unsigned long long avg, start, end;
+
     cv::Mat m = cv::imread(imagepath, 1);
-    if (m.empty())
-    {
-        fprintf(stderr, "cv::imread %s failed\n", imagepath);
-        return -1;
+    
+    start = rdtscp();
+    for (int i = 0; i < NTIME; i++) {
+        if (m.empty())
+        {
+            fprintf(stderr, "cv::imread %s failed\n", imagepath);
+            return -1;
+        }
+
+        std::vector<Object> objects;
+        detect_yolov5(m, objects);
+
+        draw_objects(m, objects);
     }
-
-    std::vector<Object> objects;
-    detect_yolov5(m, objects);
-
-    draw_objects(m, objects);
-
+    end = rdtscp();
+    avg = (end-start)/NTIME;
+    printf("Average execution cycles: %llu\n", avg);
 
     return 0;
 }
