@@ -122,8 +122,9 @@ int main(int argc, char *argv[])
 
 	printf("Starting insertions of %d random records...\n", MAX_RECORDS);
 	
-	clock_t t, t1, t2, t3;
+	clock_t t0, t, t1, t2, t3, t4;
 
+	t0 = clock();
 	/* Open our database */
 	rc = unqlite_open(&pDb, zPath, UNQLITE_OPEN_CREATE);
 	if (rc != UNQLITE_OK) {
@@ -227,9 +228,13 @@ int main(int argc, char *argv[])
 	/* All done, close our database */
 	unqlite_close(pDb);
 	
+	t4 = clock();
 	double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
-	printf("Time taken open_db, insert t1-t=%f, commit +fetch=%f, iterate=%f, all=%f\n", 
+	printf("Time taken  insert t1-t=%f, commit +fetch=%f, iterate=%f, all=%f\n", 
 		t1-t, t2-t1, t3-t2, t3-t);
+
+	printf("Time taken opendb=%f, closedb=%f, close-open=%f", 
+		t-t0, t4-t0);
 	return 0;
 }
 
