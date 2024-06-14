@@ -1,1 +1,1 @@
-/usr/bin/cc -rdynamic CMakeFiles/unqlite_test_example_5.dir/5.c.o -o unqlite_test_example_5  ../libunqlite.a
+/usr/bin/cc -rdynamic CMakeFiles/unqlite_test_example_5.dir/5.c.o -o unqlite_test_example_5  ../libunqlite.a 

@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite
-BuildDirectory: /home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite
+SourceDirectory: /home/pks/gramine/CI-Examples/unqlite/unqlite
+BuildDirectory: /home/pks/gramine/CI-Examples/unqlite/unqlite
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: en4228248l
+Site: ubuntu-vm
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -21,14 +21,13 @@ LabelsForSubprojects:
 
 # Submission information
 SubmitURL: http://
-SubmitInactivityTimeout: 
 
 # Dashboard start time
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/home/chuqi/.local/lib/python3.10/site-packages/cmake/data/bin/cmake" "/home/chuqi/GitHub/enclave-crossarch/gramine/CI-Examples/unqlite/unqlite"
-MakeCommand: /home/chuqi/.local/lib/python3.10/site-packages/cmake/data/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
+ConfigureCommand: "/usr/bin/cmake" "/home/pks/gramine/CI-Examples/unqlite/unqlite"
+MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -76,7 +75,7 @@ CudaSanitizerCommand:
 CudaSanitizerCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: /usr/bin/valgrind
+MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 

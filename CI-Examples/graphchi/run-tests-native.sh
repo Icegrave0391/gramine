@@ -3,7 +3,7 @@ source .env
 
 pushd graphchi-cpp
 
-$GRAPHCHI file $GRAPHFILE niters 10 membudget_mb 1024
+$GRAPHCHI file $GRAPHFILE niters 1000 cachesize_mb 2000  membudget_mb 3000
 rm -rf large_twitch_edges.csv.*.bin
 rm -rf large_twitch_edges.csv.*.vout
 rm -rf large_twitch_edges.csv.deltalog
