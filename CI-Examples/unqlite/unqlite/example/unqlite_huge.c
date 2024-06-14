@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
  * Compile this file together with the UnQLite database engine source code
  * to generate the executable. For example:
@@ -283,4 +281,3 @@ static int DataConsumerCallback(const void *pData, unsigned int nDatalen, void *
 	/* All done, data was redirected to STDOUT */
 	return UNQLITE_OK;
 }
->>>>>>> ff7f079a3bc266733dceedba3eb16c785dd639d1
