@@ -20,7 +20,7 @@ llama.manifest: llama.manifest.template
 	gramine-manifest \
 		-Dlog_level=$(GRAMINE_LOG_LEVEL) \
 		-Darch_libdir=$(ARCH_LIBDIR) \
-		-Dentrypoint=$(realpath llama.cpp/main) \
+		-Dentrypoint=$(realpath ./llama.cpp/main) \
 		$< >$@
 
 sub-make:
