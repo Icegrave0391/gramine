@@ -234,7 +234,7 @@ int main(int argc, char *argv[])
 		(double)(t1-t)/CLOCKS_PER_SEC, (double)(t2-t1)/CLOCKS_PER_SEC,
 		 (double)(t3-t2)/CLOCKS_PER_SEC, (double)(t3-t)/CLOCKS_PER_SEC);
 
-	printf("Time taken opendb=%f, closedb=%f, close-open=%f", 
+	printf("Time taken opendb=%f, closedb=%f, close-open=%f\n", 
 		(double)(t-t0)/CLOCKS_PER_SEC, (double)(t4-t0)/CLOCKS_PER_SEC);
 	return 0;
 }
