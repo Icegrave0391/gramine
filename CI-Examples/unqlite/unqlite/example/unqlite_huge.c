@@ -122,13 +122,15 @@ int main(int argc, char *argv[])
 
 	printf("Starting insertions of %d random records...\n", MAX_RECORDS);
 	
-	clock_t t;
-    t = clock();
+	clock_t t, t1, t2, t3;
+
 	/* Open our database */
 	rc = unqlite_open(&pDb, zPath, UNQLITE_OPEN_CREATE);
 	if (rc != UNQLITE_OK) {
 		Fatal(0, "Out of memory");
 	}
+
+	t = clock();
 
 	/* Start the random insertions */
 	for (i = 0; i < MAX_RECORDS; ++i) {
@@ -150,6 +152,8 @@ int main(int argc, char *argv[])
 			unqlite_kv_store_fmt(pDb, "sentinel", -1, "I'm a sentinel record inserted on %d:%d:%d\n", 14, 15, 18); /* Dummy time */
 		}
 	}
+
+	t1 = clock();
 
 	/* If we are OK, then manually commit the transaction */
 	if (rc == UNQLITE_OK) {
@@ -176,6 +180,8 @@ int main(int argc, char *argv[])
 		/* Can't happen */
 		Fatal(0, "Sentinel record not found");
 	}
+
+	t2 = clock();
 
 	if (db_iterate) {
 		/* Iterate over the inserted records */
@@ -216,11 +222,15 @@ int main(int argc, char *argv[])
 		unqlite_kv_cursor_release(pDb, pCur);
 	}
 
+	t3 = clock();
+	t = clock() - t;
+
 	/* All done, close our database */
 	unqlite_close(pDb);
-	t = clock() - t;
+	
 	double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
-	printf("Time taken (open_db - insert - iterate - close_db): %f\n", time_taken);
+	printf("Time taken open_db, insert t1-t=%f, commit +fetch=%f, iterate=%f\n", 
+		t1-t, t2-t1, t3-t2);
 	return 0;
 }
 
