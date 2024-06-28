@@ -21,6 +21,8 @@
 #include <stdio.h>
 #include <vector>
 
+#include <time.h>
+
 class YoloV5Focus : public ncnn::Layer
 {
 public:
@@ -258,8 +260,9 @@ static void generate_proposals(const ncnn::Mat& anchors, int stride, const ncnn:
 static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
 {
     ncnn::Net yolov5;
-
+    clock_t t0, t1, t2;
 //    yolov5.opt.use_vulkan_compute = true;
+    t0 = clock();
     yolov5.opt.num_threads = 8;
     yolov5.opt.use_int8_inference = true;
     // yolov5.opt.use_bf16_storage = true;
@@ -270,6 +273,9 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     // the ncnn model https://github.com/nihui/ncnn-assets/tree/master/models
     yolov5.load_param("../INT8/yolov5s-int8-aciq.param");
     yolov5.load_model("../INT8/yolov5s-int8-aciq.bin");
+
+    t1 = clock();
+    printf("load model time: %f\n", (double)(t1 - t0) / CLOCKS_PER_SEC);
 
     const int target_size = 640;
     const float prob_threshold = 0.25f;
