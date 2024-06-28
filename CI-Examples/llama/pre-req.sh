@@ -7,7 +7,7 @@ pushd ../../../scripts
 popd
 
 # update submodules
-git submodule update --init --recursive
+#git submodule update --init --recursive
 
 # link llama2.cpp dir here
 ln -s $(realpath `pwd`/../../../llama.cpp/) llama.cpp
