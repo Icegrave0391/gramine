@@ -99,12 +99,14 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
         /* replace futex with busy-waiting */
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
             if (timeout_us) {
-                log_always("[instan_id=%ld]timeout_us is set to: %lu", 
-                            PalGetPalPublicState()->instance_id,*timeout_us);
+                // log_always("[instan_id=%ld]timeout_us is set to: %lu", 
+                            // PalGetPalPublicState()->instance_id,*timeout_us);
                 // compute time out 
                 int64_t diff = time_ns_diff_from_now(&timeout);
                 if (diff < 0) {  // we run out of time?
                     ret = -110;
+                    log_always("[hosttid=%d]timeout_us is set to: %lu but TIMEOUT",
+                        DO_SYSCALL(gettid), *timeout_us);
                     break;
                 }
             }
