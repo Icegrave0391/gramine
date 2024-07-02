@@ -97,7 +97,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 #if 1
         /* replace futex with busy-waiting */
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
-        
+            log_always("busy-waiting... timeout_us is null?=%d, waiter_cnt=%d", 
+                        (timeout_us == NULL), handle->event.waiters_cnt);
         }
         ret = 0;
 #else
