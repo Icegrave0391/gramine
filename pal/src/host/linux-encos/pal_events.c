@@ -46,6 +46,8 @@ void _PalEventSet(PAL_HANDLE handle) {
     bool need_wake = handle->event.waiters_cnt > 0;
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
+        log_always("SHOULD NOT HAPPEN.");
+#if 0
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
         int ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAKE_BITSET,
@@ -54,6 +56,7 @@ void _PalEventSet(PAL_HANDLE handle) {
         __UNUSED(ret);
         /* This `FUTEX_WAKE_BITSET` cannot really fail. */
         assert(ret >= 0);
+#endif
     }
 }
 
@@ -91,9 +94,17 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 //         log_always("Start futex!!");
 //         encos_enable_kdbg();
 // #endif
+#if 1
+        /* replace futex with busy-waiting */
+        while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
+        
+        }
+        ret = 0;
+#else
         /* Using `FUTEX_WAIT_BITSET` to have an absolute timeout. */
         ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAIT_BITSET, 0,
                          timeout_us ? &timeout : NULL, NULL, FUTEX_BITSET_MATCH_ANY);
+#endif
         spinlock_lock(&handle->event.lock);
 
         // TODO: debug
