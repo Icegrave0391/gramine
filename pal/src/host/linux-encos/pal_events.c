@@ -99,6 +99,9 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
             log_always("busy-waiting... timeout_us is null?=%d, waiter_cnt=%d", 
                         (timeout_us == NULL), handle->event.waiters_cnt);
+            if (timeout_us) {
+                log_always("timeout_us is set to: %lu", *timeout_us);
+            }
         }
         ret = 0;
 #else
