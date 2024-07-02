@@ -123,6 +123,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
     spinlock_unlock(&handle->event.lock);
 
     if (timeout_us) {
+        log_always("timeout_us is set to: %lu", *timeout_us);
         int64_t diff = time_ns_diff_from_now(&timeout);
         if (diff < 0) {
             /* We might have slept a bit too long. */
