@@ -131,8 +131,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
     handle->event.waiters_cnt--;
     spinlock_unlock(&handle->event.lock);
     if (!timeout_us) {
-        log_always("[hosttid=%d]timeout_us is set to: %lu, ret=%d",
-            DO_SYSCALL(gettid), *timeout_us, ret);
+        log_always("[hosttid=%d]timeout_us is NULL, ret=%d",
+            DO_SYSCALL(gettid), ret);
     }
     if (timeout_us) {
         log_always("[hosttid=%d]timeout_us is set to: %lu, ret=%d",
