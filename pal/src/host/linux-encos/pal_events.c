@@ -98,14 +98,15 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 #if 1
         /* replace futex with busy-waiting */
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
-            log_always("busy-waiting... timeout_us is null?=%d, waiter_cnt=%d", 
-                        (timeout_us == NULL), handle->event.waiters_cnt);
             if (timeout_us) {
                 log_always("[instan_id=%ld]timeout_us is set to: %lu", 
                             PalGetPalPublicState()->instance_id,*timeout_us);
                 // compute time out 
                 int64_t diff = time_ns_diff_from_now(&timeout);
-
+                if (diff < 0) {  // we run out of time?
+                    ret = -110;
+                    break;
+                }
             }
         }
         ret = 0;
