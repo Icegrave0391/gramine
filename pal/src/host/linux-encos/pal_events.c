@@ -46,7 +46,7 @@ void _PalEventSet(PAL_HANDLE handle) {
     bool need_wake = handle->event.waiters_cnt > 0;
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
-        log_always("SHOULD NOT HAPPEN.");
+        log_always("[instan_id=%ld]SHOULD NOT HAPPEN.", PalGetPalPublicState()->instance_id);
 #if 1
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
@@ -94,13 +94,17 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 //         log_always("Start futex!!");
 //         encos_enable_kdbg();
 // #endif
-#if 0
+#if 1
         /* replace futex with busy-waiting */
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
             log_always("busy-waiting... timeout_us is null?=%d, waiter_cnt=%d", 
                         (timeout_us == NULL), handle->event.waiters_cnt);
             if (timeout_us) {
-                log_always("timeout_us is set to: %lu", *timeout_us);
+                log_always("[instan_id=%d]timeout_us is set to: %lu", 
+                            PalGetPalPublicState()->instance_id,*timeout_us);
+                // compute time out 
+                int64_t diff = time_ns_diff_from_now(&timeout);
+
             }
         }
         ret = 0;
@@ -118,8 +122,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 // #endif
 
         if (ret < 0 && ret != -EAGAIN) {
-            log_always("Futex WAIT_BITSET timeout is null?=%d failed: %d", 
-                        (timeout_us == NULL), ret);
+            log_always("[instan_id=%ld]Futex WAIT_BITSET timeout is null?=%d failed: %d", 
+                        PalGetPalPublicState()->instance_id, (timeout_us == NULL), ret);
             ret = unix_to_pal_error(ret);
             break;
         }
@@ -129,7 +133,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
     spinlock_unlock(&handle->event.lock);
 
     if (timeout_us) {
-        log_always("timeout_us is set to: %lu", *timeout_us);
+        log_always("[instan_id=%d]timeout_us is set to: %lu, ret=%d",
+            PalGetPalPublicState()->instance_id, *timeout_us, ret);
         int64_t diff = time_ns_diff_from_now(&timeout);
         if (diff < 0) {
             /* We might have slept a bit too long. */
