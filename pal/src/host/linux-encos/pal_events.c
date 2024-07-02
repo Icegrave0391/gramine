@@ -46,8 +46,8 @@ void _PalEventSet(PAL_HANDLE handle) {
     bool need_wake = handle->event.waiters_cnt > 0;
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
-        log_always("[host_pid=%u]SHOULD NOT HAPPEN.", 
-                    g_pal_linux_state.pid);
+        log_always("[hostpid=%d]SHOULD NOT HAPPEN.", 
+                DO_SYSCALL(getpid));
 #if 1
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
@@ -123,8 +123,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 // #endif
 
         if (ret < 0 && ret != -EAGAIN) {
-            log_always("[host_pid=%u]Futex WAIT_BITSET timeout is null?=%d failed: %d", 
-                        g_pal_linux_state.pid, (timeout_us == NULL), ret);
+            log_always("[instan_id=%ld]Futex WAIT_BITSET timeout is null?=%d failed: %d", 
+                        PalGetPalPublicState()->instance_id, (timeout_us == NULL), ret);
             ret = unix_to_pal_error(ret);
             break;
         }
@@ -134,8 +134,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
     spinlock_unlock(&handle->event.lock);
 
     if (timeout_us) {
-        log_always("[host_pid=%u]timeout_us is set to: %lu, ret=%d",
-            g_pal_linux_state.pid, *timeout_us, ret);
+        log_always("[hostpid=%d]timeout_us is set to: %lu, ret=%d",
+            DO_SYSCALL(getpid), *timeout_us, ret);
         int64_t diff = time_ns_diff_from_now(&timeout);
         if (diff < 0) {
             /* We might have slept a bit too long. */
