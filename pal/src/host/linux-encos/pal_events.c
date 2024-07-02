@@ -47,7 +47,7 @@ void _PalEventSet(PAL_HANDLE handle) {
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
         log_always("SHOULD NOT HAPPEN.");
-#if 0
+#if 1
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
         int ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAKE_BITSET,
@@ -94,7 +94,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 //         log_always("Start futex!!");
 //         encos_enable_kdbg();
 // #endif
-#if 1
+#if 0
         /* replace futex with busy-waiting */
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
             log_always("busy-waiting... timeout_us is null?=%d, waiter_cnt=%d", 
@@ -118,6 +118,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 // #endif
 
         if (ret < 0 && ret != -EAGAIN) {
+            log_always("Futex WAIT_BITSET timeout is null?=%d failed: %d", 
+                        (timeout_us == NULL), ret);
             ret = unix_to_pal_error(ret);
             break;
         }
