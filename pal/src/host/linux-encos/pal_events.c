@@ -123,8 +123,6 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 // #endif
 
         if (ret < 0 && ret != -EAGAIN) {
-            log_always("[hostpid=%d,instan_id=%ld]Futex WAIT_BITSET timeout is null?=%d failed: %d", 
-                        DO_SYSCALL(gettid), PalGetPalPublicState()->instance_id, (timeout_us == NULL), ret);
             ret = unix_to_pal_error(ret);
             break;
         }
@@ -132,9 +130,12 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 
     handle->event.waiters_cnt--;
     spinlock_unlock(&handle->event.lock);
-
+    if (!timeout_us) {
+        log_always("[hosttid=%d]timeout_us is set to: %lu, ret=%d",
+            DO_SYSCALL(gettid), *timeout_us, ret);
+    }
     if (timeout_us) {
-        log_always("[hostpid=%d]timeout_us is set to: %lu, ret=%d",
+        log_always("[hosttid=%d]timeout_us is set to: %lu, ret=%d",
             DO_SYSCALL(gettid), *timeout_us, ret);
         int64_t diff = time_ns_diff_from_now(&timeout);
         if (diff < 0) {
