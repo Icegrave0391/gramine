@@ -97,6 +97,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 // #endif
 #if 1
         /* replace futex with busy-waiting */
+        ret = 0;
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
             if (timeout_us) {
                 // log_always("[instan_id=%ld]timeout_us is set to: %lu", 
@@ -111,7 +112,6 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
                 }
             }
         }
-        ret = 0;
 #else
         /* Using `FUTEX_WAIT_BITSET` to have an absolute timeout. */
         ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAIT_BITSET, 0,
