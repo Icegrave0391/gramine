@@ -50,6 +50,7 @@ int encos_dev_stat(void *buf)
     
 }
 
+// should simply use OS's own mmap backend
 int encos_shm_mmap(void *addr, size_t size, int prot, int flags, uint64_t offset)
 {
     int fd;
@@ -133,7 +134,8 @@ int SM_encos_enclave_act(void)
 
     ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_ACT, 0);
 #ifdef ENCOS_DEBUG
-    log_always("SM_encos_enclave_act: ret=%d", ret);
+    log_always("[hosttid=%d] SM_encos_enclave_act: ret=%d", 
+                    DO_SYSCALL(gettid), ret);
 #endif
     return ret;
 }
