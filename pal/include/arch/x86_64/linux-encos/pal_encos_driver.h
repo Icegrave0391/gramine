@@ -9,7 +9,8 @@
 
 
 // Chuqi: choose busy-wait or use futex/sched_yield (reduce CPU consumption)
-#define EN_BW_DIS_FUTEX
+// comment this out to use normal OS futex, otherwise busy-waiting (BW)
+// #define EN_BW_DIS_FUTEX
 
 #define ENCOS_DEV       "/dev/encos-dev"
 

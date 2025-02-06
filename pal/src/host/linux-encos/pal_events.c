@@ -107,8 +107,8 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
                 int64_t diff = time_ns_diff_from_now(&timeout);
                 if (diff < 0) {  // we run out of time?
                     ret = -ETIMEDOUT;
-                    log_always("[hosttid=%d]timeout_us is set to: %lu but TIMEOUT",
-                        DO_SYSCALL(gettid), *timeout_us);
+                    // log_always("[hosttid=%d]timeout_us is set to: %lu but TIMEOUT",
+                    //     DO_SYSCALL(gettid), *timeout_us);
                     break;
                 }
             }
@@ -124,7 +124,6 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
         // }
 #endif
         spinlock_lock(&handle->event.lock);
-        // TODO: debug
 // #ifdef ENCOS_DEBUG
 //         log_always("futex. &handle->event.signaled=0x%lx, val=%u, timeout_us is null?=%d, ret: %d", 
 //                     (unsigned long)&handle->event.signaled, (unsigned)handle->event.signaled, (timeout_us == NULL), ret);

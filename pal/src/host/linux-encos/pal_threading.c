@@ -188,7 +188,7 @@ err:
 /* Yield the execution of the current thread. */
 void _PalThreadYieldExecution(void) {
 #ifdef EN_BW_DIS_FUTEX
-    log_always("[hosttid=%d] yield execution = just BW.", DO_SYSCALL(gettid));
+    // log_always("[hosttid=%d] yield execution = just BW.", DO_SYSCALL(gettid));
 #else
     DO_SYSCALL(sched_yield);
 #endif
