@@ -8,7 +8,7 @@
 #include <common.h>
 
 
-// Chuqi: choose busy-wait or use futex (reduce CPU consumption)
+// Chuqi: choose busy-wait or use futex/sched_yield (reduce CPU consumption)
 #define EN_BW_DIS_FUTEX
 
 #define ENCOS_DEV       "/dev/encos-dev"
