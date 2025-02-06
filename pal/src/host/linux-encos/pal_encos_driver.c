@@ -133,7 +133,7 @@ int SM_encos_enclave_act(void)
 
     ret = DO_SYSCALL(ioctl, fd, ENCOS_ENCLAVE_ACT, 0);
 #ifdef ENCOS_DEBUG
-    // log_always("SM_encos_enclave_act: ret=%d", ret);
+    log_always("SM_encos_enclave_act: ret=%d", ret);
 #endif
     return ret;
 }
