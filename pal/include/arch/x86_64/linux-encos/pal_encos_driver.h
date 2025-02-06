@@ -7,6 +7,10 @@
 #include <stdint.h>
 #include <common.h>
 
+
+// Chuqi: choose busy-wait or use futex (reduce CPU consumption)
+#define EN_BW_DIS_FUTEX
+
 #define ENCOS_DEV       "/dev/encos-dev"
 
 /* todo: use an untrusted memory as the futex now */

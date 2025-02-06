@@ -18,8 +18,6 @@
 
 #include "pal_encos_driver.h"
 
-// #define EN_BW_DIS_FUTEX
-
 int _PalEventCreate(PAL_HANDLE* handle_ptr, bool init_signaled, bool auto_clear) {
     // struct event *event;
 #ifndef ENCOS
@@ -49,8 +47,8 @@ void _PalEventSet(PAL_HANDLE handle) {
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
 #ifdef EN_BW_DIS_FUTEX
-        log_always("[hostpid=%d,instanid=%ld] Do not explicit wake.", 
-                DO_SYSCALL(gettid), PalGetPalPublicState()->instance_id);
+        // log_always("[hostpid=%d,instanid=%ld] Do not explicit wake.", 
+        //         DO_SYSCALL(gettid), PalGetPalPublicState()->instance_id);
 #else
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
@@ -119,6 +117,11 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
         /* Using `FUTEX_WAIT_BITSET` to have an absolute timeout. */
         ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAIT_BITSET, 0,
                          timeout_us ? &timeout : NULL, NULL, FUTEX_BITSET_MATCH_ANY);
+
+        // if (ret == -ETIMEDOUT) {
+        //     log_always("[hosttid=%d]timeout_us is set to: %lu but TIMEOUT",
+        //         DO_SYSCALL(gettid), *timeout_us);
+        // }
 #endif
         spinlock_lock(&handle->event.lock);
         // TODO: debug

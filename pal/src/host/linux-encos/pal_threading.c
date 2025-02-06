@@ -20,6 +20,8 @@
 #include "pal_linux_defs.h"
 #include "spinlock.h"
 
+#include "pal_encos_driver.h"
+
 /* Linux PAL cannot use mmap/unmap to manage thread stacks because this may overlap with
  * g_pal_public_state.user_address_{start,end}. Linux PAL also cannot just use malloc/free because
  * PalThreadExit needs to use raw system calls and inline asm. Thus, we resort to recycling thread
@@ -185,7 +187,11 @@ err:
 
 /* Yield the execution of the current thread. */
 void _PalThreadYieldExecution(void) {
+#ifdef EN_BW_DIS_FUTEX
+    log_always("[hosttid=%d] yield execution = just BW.", DO_SYSCALL(gettid));
+#else
     DO_SYSCALL(sched_yield);
+#endif
 }
 
 /* _PalThreadExit for internal use: Thread exiting */
