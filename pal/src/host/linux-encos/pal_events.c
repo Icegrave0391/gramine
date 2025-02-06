@@ -18,7 +18,7 @@
 
 #include "pal_encos_driver.h"
 
-// #define E_BW_D_FUTEX
+// #define EN_BW_DIS_FUTEX
 
 int _PalEventCreate(PAL_HANDLE* handle_ptr, bool init_signaled, bool auto_clear) {
     // struct event *event;
@@ -48,9 +48,10 @@ void _PalEventSet(PAL_HANDLE handle) {
     bool need_wake = handle->event.waiters_cnt > 0;
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
+#ifdef EN_BW_DIS_FUTEX
         log_always("[hostpid=%d,instanid=%ld] Do not explicit wake.", 
                 DO_SYSCALL(gettid), PalGetPalPublicState()->instance_id);
-#ifndef E_BW_D_FUTEX
+#else
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
         int ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAKE_BITSET,
@@ -97,7 +98,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 //         log_always("Start futex!!");
 //         encos_enable_kdbg();
 // #endif
-#ifdef E_BW_D_FUTEX
+#ifdef EN_BW_DIS_FUTEX
         /* replace futex with busy-waiting */
         ret = 0;
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
@@ -107,7 +108,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
                 // compute time out 
                 int64_t diff = time_ns_diff_from_now(&timeout);
                 if (diff < 0) {  // we run out of time?
-                    ret = -110;
+                    ret = -ETIMEDOUT;
                     log_always("[hosttid=%d]timeout_us is set to: %lu but TIMEOUT",
                         DO_SYSCALL(gettid), *timeout_us);
                     break;
@@ -135,12 +136,12 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
     handle->event.waiters_cnt--;
     spinlock_unlock(&handle->event.lock);
     if (!timeout_us) {
-        log_always("[hosttid=%d]timeout_us is NULL, ret=%d",
-            DO_SYSCALL(gettid), ret);
+        // log_always("[hosttid=%d]timeout_us is NULL, ret=%d",
+        //     DO_SYSCALL(gettid), ret);
     }
     if (timeout_us) {
-        log_always("[hosttid=%d]timeout_us is set to: %lu, ret=%d",
-            DO_SYSCALL(gettid), *timeout_us, ret);
+        // log_always("[hosttid=%d]timeout_us is set to: %lu, ret=%d",
+        //     DO_SYSCALL(gettid), *timeout_us, ret);
         int64_t diff = time_ns_diff_from_now(&timeout);
         if (diff < 0) {
             /* We might have slept a bit too long. */
