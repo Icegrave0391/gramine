@@ -18,6 +18,8 @@
 
 #include "pal_encos_driver.h"
 
+// #define E_BW_D_FUTEX
+
 int _PalEventCreate(PAL_HANDLE* handle_ptr, bool init_signaled, bool auto_clear) {
     // struct event *event;
 #ifndef ENCOS
@@ -46,9 +48,9 @@ void _PalEventSet(PAL_HANDLE handle) {
     bool need_wake = handle->event.waiters_cnt > 0;
     spinlock_unlock(&handle->event.lock);
     if (need_wake) {
-        log_always("[hostpid=%d,instanid=%ld]SHOULD NOT HAPPEN.", 
+        log_always("[hostpid=%d,instanid=%ld] Do not explicit wake.", 
                 DO_SYSCALL(gettid), PalGetPalPublicState()->instance_id);
-#if 0
+#ifndef E_BW_D_FUTEX
         /* We could just use `FUTEX_WAKE`, but using `FUTEX_WAKE_BITSET` is more consistent with
          * `FUTEX_WAIT_BITSET` in `_PalEventWait`. */
         int ret = DO_SYSCALL(futex, &handle->event.signaled, FUTEX_WAKE_BITSET,
@@ -95,7 +97,7 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
 //         log_always("Start futex!!");
 //         encos_enable_kdbg();
 // #endif
-#if 1
+#ifdef E_BW_D_FUTEX
         /* replace futex with busy-waiting */
         ret = 0;
         while (__atomic_load_n(&handle->event.signaled, __ATOMIC_ACQUIRE) == 0) {
@@ -118,7 +120,6 @@ int _PalEventWait(PAL_HANDLE handle, uint64_t* timeout_us) {
                          timeout_us ? &timeout : NULL, NULL, FUTEX_BITSET_MATCH_ANY);
 #endif
         spinlock_lock(&handle->event.lock);
-
         // TODO: debug
 // #ifdef ENCOS_DEBUG
 //         log_always("futex. &handle->event.signaled=0x%lx, val=%u, timeout_us is null?=%d, ret: %d", 
