@@ -13,7 +13,7 @@
 
 #define IO_DEV      "/dev/pseudo-io-device"
 
-#define IOCTL_OUTPUT_U64DATA    0xBABF
+#define IOCTL_OUTPUT_U64DATA    0xBACF
 
 #define OUTPUT_DATA             0xCAFEBABE
 
