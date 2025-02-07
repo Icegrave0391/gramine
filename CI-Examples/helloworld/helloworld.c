@@ -31,6 +31,6 @@ int main(void) {
 
     ioctl(dev_fd, IOCTL_OUTPUT_U64DATA, OUTPUT_DATA);
 
-    printf("Hello, world\n");
+    printf("Hello, world. Output is sent to the monitor.\n");
     return 0;
 }
