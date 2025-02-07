@@ -25,12 +25,15 @@ int main(void) {
     if (dev_fd < 0) {
         perror("open");
         return -1;
-    } else {
-        printf("Device opened successfully, fd=%d\n", dev_fd);
     }
 
     ioctl(dev_fd, IOCTL_OUTPUT_U64DATA, OUTPUT_DATA);
 
-    printf("Hello, world. Output is sent to the monitor.\n");
+    printf("====== Hello, world. Demo sandboxed program done ======.\n");
+    printf("The output is sent to the monitor.\n");
+    printf("Please execute the following command to see the output:\n");
+    printf("sudo cat /sys/kernel/debug/encos-output-emulate/out\n");
+    printf("=======================================================\n");
+    printf("You are expected to see the output data 'AAAAAAAA' (0x4141...).\n");
     return 0;
 }
