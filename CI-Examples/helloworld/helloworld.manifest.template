@@ -13,6 +13,15 @@ loader.env.LD_LIBRARY_PATH = "/lib"
 # Chuqi: Please use tmpfs (according to Gramine) to indicate in-mem fs
 # e.g., { type = "tmpfs", path = "/tmp" },
 
+
+
+sys.allowed_ioctls = [
+  { request_code = 0xBABE, struct = "" },
+  { request_code = 0xBABF, struct = "" },
+  { request_code = 0xBAC0, struct = "" },
+  { request_code = 0xBAC1, struct = "" },
+]
+
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "/helloworld", uri = "file:helloworld" },
