@@ -10,16 +10,11 @@ loader.log_level = "debug"
 
 loader.env.LD_LIBRARY_PATH = "/lib"
 
+# Chuqi: Please use tmpfs (according to Gramine) to indicate in-mem fs
+# e.g., { type = "tmpfs", path = "/tmp" },
+
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "/helloworld", uri = "file:helloworld" },
-]
-
-sgx.debug = true
-sgx.edmm_enable = {{ 'true' if env.get('EDMM', '0') == '1' else 'false' }}
-
-sgx.trusted_files = [
-  "file:{{ gramine.libos }}",
-  "file:helloworld",
-  "file:{{ gramine.runtimedir() }}/",
+  { path = "/dev/pseudo-io-device", uri = "file:/dev/encos-dev" },
 ]
