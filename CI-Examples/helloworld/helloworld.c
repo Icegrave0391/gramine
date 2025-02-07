@@ -23,6 +23,8 @@ int main(void) {
     if (dev_fd < 0) {
         perror("open");
         return -1;
+    } else {
+        printf("Device opened successfully, fd=%d\n", dev_fd);
     }
 
     printf("Hello, world\n");
