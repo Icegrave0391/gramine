@@ -1,27 +1,29 @@
 # Hello World
 
 This directory contains a Makefile and a manifest template for running a simple
-"Hello World" program in Gramine. It can be used as a sanity test for your
-Gramine installation.
+"Helloworld" sandboxed program supported by [Erebor](https://github.com/ASTERISC-Release/Erebor).
 
-# Building
+## Description
 
-## Building for Linux
+This is a simple demo program, without any client input.
+This program's output will be `'AAAAAAAA' (0x414141...41)`.
 
-Run `make` (non-debug) or `make DEBUG=1` (debug) in the directory.
+You will see the prompt when executing this program.
+> [!NOTE]
+> For testing purpose, sandboxes are allowed to print stats to the VM console.
 
-## Building for SGX
+## Building
 
-Run `make SGX=1` (non-debug) or `make SGX=1 DEBUG=1` (debug) in the directory.
+Run `make` in the directory.
 
-# Run Hello World with Gramine
+## Execution
 
-Without SGX:
 ```sh
-gramine-direct helloworld
+gramine-encos helloworld
 ```
 
-With SGX:
+## See output
+
 ```sh
-gramine-sgx helloworld
+sudo cat /sys/kernel/debug/encos-output-emulate/out
 ```

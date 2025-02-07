@@ -29,6 +29,11 @@ int main(void) {
 
     ioctl(dev_fd, IOCTL_OUTPUT_U64DATA, OUTPUT_DATA);
 
+    printf("====== Hello, world. Demo sandboxed program start ======.\n");
+    printf("For test/demo purpose, this program does not require any input.\n");
+    printf("For test, sandboxes are allowed to print stats to this console.\n");
+    printf("This program will send the output data as 'AAAAAAAA' (0x4141...).\n");
+    
     printf("====== Hello, world. Demo sandboxed program done ======.\n");
     printf("The output is sent to the monitor.\n");
     printf("Please execute the following command to see the output:\n");
