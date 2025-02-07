@@ -15,7 +15,7 @@
 
 #define IOCTL_OUTPUT_U64DATA    0xBABF
 
-#define OUTPUT_DATA             0xCAFEBABE
+#define OUTPUT_DATA             0x4141414141414141
 
 
 int main(void) {    
