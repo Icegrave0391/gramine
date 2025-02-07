@@ -7,11 +7,14 @@
 #include <sys/ioctl.h>
 #include <errno.h>
 
-/*
- * 
- */
+
 
 #define IO_DEV      "/dev/pseudo-io-device"
+
+// ioctl(fd, 0xBABE, (u64)input_val);
+// ioctl(fd, 0xBABF, (u64)output_val);
+// ioctl(fd, 0xBAC0, (struct input_payload *)input_payload);
+// ioctl(fd, 0xBAC1, (struct output_payload *)output_payload);
 
 #define IOCTL_OUTPUT_U64DATA    0xBABF
 
