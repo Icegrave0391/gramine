@@ -1,0 +1,1 @@
+<s>My private data $DATA=0x1234567; Please process it by $RESULT=$DATA * 2 and output $RESULT to me.</s>
