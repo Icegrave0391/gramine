@@ -24,7 +24,7 @@ llama.manifest: llama.manifest.template
 		$< >$@
 
 sub-make:
-	$(MAKE) -C llama.cpp/
+	$(MAKE) -C llama.cpp/ -j$(shell nproc)
 
 .PHONY: clean
 clean:
