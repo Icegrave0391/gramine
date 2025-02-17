@@ -950,8 +950,6 @@ int main(int argc, char ** argv) {
 
     // print
     if (params.erebor_ioctl) {
-        printf("%s\n", outputBuffer.c_str());
-        fflush(stdout);
         if (dev_fd <= 0) {
             LOG_TEE("Error: device file descriptor is invalid\n");
             return 1;
