@@ -13,8 +13,6 @@ loader.env.LD_LIBRARY_PATH = "/lib"
 # Chuqi: Please use tmpfs (according to Gramine) to indicate in-mem fs
 # e.g., { type = "tmpfs", path = "/tmp" },
 
-
-
 sys.allowed_ioctls = [
   { request_code = 0xBABE, struct = "" },
   { request_code = 0xBABF, struct = "" },

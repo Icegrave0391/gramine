@@ -1,3 +1,2 @@
 *.gguf
-llama.cpp
-main.log
+*.log

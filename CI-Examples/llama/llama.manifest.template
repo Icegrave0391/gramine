@@ -16,12 +16,22 @@ loader.insecure__use_cmdline_argv = true
 
 sys.enable_sigterm_injection = true
 
+# Chuqi: Please use tmpfs (according to Gramine) to indicate in-mem fs
+# e.g., { type = "tmpfs", path = "/tmp" },
+
+sys.allowed_ioctls = [
+  { request_code = 0xBABE, struct = "" },
+  { request_code = 0xBABF, struct = "" },
+  { request_code = 0xBAC0, struct = "" },
+  { request_code = 0xBAC1, struct = "" },
+]
+
 fs.mounts = [
   { path = "/lib", uri = "file:{{ gramine.runtimedir() }}" },
   { path = "{{ arch_libdir }}", uri = "file:{{ arch_libdir }}" },
   { path = "/usr/{{ arch_libdir }}", uri = "file:/usr/{{ arch_libdir }}" },
   { path = "{{ entrypoint }}", uri = "file:{{ entrypoint }}" },
-
+  { path = "/dev/pseudo-io-device", uri = "file:/dev/encos-dev" },
   { type = "tmpfs", path = "/tmp" },
 ]
 
