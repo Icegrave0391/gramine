@@ -7,5 +7,5 @@ log_file=$(realpath `pwd`/log)
 
 pushd llama.cpp
     # ./main -m $MODEL -f $prompt_file --log-enable --log-file $log_file > /dev/null
-    ./main -m $MODEL -f $prompt_file -n 50
+    ./main -m $MODEL -f $prompt_file -n 100
 popd
