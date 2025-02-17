@@ -8,7 +8,8 @@ popd
 
 # build llama2
 pushd llama.cpp
-    make
+    make clean
+    make -j$(shell nproc)
 popd
 
 # install model
