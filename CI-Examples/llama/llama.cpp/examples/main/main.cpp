@@ -31,7 +31,7 @@
 #pragma warning(disable: 4244 4267) // possible loss of data
 #endif
 
-#define IOCTL_OUTPUT
+// #define IOCTL_OUTPUT
 
 static llama_context           ** g_ctx;
 static llama_model             ** g_model;
