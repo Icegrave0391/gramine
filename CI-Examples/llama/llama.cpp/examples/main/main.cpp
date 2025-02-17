@@ -143,6 +143,10 @@ int main(int argc, char ** argv) {
     console::init(params.simple_io, params.use_color);
     atexit([]() { console::cleanup(); });
 
+    if (params.erebor_ioctl) {
+        printf("Erebor-sandbox mode enabled.\n");
+    }
+
     if (params.logits_all) {
         printf("\n************\n");
         printf("%s: please use the 'perplexity' tool for perplexity calculations\n", __func__);
@@ -523,9 +527,8 @@ int main(int argc, char ** argv) {
 
     struct llama_sampling_context * ctx_sampling = llama_sampling_init(sparams);
 
-#ifdef IOCTL_OUTPUT
+    // if (params.erebor_ioctl) 
     std::string outputBuffer;
-#endif 
     
     while ((n_remain != 0 && !is_antiprompt) || params.interactive) {
         // predict
@@ -740,25 +743,21 @@ int main(int argc, char ** argv) {
         if (input_echo && display) {
             for (auto id : embd) {
                 const std::string token_str = llama_token_to_piece(ctx, id);
-
-#ifndef IOCTL_OUTPUT
-                printf("%s", token_str.c_str());
-#else
-                outputBuffer.append(token_str);
-#endif
-
+                if (!params.erebor_ioctl) {
+                    printf("%s", token_str.c_str());
+                } else {
+                    outputBuffer.append(token_str);
+                }
                 if (embd.size() > 1) {
                     input_tokens.push_back(id);
                 } else {
                     output_tokens.push_back(id);
-#ifndef IOCTL_OUTPUT
-                    output_ss << token_str;
-#endif
+                    if (!params.erebor_ioctl)
+                        output_ss << token_str;
                 }
             }
-#ifndef IOCTL_OUTPUT
-            fflush(stdout);
-#endif
+            if (!params.erebor_ioctl)
+                fflush(stdout);
         }
 
         // reset color to default if there is no pending user input
@@ -950,11 +949,25 @@ int main(int argc, char ** argv) {
     }
 
     // print
-#ifdef IOCTL_OUTPUT
-    printf("%s\n", outputBuffer.c_str());
-    fflush(stdout);
-#endif
+    if (params.erebor_ioctl) {
+        printf("%s\n", outputBuffer.c_str());
+        fflush(stdout);
+        if (dev_fd <= 0) {
+            LOG_TEE("Error: device file descriptor is invalid\n");
+            return 1;
+        }
+        io_payload_t output_payload;
+        output_payload.buf = (char *)outputBuffer.c_str();
+        output_payload.size = outputBuffer.size();
 
+        if (ioctl(dev_fd, IOCTL_OUTPUT_BUFDATA, &output_payload) < 0) {
+            LOG_TEE("Error: failed to write to device\n");
+            return 1;
+        }
+
+        printf("Erebor: sandbox output to the emulated device.\n");
+        printf("Please run `sudo cat /sys/kernel/debug/encos-IO-emulate/out` to see output.\n");
+    }
 
     if (!path_session.empty() && params.prompt_cache_all && !params.prompt_cache_ro) {
         LOG_TEE("\n%s: saving final output to session file '%s'\n", __func__, path_session.c_str());
